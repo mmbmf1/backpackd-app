@@ -1,14 +1,24 @@
 import React from "react";
-// import { Route } from 'react-router-dom'
+import { Route, Switch } from "react-router-dom";
 import Header from "../Header/Header";
+import LoginForm from "../LoginForm/LoginForm";
+import RegistrationForm from "../RegistrationForm/RegistrationForm";
 
 function App() {
   return (
-    <main className="App">
-      <header className="App_header">
+    <div>
+      <header className="App__header">
         <Header />
       </header>
-    </main>
+      <main className="App__main">
+        <Route
+          path={'/login'}
+          component={LoginForm} />
+        <Route
+          path={'/register'}
+          component={RegistrationForm} />
+      </main>
+    </div>
   );
 }
 
