@@ -1,0 +1,21 @@
+.Header {
+    height: 40px;
+    display: flex;
+    align-items: normal;
+    justify-content: space-between;
+}
+
+.Header h1 {
+    margin: 0;
+    padding: 1rem 1.2 rem;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+.nav__link a {
+    padding: 0 1.2rem;
+    text-decoration: none;
+}
+
