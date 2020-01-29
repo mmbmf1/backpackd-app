@@ -19,7 +19,7 @@ function RegistrationForm() {
                 <label htmlFor='RegistrationForm__user_email'>
                     Email
                 </label>
-                <input name='user_email' type='email' required id='RegistrationForm__user_email' autocomplete='on'></input>
+                <input name='user_email' type='email' required id='RegistrationForm__user_email' autoComplete='on'></input>
             </div>
             <div className='user_name'>
                 <label htmlFor='Registration__user_name'>
