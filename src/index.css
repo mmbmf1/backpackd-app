@@ -15,6 +15,10 @@ body {
   text-align: center;
 }
 
+.LandingPage_wrapper {
+  padding: 0 60px;
+}
+
 .section-one,
 .section-two,
 .section-three {
@@ -30,12 +34,16 @@ section {
 .section-one-box,
 .section-two-box,
 .section-three-box,
-form {
+.LoginForm, .RegistrationForm {
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+}
+
+.section-two, .section-three {
+  display: none;
 }
 
 .Header {
@@ -63,4 +71,10 @@ h1 a {
 .nav__link a {
   padding: 0 1.2rem;
   text-decoration: none;
+}
+
+
+#record-backpack {
+  text-align: left;
+  padding: 2.5vh;
 }
