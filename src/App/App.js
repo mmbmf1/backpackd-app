@@ -24,7 +24,6 @@ export default class App extends React.Component {
     // console.log(this.state);
     return (
       <ItemContext.Provider value={this.state}>
-        <div>
           <header className="App__header">
             <Header />
           </header>
@@ -35,7 +34,6 @@ export default class App extends React.Component {
             <Route path={"/register"} component={RegistrationForm} />
             <Route path={"/add_backpack"} component={AddBackpack} />
           </main>
-        </div>
       </ItemContext.Provider>
     );
   }

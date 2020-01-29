@@ -2,13 +2,13 @@ import React from "react";
 import ItemContext from "../ItemContext";
 
 export default class AddBackpack extends React.Component {
-    static contextType = ItemContext;
+  static contextType = ItemContext;
 
   render() {
     // console.log(this.context.items)
-    const items = this.context.items
+    const items = this.context.items;
     return (
-      <div>
+      <>
         <header>
           <h1>Create New Backpack</h1>
         </header>
@@ -27,106 +27,42 @@ export default class AddBackpack extends React.Component {
               <h3>Select Items for Backpack</h3>
               <div className="form-items-section">
                 <div className="pack-items">
-                  <div className="pack-item-category">
-                    {Object.keys(items).map(function(key){
-                        return(<div>
-                            <h4>{`${key}`}</h4>
-                            {items[key].map(i => (
-                                <p>{i}</p>
-                            ))} </div>)
+                    {Object.keys(items).map(function(key) {
+                      return (
+                        <div className={`${key}-category`}>
+                          <h4>{`${key}`}</h4>
+                          {items[key].map(i => (
+                            <>
+                              <div className={`${i}-inputs`}>
+                                <input type="radio" />
+                                <label htmlFor={`${i}-item`}>{i}</label>
+                                <input
+                                  type="text"
+                                  name={`${i}-name`}
+                                  id={`${i}-name`}
+                                  placeholder="Brand name or model of gear"
+                                  required
+                                />
+                                <input
+                                  type="text"
+                                  name="backpack-size"
+                                  id="item-size"
+                                  placeholder="Size"
+                                  required
+                                />
+                                <input
+                                  type="text"
+                                  name="backpack-weight"
+                                  id="item-weight"
+                                  placeholder="Weight(g)"
+                                  required
+                                />
+                              </div>
+                            </>
+                          ))}{" "}
+                        </div>
+                      );
                     })}
-                    {/* <h4>Backpack Gear</h4> */}
-                    <div className="item-inputs">
-                      <input type="radio" />
-                      <label htmlFor="main-pack">Backpack</label>
-                      <input
-                        type="text"
-                        name="backpack-name"
-                        id="item-name"
-                        placeholder="Brand name or model of your gear"
-                        required
-                      />
-                      <input
-                        type="text"
-                        name="backpack-size"
-                        id="item-size"
-                        placeholder="Size"
-                        required
-                      />
-                      <input
-                        type="text"
-                        name="backpack-weight"
-                        id="item-weight"
-                        placeholder="Weight(g)"
-                        required
-                      />
-                    </div>
-                    <div className="item-inputs">
-                      <input type="radio" />
-                      <label htmlFor="backpack-tent">Backpacking Tent</label>
-
-                      <input
-                        type="text"
-                        name="backpack-tent-name"
-                        id="item-name"
-                        placeholder="Brand name or model of your gear"
-                        required
-                      />
-                      <input
-                        type="text"
-                        name="backpack-tent-size"
-                        id="item-size"
-                        placeholder="Size"
-                      />
-                      <input
-                        type="text"
-                        name="backpack-tent-weight"
-                        id="item-weight"
-                        placeholder="Weight(g)"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="pack-item-category">
-                    <h4>Clothing</h4>
-                    <label htmlFor=""></label>
-                    <div className="item-inputs">Item labels & inputs here</div>
-                  </div>
-                  <div className="pack-item-category">
-                    <h4>Navigation</h4>
-                    <label htmlFor=""></label>
-                    <div className="item-inputs">Item labels & inputs here</div>
-                  </div>
-                  <div className="pack-item-category">
-                    <h4>Food & Water</h4>
-                    <label htmlFor=""></label>
-                    <div className="item-inputs">Item labels & inputs here</div>
-                  </div>
-                  <div className="pack-item-category">
-                    <h4>Cooking & Dining</h4>
-                    <label htmlFor=""></label>
-                    <div className="item-inputs">Item labels & inputs here</div>
-                  </div>
-                  <div className="pack-item-category">
-                    <h4>Health & Hygiene</h4>
-                    <label htmlFor=""></label>
-                    <div className="item-inputs">Item labels & inputs here</div>
-                  </div>
-                  <div className="pack-item-category">
-                    <h4>Personal Items</h4>
-                    <label htmlFor=""></label>
-                    <div className="item-inputs">Item labels & inputs here</div>
-                  </div>
-                  <div className="pack-item-category">
-                    <h4>Emergency Items</h4>
-                    <label htmlFor=""></label>
-                    <div className="item-inputs">Item labels & inputs here</div>
-                  </div>
-                  <div className="pack-item-category">
-                    <h4>Tools & Repairs</h4>
-                    <label htmlFor=""></label>
-                    <div className="item-inputs">Item labels & inputs here</div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -148,7 +84,7 @@ export default class AddBackpack extends React.Component {
             <button type="reset">Reset</button>
           </form>
         </section>
-      </div>
+      </>
     );
   }
 }
