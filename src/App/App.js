@@ -4,7 +4,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import Header from "../Header/Header";
 import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
-// import './App.css'
+import Backpack from "../Backpack/Backpack";
 
 function App() {
   return (
@@ -17,6 +17,9 @@ function App() {
           exact
           path={'/'}
           component={LandingPage} />
+        <Route
+          path={'/mock_backpack'}
+          component={Backpack} />
         <Route
           path={'/login'}
           component={LoginForm} />
