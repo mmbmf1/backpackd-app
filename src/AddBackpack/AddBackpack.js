@@ -27,42 +27,43 @@ export default class AddBackpack extends React.Component {
               <h3>Select Items for Backpack</h3>
               <div className="form-items-section">
                 <div className="pack-items">
-                    {Object.keys(items).map(function(key) {
-                      return (
-                        <div className={`${key}-category`}>
-                          <h4>{`${key}`}</h4>
-                          {items[key].map(i => (
-                            <>
-                              <div className={`${i}-inputs`}>
-                                <input type="radio" />
-                                <label htmlFor={`${i}-item`}>{i}</label>
-                                <input
-                                  type="text"
-                                  name={`${i}-name`}
-                                  id={`${i}-name`}
-                                  placeholder="Brand name or model of gear"
-                                  required
-                                />
-                                <input
-                                  type="text"
-                                  name="backpack-size"
-                                  id="item-size"
-                                  placeholder="Size"
-                                  required
-                                />
-                                <input
-                                  type="text"
-                                  name="backpack-weight"
-                                  id="item-weight"
-                                  placeholder="Weight(g)"
-                                  required
-                                />
-                              </div>
-                            </>
-                          ))}{" "}
-                        </div>
-                      );
-                    })}
+                  {Object.keys(items).map(function(category, key) {
+                    return (
+                      <div key={key} className={`${category}-category`}>
+                        {/* <button></button> DO I NEED THIS TO EXPAND COLLAPSE?*/}
+                        <h4>{`${category}`}</h4>
+                        {items[category].map((value, i) => (
+                          <>
+                            <div className="item-inputs" key={i}>
+                              <input type="radio" value={value} />
+                              <label htmlFor={`${value}-item`}>{value}</label>
+                              <input
+                                type="text"
+                                name={`${value}-name`}
+                                id={`${value}-${i}-name`}
+                                placeholder="Brand name or model of gear"
+                                required
+                              />
+                              <input
+                                type="text"
+                                name="backpack-size"
+                                id={`${value}-${i}-size`}
+                                placeholder="Size"
+                                required
+                              />
+                              <input
+                                type="text"
+                                name="backpack-weight"
+                                id={`${value}-${i}-weight`}
+                                placeholder="Weight(g)"
+                                required
+                              />
+                            </div>
+                          </>
+                        ))}{" "}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
