@@ -1,6 +1,7 @@
-import React, { createElement } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import AddBackpack from './AddBackpack'
+import '../items'
 
 test('renders AddBackpack', () => {
     const div = document.createElement('div')
