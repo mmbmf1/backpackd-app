@@ -6,6 +6,7 @@ import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import Backpack from "../Backpack/Backpack";
 import AddBackpack from "../AddBackpack/AddBackpack";
+import BackpackCollection from "../BackpackCollection/BackpackCollection";
 import items from "../items";
 
 import ItemContext from "../ItemContext";
@@ -21,19 +22,19 @@ export default class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state);
     return (
       <ItemContext.Provider value={this.state}>
-          <header className="App__header">
-            <Header />
-          </header>
-          <main className="App__main">
-            <Route exact path={"/"} component={LandingPage} />
-            <Route path={"/mock_backpack"} component={Backpack} />
-            <Route path={"/login"} component={LoginForm} />
-            <Route path={"/register"} component={RegistrationForm} />
-            <Route path={"/add_backpack"} component={AddBackpack} />
-          </main>
+        <header className="App__header">
+          <Header />
+        </header>
+        <main className="App__main">
+          <Route exact path={"/"} component={LandingPage} />
+          <Route path={"/backpacks"} component={BackpackCollection} />
+          <Route path={'/backpack_id'} component={Backpack} />
+          <Route path={"/add_backpack"} component={AddBackpack} />
+          <Route path={"/login"} component={LoginForm} />
+          <Route path={"/register"} component={RegistrationForm} />
+        </main>
       </ItemContext.Provider>
     );
   }

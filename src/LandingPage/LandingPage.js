@@ -8,7 +8,7 @@ function LandingPage() {
                 <div className='section-one-box'>
                     <h3>a better way to backpack</h3>
                     <p>backpackd helps you optimize your backpack by keeping track of all the items in your pack and their weight</p>
-                    <Link to={'/backpack_collection'}>Explore</Link>
+                    <Link to={'/backpacks'}>Explore</Link>
                     <br />
                     <Link to={'/add_backpack'}>Add Backpack</Link>
                 </div>

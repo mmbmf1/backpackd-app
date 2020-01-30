@@ -1,8 +1,13 @@
 import React from 'react'
+// import { Link } from 'react-router-dom'
 
 function Backpack() {
     return (
-        <div>Mock backpack summary will go here</div>
+        <div>
+            <h2>
+                This is a backpack
+            </h2>
+        </div>
     )
 }
 
