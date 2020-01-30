@@ -5,7 +5,7 @@ export default class AddBackpack extends React.Component {
   static contextType = ItemContext;
 
   render() {
-    // console.log(this.context.items)
+    // console.log(this.context)
     const items = this.context.items;
     return (
       <>
