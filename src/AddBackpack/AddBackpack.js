@@ -31,6 +31,10 @@ export default class AddBackpack extends React.Component {
     this.props.history.push('/')
   };
 
+  updateItemName() {
+
+  }
+
   validateBackpackName() {
     const name = this.state.name.value;
     if (name.length === 0) {
@@ -79,6 +83,7 @@ export default class AddBackpack extends React.Component {
                                 name={`${value}-name`}
                                 id={`${value}-${i}-name`}
                                 placeholder="Brand name or model of gear"
+                                // onChange={} function is undefined
                                 // required
                               />
                               <input
