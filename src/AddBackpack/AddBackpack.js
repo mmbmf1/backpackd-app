@@ -1,27 +1,64 @@
 import React from "react";
 import ItemContext from "../ItemContext";
+import ValidationError from "../ValidationError";
 
 export default class AddBackpack extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: {
+        value: "",
+        touched: false
+      }
+    };
+  }
+
+  static defaultProps = {
+    history: {
+      push: () => {}
+    }
+  };
+
   static contextType = ItemContext;
+
+  updateBackpackName(name) {
+    this.setState({ name: { value: name, touched: true } });
+    // console.log(this.state)
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.history.push('/')
+  };
+
+  validateBackpackName() {
+    const name = this.state.name.value;
+    if (name.length === 0) {
+      return "A Backpack Name is required";
+    }
+  }
 
   render() {
     // console.log(this.context)
     const items = this.context.items;
+    const BackpackNameError = this.validateBackpackName();
     return (
       <>
         <header>
           <h1>Create New Backpack</h1>
         </header>
         <section>
-          <form id="record-backpack">
+          <form id="record-backpack" onSubmit={this.handleSubmit}>
             <div className="form-section">
               <label htmlFor="backpack-title">Backpack Title</label>
               <input
                 type="text"
+                id="backpack-name-input"
                 name="backpack-title"
                 placeholder="Backpack One"
-                required
+                onChange={e => this.updateBackpackName(e.target.value)}
               />
+              <ValidationError message={BackpackNameError} />
             </div>
             <div className="form-section">
               <h3>Select Items for Backpack</h3>
@@ -42,21 +79,21 @@ export default class AddBackpack extends React.Component {
                                 name={`${value}-name`}
                                 id={`${value}-${i}-name`}
                                 placeholder="Brand name or model of gear"
-                                required
+                                // required
                               />
                               <input
                                 type="text"
                                 name="backpack-size"
                                 id={`${value}-${i}-size`}
                                 placeholder="Size"
-                                required
+                                // required
                               />
                               <input
                                 type="text"
                                 name="backpack-weight"
                                 id={`${value}-${i}-weight`}
                                 placeholder="Weight(g)"
-                                required
+                                // required
                               />
                             </div>
                           </>
@@ -81,7 +118,9 @@ export default class AddBackpack extends React.Component {
               </div>
               {/* <div className="pack-list-row" id="pack-functions"></div> */}
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={this.validateBackpackName()}>
+              Submit
+            </button>
             <button type="reset">Reset</button>
           </form>
         </section>

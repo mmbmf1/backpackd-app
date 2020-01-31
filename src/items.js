@@ -1,5 +1,6 @@
 const items = {
-    'Backpack Gear': ['Pack', 'Pack Cover', 'Trekking Poles', 'Backpacking Stove', 'Fuel', 'Cookset', 'Dishes/Bowls', 'Eating Utinsils', 'Mug/cup', 'Quick Dry Towel', 'Food Sack/Bear Cannister', 'Accessory 1', 'Accessory 2', 'Accessory 3'],
+    'Backpack Gear': ['Pack']
+    // 'Backpack Gear': ['Pack', 'Pack Cover', 'Trekking Poles', 'Backpacking Stove', 'Fuel', 'Cookset', 'Dishes/Bowls', 'Eating Utinsils', 'Mug/cup', 'Quick Dry Towel', 'Food Sack/Bear Cannister', 'Accessory 1', 'Accessory 2', 'Accessory 3'],
     // 'Shelter': ['Tent', 'Tent Footprint', 'Tent Stakes', 'Guylines', 'Accessory 1', 'Accessory 2'],
     // 'Sleeping': ['Sleeping Bag', 'Sleeping Pad', 'Sleeping Pillow', 'Camp Chair', 'Hammock', 'Accessory 1', 'Accessory 2'],
     // 'Navigation': ['Map', 'Compass', 'Watch', 'GPS'],
