@@ -17,9 +17,22 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      items
+      items,
+      backpacks: [],
+      addBackpack: this.handleAddBackpack
     };
   }
+
+  handleAddBackpack = backpack => {
+    this.setState({
+      backpacks: [
+        ...this.state.backpacks, 
+        backpack
+      ]
+    })
+  }
+
+
 
   render() {
     return (

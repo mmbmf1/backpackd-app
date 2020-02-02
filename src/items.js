@@ -1,5 +1,7 @@
 const items = {
-    'Backpack Gear': ['Pack']
+    'Backpack Gear': ['Pack'],
+    'Shelter': ['Tent'],
+    'Sleeping': ['Sleeping Bag'],
     // 'Backpack Gear': ['Pack', 'Pack Cover', 'Trekking Poles', 'Backpacking Stove', 'Fuel', 'Cookset', 'Dishes/Bowls', 'Eating Utinsils', 'Mug/cup', 'Quick Dry Towel', 'Food Sack/Bear Cannister', 'Accessory 1', 'Accessory 2', 'Accessory 3'],
     // 'Shelter': ['Tent', 'Tent Footprint', 'Tent Stakes', 'Guylines', 'Accessory 1', 'Accessory 2'],
     // 'Sleeping': ['Sleeping Bag', 'Sleeping Pad', 'Sleeping Pillow', 'Camp Chair', 'Hammock', 'Accessory 1', 'Accessory 2'],
@@ -9,5 +11,15 @@ const items = {
     
     // More categories to come!
 }
+
+// const userItems = {
+//     'Backpack Gear' : {
+//         'Pack': {
+//             brand: '',
+//             size: '',
+//             weight: ''
+//         }
+//     }
+// }
 
 export default items;
