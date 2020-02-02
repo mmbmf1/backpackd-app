@@ -1,40 +1,49 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Backpack from '../Backpack/Backpack'
+import ItemContext from '../ItemContext'
 
-function BackpackCollection() {
-  return (
-    <div className="backpack-container">
-      <section className="card">
-        <h2>
-          <Link to={"/backpack_id"}>Backpack 1</Link>
-        </h2>
-        <p>32 lbs</p>
-        <button>Delete</button>
-      </section>
-      {/* <section class="card">
-        <h2>
-          <Link to={"/backpack_id"}>Backpack 2</Link>
-        </h2>
-        <p>35 lbs</p>
-        <button>Delete</button>
-      </section>
-      <section class="card">
-        <h2>
-          <Link to={"/backpack_id"}>Backpack 3</Link>
-        </h2>
-        <p>40 lbs</p>
-        <button>Delete</button>
-      </section>
-      <section class="card">
-        <h2>
-          <Link to={"/backpack_id"}>Backpack 4</Link>
-        </h2>
-        <p>45 lbs</p>
-        <button>Delete</button>
-      </section> */}
-    </div>
-  );
+const testBackpack = {
+  id: 1,
+  name: 'Test Backpack',
+  summary: 'Total Weight: 32lbs',
 }
 
-export default BackpackCollection;
+export default class BackpackCollection extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      backpacks: testBackpack
+    }
+  }
+
+  static contextType = ItemContext
+
+  render() {
+    console.log(this.context.backpacks)
+    const backpacks = this.context.backpacks
+    return (
+      <div className="backpack-container">
+        <section className="card">
+          <h2>
+            <Link to={`/backpacks/${this.state.backpacks.id}`}>{this.state.backpacks.name}</Link>
+          </h2>
+          <p>{this.state.backpacks.summary}</p>
+          <button>Delete</button>
+        </section>
+        <section className="card">
+          {backpacks.map((backpack, key) =>(
+            <div key={key}>
+              <h2>
+                <Link to={`/backpacks/${this.context.backpacks.id}`}>{backpack.name.value}</Link>
+              </h2>
+              <p>Total Weight: {backpack.summary.total.reduce((a, b) => a + b, 0)} lbs</p>
+            </div>
+          ))}
+        </section>
+        <br />
+        <Link to={'/add_backpack'}>Add Backpack To Collection</Link>
+      </div>
+    );
+  }
+}
+

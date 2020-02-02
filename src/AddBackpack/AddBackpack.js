@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from 'react-uuid'
 import ItemContext from "../ItemContext";
 import ValidationError from "../ValidationError";
 
@@ -6,14 +7,15 @@ export default class AddBackpack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: uuid(),
       name: {
         value: "",
         touched: false
       },
+      userItems: {},
       summary: {
         total: [0]
-      },
-      userItems: {}
+      }
     };
   }
 
@@ -26,7 +28,6 @@ export default class AddBackpack extends React.Component {
   static contextType = ItemContext;
 
   updateBackpackName(name) {
-    console.log(name);
     this.setState({ name: { value: name, touched: true } });
   }
 
@@ -55,11 +56,16 @@ export default class AddBackpack extends React.Component {
     const sumWeight = parseInt(weight, 10);
 
     this.state.summary.total.push(sumWeight);
+  };
 
-    console.log(this.state.summary.total);
+  handleCreateBackpack = e => {
+    e.preventDefault();
+    this.context.addBackpack(this.state);
+    this.props.history.push("/backpacks");
   };
 
   render() {
+    // console.log(this.state)
     const items = this.context.items;
     const BackpackNameError = this.validateBackpackName();
     return (
@@ -119,16 +125,16 @@ export default class AddBackpack extends React.Component {
               </div>
             </div>
           </div>
-          <div className="pack-list" id="">
-            <h3>Backpack Summary</h3>
-            <div className="pack-list-row" id="pack-weight">
-              Total Weight:
-              {" "}
-              {this.state.summary.total.reduce((a, b) => a + b, 0)}
-              {' '}
-              lbs
+          <form onSubmit={e => this.handleCreateBackpack(e)}>
+            <div className="pack-list" id="">
+              <h3>Backpack Summary</h3>
+              <div className="pack-list-row" id="pack-weight">
+                Total Weight:{" "}
+                {this.state.summary.total.reduce((a, b) => a + b, 0)} lbs
+              </div>
             </div>
-          </div>
+            <input type="submit" value="done" />
+          </form>
         </section>
       </>
     );
