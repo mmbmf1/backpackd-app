@@ -1,5 +1,5 @@
 import React from "react";
-import uuid from 'react-uuid'
+import uuid from "react-uuid";
 import ItemContext from "../ItemContext";
 import ValidationError from "../ValidationError";
 
@@ -65,7 +65,6 @@ export default class AddBackpack extends React.Component {
   };
 
   render() {
-    // console.log(this.state)
     const items = this.context.items;
     const BackpackNameError = this.validateBackpackName();
     return (
@@ -112,7 +111,7 @@ export default class AddBackpack extends React.Component {
                             <input
                               type="text"
                               name="weight"
-                              placeholder="Weight(g)"
+                              placeholder="Weight (lbs)"
                               required
                             />
                             <input type="submit" value="Save" />
@@ -133,7 +132,7 @@ export default class AddBackpack extends React.Component {
                 {this.state.summary.total.reduce((a, b) => a + b, 0)} lbs
               </div>
             </div>
-            <input type="submit" value="done" />
+            <input type="submit" value="Done" disable={this.validateBackpackName()}/>
           </form>
         </section>
       </>

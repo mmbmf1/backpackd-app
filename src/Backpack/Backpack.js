@@ -6,6 +6,10 @@ import ItemContext from "../ItemContext";
 export default class Backpack extends React.Component {
   static contextType = ItemContext;
 
+  handleClick = () => {
+    this.props.history.push('/backpacks')
+  }
+
   render() {
     const { backpacks = [] } = this.context;
     const { backpack_id } = this.props.match.params;
@@ -16,12 +20,12 @@ export default class Backpack extends React.Component {
       <div>
         <div className="backpack-item-list">
           <h1>Backpack Contents</h1>
-          {Object.values(items).map(item => {
+          {Object.values(items).map((item, index) => {
             return (
-              <div>
+              <div key={index}>
                 <h3>{Object.keys(item)}</h3>
-                {Object.values(item).map(i => (
-                  <div>
+                {Object.values(item).map((i, index) => (
+                  <div key={index}>
                     <p>{i.brand}</p>
                     <p>{i.size}</p>
                     <p>{i.weight}</p>
@@ -34,7 +38,7 @@ export default class Backpack extends React.Component {
         </div>
         <div className="backpack-total-weight"></div>
         {/* <button>Edit</button> */}
-        <button>Back</button>
+        <button onClick={this.handleClick}>Back</button>
       </div>
     );
   }
