@@ -2,6 +2,8 @@ import React from "react";
 import uuid from "react-uuid";
 import ItemContext from "../ItemContext";
 import ValidationError from "../ValidationError";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default class AddBackpack extends React.Component {
   constructor(props) {
@@ -15,7 +17,8 @@ export default class AddBackpack extends React.Component {
       userItems: {},
       summary: {
         total: [0]
-      }
+      },
+      isToggleOn: '',
     };
   }
 
@@ -36,6 +39,9 @@ export default class AddBackpack extends React.Component {
     if (name.length === 0) {
       return "A Backpack Name is required";
     }
+  }
+  handleClick = (e, category) => {
+    this.setState({ isToggleOn: this.state.isToggleOn === category ? '' : category })
   }
 
   handleItem = (e, item, category) => {
@@ -73,66 +79,76 @@ export default class AddBackpack extends React.Component {
           <h1>Create New Backpack</h1>
         </header>
         <section>
-          <form id="record-backpack">
-            <div className="form-section">
-              <label htmlFor="backpack-title">Backpack Title</label>
+          <form id="record backpack">
+            <div className="form section">
+              <label htmlFor="backpack title">Backpack Title</label>
               <input
                 type="text"
-                id="backpack-name-input"
-                name="backpack-title"
-                placeholder="Backpack One"
+                id="backpack name input"
+                name="backpack title"
+                placeholder="e.g. Backpack One"
                 onChange={e => this.updateBackpackName(e.target.value)}
               />
               <ValidationError message={BackpackNameError} />
             </div>
           </form>
-          <div className="form-section">
+          <div className="form section">
             <h3>Select Items for Backpack</h3>
-            <div className="form-items-section">
-              <div className="pack-items">
-                {Object.keys(items).map((category, key) => {
-                  return (
-                    <div key={key} className={`${category}-category`}>
-                      <h4>{`${category}`}</h4>
-                      {items[category].map((item, key) => (
-                        <div className="item-inputs" key={key}>
-                          <form
-                            onSubmit={e => this.handleItem(e, item, category)}
-                          >
-                            <input type="checkbox" name="checked" />
-                            <label htmlFor={`${item}-item`}>{item}</label>
-                            <input
-                              type="text"
-                              name="brand"
-                              placeholder="Brand name or model of gear"
-                              required
-                            />
-                            <input type="text" name="size" placeholder="Size" />
-                            <input
-                              type="text"
-                              name="weight"
-                              placeholder="Weight (lbs)"
-                              required
-                            />
-                            <input type="submit" value="Save" />
-                          </form>
-                        </div>
-                      ))}{" "}
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="pack items">
+              {Object.keys(items).map((category, key) => {
+                return (
+                  <div key={key} className={`${category} category`}>
+                    <h4>
+                      {" "}
+                      <FontAwesomeIcon icon={faPlus} onClick={(e) => this.handleClick(e, category)} />
+                      {`${category}`}
+                    </h4>
+                    {this.state.isToggleOn === category ? items[category].map((item, key) => (
+                      <div className="item inputs" key={key}>
+                        <form
+                          onSubmit={e => this.handleItem(e, item, category)}
+                        >
+                          <input type="checkbox" name="checked" />
+                          <label htmlFor={`${item}-item`}>{item}</label>
+                          <input
+                            type="text"
+                            name="brand"
+                            placeholder="Brand name or model of gear"
+                            required
+                          />
+                          <input type="text" name="size" placeholder="Size" />
+                          <input
+                            type="text"
+                            name="weight"
+                            placeholder="Weight (lbs)"
+                            required
+                          />
+                          <input
+                            type="submit"
+                            value="Save"
+                            disabled={this.validateBackpackName()}
+                          />
+                        </form>
+                      </div>
+                    )) : null }{" "}
+                  </div>
+                );
+              })}
             </div>
           </div>
           <form onSubmit={e => this.handleCreateBackpack(e)}>
-            <div className="pack-list" id="">
+            <div className="pack list">
               <h3>Backpack Summary</h3>
-              <div className="pack-list-row" id="pack-weight">
+              <div className="pack-list-row">
                 Total Weight:{" "}
                 {this.state.summary.total.reduce((a, b) => a + b, 0)} lbs
               </div>
             </div>
-            <input type="submit" value="Done" disable={this.validateBackpackName()}/>
+            <input
+              type="submit"
+              value="Done"
+              disabled={this.validateBackpackName()}
+            />
           </form>
         </section>
       </>
