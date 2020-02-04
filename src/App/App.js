@@ -25,17 +25,17 @@ export default class App extends React.Component {
           userItems: {
             'Backpack Gear': {
               'Pack': {
-                brand: 'Test Brand',
-                size: 'Test size',
-                weight: 'Test weight',
+                brand: 'Gregory',
+                size: '65L',
+                weight: '4.4 lbs',
               },
             },
 
             'Shelter': {
               'Tent': {
-                brand: 'Test brand 2',
-                size: 'Test size 2',
-                weight: 'Test weight 2',
+                brand: 'Big Agnes',
+                size: '2 person',
+                weight: '3.8 lbs',
               },
             },
           },

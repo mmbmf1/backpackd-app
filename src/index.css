@@ -9,10 +9,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #0e2353;
+}
+
+a {
+  color: #0e2353;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #0e2353;
+}
+
+a:hover {
+  color: #AE9B3E;
+}
+
+h1 {
+  text-align: center;
 }
 
 .App__main {
-  text-align: center;
+  height: calc(100vh - 70px);
+  max-width: 600px;
+  overflow: auto;
+  margin-top: 25px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 40px;
 }
 
 .LandingPage_wrapper {
@@ -22,7 +46,7 @@ body {
 .section-one,
 .section-two,
 .section-three {
-  height: 100vh;
+  height: calc(100vh - 150px);
 }
 
 section {
@@ -33,17 +57,22 @@ section {
 
 .section-one-box,
 .section-two-box,
-.section-three-box,
-.LoginForm, .RegistrationForm {
+.section-three-box {
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 300px;
 }
 
-.section-two, .section-three {
+.section-two,
+.section-three {
   display: none;
+}
+
+.section-one-box h3, .section-one-box p {
+  text-transform: capitalize;
+  text-align: center;
 }
 
 .Header {
@@ -73,8 +102,136 @@ h1 a {
   text-decoration: none;
 }
 
-
-#record-backpack {
-  text-align: left;
-  padding: 2.5vh;
+label {
+  font-size: 1.2em;
 }
+
+.LoginForm,
+.RegistrationForm {
+  margin: 20px 20px 0 20px;
+}
+
+.Input, .Title {
+  border: 1px solid #ddd;
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  border-radius: 4px;
+}
+
+a.Button {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 300px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background-color: #657497;
+  color: white;
+  text-decoration: none;
+}
+
+.Button {
+  border: 1px solid #aaa;
+  background-color: #657497;
+  color: white;
+  font-size: 1.1em;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+
+
+.Required {
+  color: #ca1551;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.backpack-container {
+  margin-left: 20px; 
+  margin-right: 20px;
+}
+
+.backpack-container a.Button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background-color: #AFB4BF;
+  color: white;
+  text-decoration: none;
+}
+
+.card h2, .card p { 
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.card p {
+  font-size: .8em;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.form.section, .pack.list {
+  padding: 0 20px;
+}
+
+h4 {
+  margin-bottom: 20px;
+}
+
+.svg-inline--fa.fa-plus.fa-w-14 {
+  margin-right: 15px;
+}
+
+/* input[type='checkbox'] {
+
+} */
+
+.Title {
+  margin: 1px 0;
+}
+
+.error {
+  font-size: .75em;
+}
+
+.Add.Button, .Back.Button {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.pack.categories {
+  padding: 0 20px;
+}
+
+.pack.categories p {
+  /* font-size: 19px; */
+}
+
+.pack.items {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.pack.items p {
+  margin: 0;
+  font-size: .9em;
+}
+
+

@@ -83,6 +83,7 @@ export default class AddBackpack extends React.Component {
             <div className="form section">
               <label htmlFor="backpack title">Backpack Title</label>
               <input
+                className='Title'
                 type="text"
                 id="backpack name input"
                 name="backpack title"
@@ -94,7 +95,7 @@ export default class AddBackpack extends React.Component {
           </form>
           <div className="form section">
             <h3>Select Items for Backpack</h3>
-            <div className="pack items">
+            <div className="pack inputs">
               {Object.keys(items).map((category, key) => {
                 return (
                   <div key={key} className={`${category} category`}>
@@ -111,13 +112,15 @@ export default class AddBackpack extends React.Component {
                           <input type="checkbox" name="checked" />
                           <label htmlFor={`${item}-item`}>{item}</label>
                           <input
+                          className='Input'
                             type="text"
                             name="brand"
                             placeholder="Brand name or model of gear"
                             required
                           />
-                          <input type="text" name="size" placeholder="Size" />
+                          <input className='Input' type="text" name="size" placeholder="Size" />
                           <input
+                          className='Input'
                             type="text"
                             name="weight"
                             placeholder="Weight (lbs)"
@@ -145,6 +148,7 @@ export default class AddBackpack extends React.Component {
               </div>
             </div>
             <input
+            className='Add Button'
               type="submit"
               value="Done"
               disabled={this.validateBackpackName()}

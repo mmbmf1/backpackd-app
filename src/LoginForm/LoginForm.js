@@ -10,18 +10,24 @@ export default class LoginForm extends React.Component {
       <form className="LoginForm" onSubmit={e => this.handleSubmit(e)}>
         <div className="user_name">
           <label htmlFor="LoginForm__user_name">User Name</label>
-          <input required name="user_name" id="LoginForm__user_name"></input>
+          <input
+            className="Input"
+            required
+            name="user_name"
+            id="LoginForm__user_name"
+          ></input>
         </div>
         <div className="password">
           <label htmlFor="LoginForm__password">Password</label>
           <input
+            className="Input"
             required
             name="password"
             type="password"
-            id="LogfinFrom__password"
+            id="LoginFrom__password"
           ></input>
         </div>
-        <input type="submit" value="Login" />
+        <input className='Button' type="submit" value="Login" />
       </form>
     );
   }

@@ -22,10 +22,10 @@ export default class Backpack extends React.Component {
           <h1>Backpack Contents</h1>
           {Object.values(items).map((item, index) => {
             return (
-              <div key={index}>
-                <h3>{Object.keys(item)}</h3>
+              <div className='pack categories' key={index}>
+                <h4>{Object.keys(item)}:</h4>
                 {Object.values(item).map((i, index) => (
-                  <div key={index}>
+                  <div className='pack items' key={index}>
                     <p>{i.brand}</p>
                     <p>{i.size}</p>
                     <p>{i.weight}</p>
@@ -38,7 +38,7 @@ export default class Backpack extends React.Component {
         </div>
         <div className="backpack-total-weight"></div>
         {/* <button>Edit</button> */}
-        <button onClick={this.handleClick}>Back</button>
+        <button className='Back Button' onClick={this.handleClick}>Back</button>
       </div>
     );
   }

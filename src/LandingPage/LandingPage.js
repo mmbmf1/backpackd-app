@@ -7,10 +7,10 @@ function LandingPage() {
             <section className='section-one'>
                 <div className='section-one-box'>
                     <h3>a better way to backpack</h3>
-                    <p>backpackd helps you optimize your backpack by keeping track of all the items in your pack and their weight</p>
-                    <Link to={'/backpacks'}>Explore</Link>
+                    <p>backpackd helps you optimize your backpack by tracking the weight of all your items</p>
+                    <Link className='Button' to={'/backpacks'}>Explore</Link>
                     <br />
-                    <Link to={'/add_backpack'}>Add Backpack</Link>
+                    <Link className='Button' to={'/add_backpack'}>Add Backpack</Link>
                 </div>
             </section>
             <section className='section-two'>

@@ -11,9 +11,9 @@ export default class BackpackCollection extends React.Component {
     const backpacks = this.context.backpacks
     return (
       <div className="backpack-container">
-        <section className="card">
+        <section className="cards">
           {backpacks.map((backpack, key) =>(
-            <div key={key}>
+            <div className='card' key={key}>
               <h2>
                 <Link to={`/backpacks/${backpack.id}`}>{backpack.name.value}</Link>
               </h2>
@@ -22,7 +22,7 @@ export default class BackpackCollection extends React.Component {
           ))}
         </section>
         <br />
-        <Link to={'/add_backpack'}>Add Backpack To Collection</Link>
+        <Link className='Button' to={'/add_backpack'}>Add Backpack To Collection</Link>
       </div>
     );
   }
