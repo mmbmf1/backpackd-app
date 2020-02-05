@@ -69,7 +69,7 @@ export default class AddBackpack extends React.Component {
   handleCreateBackpack = e => {
     e.preventDefault();
     this.context.addBackpack(this.state);
-    this.props.history.push("/backpacks");
+    this.props.history.push(`/backpacks/${this.state.id}`);
   };
 
   render() {
@@ -121,7 +121,7 @@ export default class AddBackpack extends React.Component {
                                 className="Input"
                                 type="text"
                                 name="brand"
-                                defaultValue={this.state.userItems}
+                                // defaultValue={this.state.userItems}
                                 placeholder="Brand name or model of gear"
                                 required
                               />
@@ -155,10 +155,10 @@ export default class AddBackpack extends React.Component {
           </div>
           <form onSubmit={e => this.handleCreateBackpack(e)}>
             <div className="pack list">
-              <h3>Backpack Summary</h3>
+              {/* <h3>Backpack Summary</h3> */}
               <div className="pack-list-row">
-                Total Weight:{" "}
-                {this.state.summary.total.reduce((a, b) => a + b, 0)} lbs
+                <h2>Total Weight:{" "}
+                {this.state.summary.total.reduce((a, b) => a + b, 0)} lbs</h2>
               </div>
             </div>
             <input
