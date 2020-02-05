@@ -22,7 +22,7 @@ a:visited {
 }
 
 a:hover {
-  color: #AE9B3E;
+  color: #ae9b3e;
 }
 
 h1 {
@@ -70,7 +70,8 @@ section {
   display: none;
 }
 
-.section-one-box h3, .section-one-box p {
+.section-one-box h3,
+.section-one-box p {
   text-transform: capitalize;
   text-align: center;
 }
@@ -111,7 +112,8 @@ label {
   margin: 20px 20px 0 20px;
 }
 
-.Input, .Title {
+.Input,
+.Title {
   border: 1px solid #ddd;
   display: block;
   font-size: 1.1em;
@@ -144,7 +146,6 @@ a.Button {
   font-weight: bold;
 }
 
-
 .Required {
   color: #ca1551;
   font-family: Arial;
@@ -152,7 +153,7 @@ a.Button {
 }
 
 .backpack-container {
-  margin-left: 20px; 
+  margin-left: 20px;
   margin-right: 20px;
 }
 
@@ -169,25 +170,27 @@ a.Button {
   padding-right: 20px;
   border: 1px solid #aaa;
   border-radius: 4px;
-  background-color: #AFB4BF;
+  background-color: #afb4bf;
   color: white;
   text-decoration: none;
 }
 
-.card h2, .card p { 
+.card h2,
+.card p {
   margin-bottom: 2px;
   margin-top: 2px;
 }
 
 .card p {
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .card:hover {
   transform: scale(1.05);
 }
 
-.form.section, .pack.list {
+.form.section,
+.pack.list {
   padding: 0 20px;
 }
 
@@ -208,20 +211,29 @@ h4 {
 }
 
 .error {
-  font-size: .75em;
+  font-size: 0.75em;
 }
 
-.Add.Button, .Back.Button {
+.Save.Button {
+  border: 1px solid #aaa;
+  background-color: #657497;
+  color: white;
+  font-size: .75em;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.Add.Button,
+.Back.Button {
   margin-top: 20px;
   margin-left: 20px;
 }
 
-.pack.categories {
+.pack.categories,
+.total.weight {
   padding: 0 20px;
-}
-
-.pack.categories p {
-  /* font-size: 19px; */
 }
 
 .pack.items {
@@ -231,7 +243,18 @@ h4 {
 
 .pack.items p {
   margin: 0;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
+.total.weight {
+  text-align: center;
+  margin-top: 50px;
+}
 
+.Back.Button {
+  display: flex;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+}

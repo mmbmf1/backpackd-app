@@ -40,7 +40,7 @@ export default class App extends React.Component {
             },
           },
           summary: {
-            total: [5]
+            total: [8.2]
           },
         }
       ],

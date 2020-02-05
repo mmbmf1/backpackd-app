@@ -18,7 +18,7 @@ export default class AddBackpack extends React.Component {
       summary: {
         total: [0]
       },
-      isToggleOn: '',
+      isToggleOn: ""
     };
   }
 
@@ -41,8 +41,10 @@ export default class AddBackpack extends React.Component {
     }
   }
   handleClick = (e, category) => {
-    this.setState({ isToggleOn: this.state.isToggleOn === category ? '' : category })
-  }
+    this.setState({
+      isToggleOn: this.state.isToggleOn === category ? "" : category
+    });
+  };
 
   handleItem = (e, item, category) => {
     e.preventDefault();
@@ -83,7 +85,7 @@ export default class AddBackpack extends React.Component {
             <div className="form section">
               <label htmlFor="backpack title">Backpack Title</label>
               <input
-                className='Title'
+                className="Title"
                 type="text"
                 id="backpack name input"
                 name="backpack title"
@@ -101,39 +103,51 @@ export default class AddBackpack extends React.Component {
                   <div key={key} className={`${category} category`}>
                     <h4>
                       {" "}
-                      <FontAwesomeIcon icon={faPlus} onClick={(e) => this.handleClick(e, category)} />
+                      <FontAwesomeIcon
+                        icon={faPlus}
+                        onClick={e => this.handleClick(e, category)}
+                      />
                       {`${category}`}
                     </h4>
-                    {this.state.isToggleOn === category ? items[category].map((item, key) => (
-                      <div className="item inputs" key={key}>
-                        <form
-                          onSubmit={e => this.handleItem(e, item, category)}
-                        >
-                          <input type="checkbox" name="checked" />
-                          <label htmlFor={`${item}-item`}>{item}</label>
-                          <input
-                          className='Input'
-                            type="text"
-                            name="brand"
-                            placeholder="Brand name or model of gear"
-                            required
-                          />
-                          <input className='Input' type="text" name="size" placeholder="Size" />
-                          <input
-                          className='Input'
-                            type="text"
-                            name="weight"
-                            placeholder="Weight (lbs)"
-                            required
-                          />
-                          <input
-                            type="submit"
-                            value="Save"
-                            disabled={this.validateBackpackName()}
-                          />
-                        </form>
-                      </div>
-                    )) : null }{" "}
+                    {this.state.isToggleOn === category
+                      ? items[category].map((item, key) => (
+                          <div className="item inputs" key={key}>
+                            <form
+                              onSubmit={e => this.handleItem(e, item, category)}
+                            >
+                              <input type="checkbox" name="checked" />
+                              <label htmlFor={`${item}-item`}>{item}:</label>
+                              <input
+                                className="Input"
+                                type="text"
+                                name="brand"
+                                defaultValue={this.state.userItems}
+                                placeholder="Brand name or model of gear"
+                                required
+                              />
+                              <input
+                                className="Input"
+                                type="text"
+                                name="size"
+                                placeholder="Size"
+                              />
+                              <input
+                                className="Input"
+                                type="text"
+                                name="weight"
+                                placeholder="Weight (lbs)"
+                                required
+                              />
+                              <input
+                                className="Save Button"
+                                type="submit"
+                                value="Save"
+                                disabled={this.validateBackpackName()}
+                              />
+                            </form>
+                          </div>
+                        ))
+                      : null}{" "}
                   </div>
                 );
               })}
@@ -148,7 +162,7 @@ export default class AddBackpack extends React.Component {
               </div>
             </div>
             <input
-            className='Add Button'
+              className="Add Button"
               type="submit"
               value="Done"
               disabled={this.validateBackpackName()}
