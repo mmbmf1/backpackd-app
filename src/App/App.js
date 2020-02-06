@@ -27,7 +27,7 @@ export default class App extends React.Component {
               Pack: {
                 brand: "Gregory",
                 size: "65L",
-                weight: "4.4 lbs"
+                weight: 4.4
               }
             },
 
@@ -35,7 +35,7 @@ export default class App extends React.Component {
               Tent: {
                 brand: "Big Agnes",
                 size: "2 person",
-                weight: "3.8 lbs"
+                weight: 3.8
               }
             }
           },

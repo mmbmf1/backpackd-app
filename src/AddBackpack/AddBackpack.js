@@ -61,7 +61,8 @@ export default class AddBackpack extends React.Component {
 
     this.setState({ userItems });
 
-    const sumWeight = parseInt(weight, 10);
+
+    const sumWeight = parseFloat(weight, 10);
 
     this.state.summary.total.push(sumWeight);
   };
@@ -158,7 +159,7 @@ export default class AddBackpack extends React.Component {
               {/* <h3>Backpack Summary</h3> */}
               <div className="pack-list-row">
                 <h2>Total Weight:{" "}
-                {this.state.summary.total.reduce((a, b) => a + b, 0)} lbs</h2>
+                {this.state.summary.total.reduce((a, b) => a + b, 0).toFixed(2)} lbs</h2>
               </div>
             </div>
             <input

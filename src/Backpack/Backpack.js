@@ -39,7 +39,7 @@ export default class Backpack extends React.Component {
         </div>
         <div className="backpack-total-weight"></div>
         <div className='total weight'>
-          <h3>Total Weight: {backpack.summary.total.reduce((a, b) => a + b, 0)} lbs</h3>
+          <h3>Total Weight: {backpack.summary.total.reduce((a, b) => a + b, 0).toFixed(2)} lbs</h3>
         </div>
         {/* <button>Edit</button> */}
         <button className='Back Button' onClick={this.handleClick}>Back</button>
