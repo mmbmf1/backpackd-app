@@ -232,7 +232,7 @@ h4 {
 }
 
 .backpack-item-list {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .pack.categories,
@@ -242,6 +242,13 @@ h4 {
 
 .pack.categories h4 {
   display: inline-block;
+  margin-top: 0;
+}
+
+.pack.categories {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pack.items {

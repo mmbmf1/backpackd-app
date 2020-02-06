@@ -28,6 +28,10 @@ export default class App extends React.Component {
                 brand: "Gregory",
                 size: "65L",
                 weight: 4.4
+              },
+              'Trekking Poles': {
+                brand: 'Trail Buddy',
+                weight: 2.5
               }
             },
 
