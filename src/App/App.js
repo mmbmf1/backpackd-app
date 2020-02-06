@@ -8,7 +8,6 @@ import Backpack from "../Backpack/Backpack";
 import AddBackpack from "../AddBackpack/AddBackpack";
 import BackpackCollection from "../BackpackCollection/BackpackCollection";
 import items from "../items";
-
 import ItemContext from "../ItemContext";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
@@ -62,10 +61,10 @@ export default class App extends React.Component {
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
             <Route exact path={"/backpacks"} component={BackpackCollection} />
-            <Route path={"/backpacks/:backpack_id"} component={Backpack} />
-            <Route path={"/add_backpack"} component={AddBackpack} />
-            <Route path={"/login"} component={LoginForm} />
-            <Route path={"/register"} component={RegistrationForm} />
+            <Route exact path={"/backpacks/:backpack_id"} component={Backpack} />
+            <Route exact path={"/add_backpack"} component={AddBackpack} />
+            <Route exact path={"/login"} component={LoginForm} />
+            <Route exact path={"/register"} component={RegistrationForm} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>
