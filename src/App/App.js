@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import LandingPage from "../LandingPage/LandingPage";
 import Header from "../Header/Header";
 import LoginForm from "../LoginForm/LoginForm";
@@ -10,6 +10,7 @@ import BackpackCollection from "../BackpackCollection/BackpackCollection";
 import items from "../items";
 
 import ItemContext from "../ItemContext";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 export default class App extends React.Component {
   static contextType = ItemContext;
@@ -21,32 +22,32 @@ export default class App extends React.Component {
       backpacks: [
         {
           id: 1,
-          name: {value: 'Test', touched: true},
+          name: { value: "Test", touched: true },
           userItems: {
-            'Backpack Gear': {
-              'Pack': {
-                brand: 'Gregory',
-                size: '65L',
-                weight: '4.4 lbs',
-              },
+            "Backpack Gear": {
+              Pack: {
+                brand: "Gregory",
+                size: "65L",
+                weight: "4.4 lbs"
+              }
             },
 
-            'Shelter': {
-              'Tent': {
-                brand: 'Big Agnes',
-                size: '2 person',
-                weight: '3.8 lbs',
-              },
-            },
+            Shelter: {
+              Tent: {
+                brand: "Big Agnes",
+                size: "2 person",
+                weight: "3.8 lbs"
+              }
+            }
           },
           summary: {
             total: [8.2]
-          },
+          }
         }
       ],
       addBackpack: backpack => {
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
-        return this.state
+        return this.state;
       }
     };
   }
@@ -58,12 +59,15 @@ export default class App extends React.Component {
           <Header />
         </header>
         <main className="App__main">
-          <Route exact path={"/"} component={LandingPage} />
-          <Route exact path={"/backpacks"} component={BackpackCollection} />
-          <Route exact path={'/backpacks/:backpack_id'} component={Backpack} />
-          <Route path={"/add_backpack"} component={AddBackpack} />
-          <Route path={"/login"} component={LoginForm} />
-          <Route path={"/register"} component={RegistrationForm} />
+          <Switch>
+            <Route exact path={"/"} component={LandingPage} />
+            <Route exact path={"/backpacks"} component={BackpackCollection} />
+            <Route path={"/backpacks/:backpack_id"} component={Backpack} />
+            <Route path={"/add_backpack"} component={AddBackpack} />
+            <Route path={"/login"} component={LoginForm} />
+            <Route path={"/register"} component={RegistrationForm} />
+            <Route component={NotFoundPage} />
+          </Switch>
         </main>
       </ItemContext.Provider>
     );
