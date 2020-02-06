@@ -16,7 +16,7 @@ export default class Backpack extends React.Component {
     const backpack = findBackpack(backpacks, backpack_id);
     const items = Object.values(backpack.userItems);
     const backpackName = backpack.name.value
-    console.log(backpack.summary.total)
+    // console.log(backpack.summary.total)
     return (
       <div>
         <div className="backpack-item-list">
