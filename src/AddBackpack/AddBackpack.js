@@ -15,9 +15,7 @@ export default class AddBackpack extends React.Component {
         touched: false
       },
       userItems: {},
-      summary: {
-        total: [0]
-      },
+      total: 0,
       isToggleOn: ""
     };
   }
@@ -53,18 +51,16 @@ export default class AddBackpack extends React.Component {
     const weight = e.target.weight.value;
 
     const { userItems } = this.state;
-
+    let oldWeight = 0;
     if (!userItems.hasOwnProperty(category)) {
       userItems[category] = {};
+    } else if(userItems[category].hasOwnProperty(item)){
+      oldWeight = userItems[category][item].weight;
     }
+    const sumWeight = parseFloat(weight, 10)-oldWeight;
+
     userItems[category][item] = { brand, size, weight };
-
-    this.setState({ userItems });
-
-
-    const sumWeight = parseFloat(weight, 10);
-
-    this.state.summary.total.push(sumWeight);
+    this.setState({ userItems, total:this.state.total+sumWeight });
   };
 
   handleCreateBackpack = e => {
@@ -76,6 +72,9 @@ export default class AddBackpack extends React.Component {
   render() {
     const items = this.context.items;
     const BackpackNameError = this.validateBackpackName();
+    const userItems = this.state.userItems
+    const array = Object.values(userItems).map(value => Object.keys(value))
+    console.log(array)
     return (
       <>
         <header>
@@ -110,8 +109,8 @@ export default class AddBackpack extends React.Component {
                       />
                       {`${category}`}
                     </h4>
-                    {this.state.isToggleOn === category
-                      ? items[category].map((item, key) => (
+                    <section className={`category-display-${this.state.isToggleOn === category}`}>
+                      {items[category].map((item, key) => (
                           <div className="item inputs" key={key}>
                             <form
                               onSubmit={e => this.handleItem(e, item, category)}
@@ -122,7 +121,6 @@ export default class AddBackpack extends React.Component {
                                 className="Input"
                                 type="text"
                                 name="brand"
-                                // defaultValue={this.state.userItems}
                                 placeholder="Brand name or model of gear"
                                 required
                               />
@@ -148,7 +146,8 @@ export default class AddBackpack extends React.Component {
                             </form>
                           </div>
                         ))
-                      : null}{" "}
+                      }{" "}
+                      </section>
                   </div>
                 );
               })}
@@ -159,7 +158,7 @@ export default class AddBackpack extends React.Component {
               {/* <h3>Backpack Summary</h3> */}
               <div className="pack-list-row">
                 <h2>Total Weight:{" "}
-                {this.state.summary.total.reduce((a, b) => a + b, 0).toFixed(2)} lbs</h2>
+                {this.state.total.toFixed(2)} lbs</h2>
               </div>
             </div>
             <input
@@ -174,3 +173,7 @@ export default class AddBackpack extends React.Component {
     );
   }
 }
+
+// array.find(function(element) {
+//   return element.toString() === item
+// }) ? Object.values(userItems).map(value => Object.keys(value).map(i => value[i].brand)) : '' 

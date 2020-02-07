@@ -251,6 +251,14 @@ h4 {
   margin-right: auto;
 }
 
+.category-display-true {
+  display: block;
+}
+
+.category-display-false {
+  display: none;
+}
+
 .pack.items {
   display: inline-flex;
 }

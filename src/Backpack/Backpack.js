@@ -10,13 +10,18 @@ export default class Backpack extends React.Component {
     this.props.history.push("/backpacks");
   };
 
+
   render() {
     const { backpacks = [] } = this.context;
     const { backpack_id } = this.props.match.params;
     const backpack = findBackpack(backpacks, backpack_id);
-    const items = Object.values(backpack.userItems);
-    const backpackName = backpack.name.value;
-    console.log(Object.keys(backpack.userItems))
+    const items = backpack ? Object.values(backpack.userItems) : [];
+    const backpackName = backpack ? backpack.name.value : '';
+    // console.log(Object.keys(backpack.userItems))
+
+    if(!backpack && backpacks.length){
+      this.props.history.push("/404");
+    }
     return (
       <div>
         <div className="backpack-item-list">
@@ -52,7 +57,7 @@ export default class Backpack extends React.Component {
         <div className="total weight">
           <h3>
             Total Weight:{" "}
-            {backpack.summary.total.reduce((a, b) => a + b, 0).toFixed(2)} lbs
+            {backpack ? backpack.summary.total.reduce((a, b) => a + b, 0).toFixed(2): ''} lbs
           </h3>
         </div>
         {/* <button>Edit</button> */}
