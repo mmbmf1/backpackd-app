@@ -66,15 +66,12 @@ export default class AddBackpack extends React.Component {
   handleCreateBackpack = e => {
     e.preventDefault();
     this.context.addBackpack(this.state);
-    this.props.history.push(`/backpacks/${this.state.id}`);
+    this.props.history.push(`/backpacks`);
   };
 
   render() {
     const items = this.context.items;
     const BackpackNameError = this.validateBackpackName();
-    const userItems = this.state.userItems
-    const array = Object.values(userItems).map(value => Object.keys(value))
-    console.log(array)
     return (
       <>
         <header>
@@ -155,7 +152,6 @@ export default class AddBackpack extends React.Component {
           </div>
           <form onSubmit={e => this.handleCreateBackpack(e)}>
             <div className="pack list">
-              {/* <h3>Backpack Summary</h3> */}
               <div className="pack-list-row">
                 <h2>Total Weight:{" "}
                 {this.state.total.toFixed(2)} lbs</h2>
@@ -174,6 +170,3 @@ export default class AddBackpack extends React.Component {
   }
 }
 
-// array.find(function(element) {
-//   return element.toString() === item
-// }) ? Object.values(userItems).map(value => Object.keys(value).map(i => value[i].brand)) : '' 

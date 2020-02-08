@@ -4,7 +4,6 @@ import LandingPage from "../LandingPage/LandingPage";
 import Header from "../Header/Header";
 import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
-import Backpack from "../Backpack/Backpack";
 import AddBackpack from "../AddBackpack/AddBackpack";
 import BackpackCollection from "../BackpackCollection/BackpackCollection";
 import items from "../items";
@@ -43,9 +42,7 @@ export default class App extends React.Component {
               }
             }
           },
-          summary: {
-            total: [8.2]
-          }
+            total: 8.2,
         }
       ],
       addBackpack: backpack => {
@@ -65,7 +62,6 @@ export default class App extends React.Component {
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
             <Route exact path={"/backpacks"} component={BackpackCollection} />
-            <Route exact path={"/backpacks/:backpack_id"} component={Backpack} />
             <Route exact path={"/add_backpack"} component={AddBackpack} />
             <Route exact path={"/login"} component={LoginForm} />
             <Route exact path={"/register"} component={RegistrationForm} />

@@ -1,30 +1,54 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ItemContext from '../ItemContext'
-
+import ItemContext from "../ItemContext";
+import Backpack from "../Backpack/Backpack";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default class BackpackCollection extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isToggleOn: ""
+    };
+  }
+  static contextType = ItemContext;
 
-  static contextType = ItemContext
+  handleClick = (e, name) => {
+    this.setState({
+      isToggleOn: this.state.isToggleOn === name ? "" : name
+    });
+  };
 
   render() {
-    const backpacks = this.context.backpacks
+    const backpacks = this.context.backpacks;
     return (
       <div className="backpack-container">
         <section className="cards">
-          {backpacks.map((backpack, key) =>(
-            <div className='card' key={key}>
+          {backpacks.map((backpack, key) => (
+            <div className="card" key={key}>
               <h2>
-                <Link to={`/backpacks/${backpack.id}`}>{backpack.name.value}</Link>
+                <FontAwesomeIcon
+                  icon={faPlus}
+                  onClick={e => this.handleClick(e, backpack.name)}
+                />
+                {backpack.name.value}
               </h2>
-              <p>Total Weight: {backpack.summary.total.reduce((a, b) => a + b, 0)} lbs</p>
+              <p>Total Weight: {backpack.total} lbs</p>
+              <div
+                className={`category-display-${this.state.isToggleOn ===
+                  backpack.name}`}
+              >
+                <Backpack id={backpack.id} />
+              </div>
             </div>
           ))}
         </section>
         <br />
-        <Link className='Button' to={'/add_backpack'}>Add Backpack To Collection</Link>
+        <Link className="Button" to={"/add_backpack"}>
+          Add Backpack To Collection
+        </Link>
       </div>
     );
   }
 }
-
