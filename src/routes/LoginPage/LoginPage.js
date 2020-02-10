@@ -19,12 +19,12 @@ export default class LoginPage extends React.Component {
 
     render(){
         return (
-            <section>
+            <div>
                 <h2>Login</h2>
                 <LoginForm 
                     onLoginSuccess={this.handleLoginSuccess}
                     />
-            </section>
+            </div>
         )
     }
 }

@@ -51,7 +51,7 @@ export default class LoginForm extends React.Component {
         user_name.value = ''
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
-        this.props.onLoginSuccess()
+        console.log(this.props)
       })
       .catch(res => {
         this.setState({ error: res.error })
