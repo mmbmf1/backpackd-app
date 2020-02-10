@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ItemContext from "../ItemContext";
+import ItemContext from "../../contexts/ItemContext";
 import Backpack from "../Backpack/Backpack";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";

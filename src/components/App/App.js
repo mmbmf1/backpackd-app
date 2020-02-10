@@ -6,8 +6,8 @@ import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import AddBackpack from "../AddBackpack/AddBackpack";
 import BackpackCollection from "../BackpackCollection/BackpackCollection";
-import items from "../items";
-import ItemContext from "../ItemContext";
+import items from "../../items";
+import ItemContext from "../../contexts/ItemContext";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 export default class App extends React.Component {

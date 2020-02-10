@@ -1,7 +1,7 @@
 import React from "react";
 import uuid from "react-uuid";
-import ItemContext from "../ItemContext";
-import ValidationError from "../ValidationError";
+import ItemContext from "../../contexts/ItemContext";
+import ValidationError from "../../ValidationError";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 

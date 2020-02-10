@@ -1,6 +1,6 @@
 import React from "react";
-import { findBackpack } from "../backpack-helpers";
-import ItemContext from "../ItemContext";
+import { findBackpack } from "../../backpack-helpers";
+import ItemContext from "../../contexts/ItemContext";
 
 export default class Backpack extends React.Component {
   static contextType = ItemContext;
