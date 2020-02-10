@@ -3,25 +3,37 @@ import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 
 export default class LoginForm extends React.Component {
-  static defualtProps = {
+  static defafultProps = {
     onLoginSuccess: () => {}
   }
 
+  // static defualtProps = {
+  //   location: {},
+  //   history: {
+  //     push: () => {},
+  //   },
+  // }
+
   state = {error: null }
 
-  handleSubmitBasicAuth = ev => {
-    ev.preventDefault()
-    const { user_name, password } = ev.target
+  // handleSubmitBasicAuth = ev => {
+  //   ev.preventDefault()
+  //   const { user_name, password } = ev.target
 
-    TokenService.saveAuthToken(
-      TokenService.makeBasicAuthToken(user_name.value, password.value)
-    )
+  //   TokenService.saveAuthToken(
+  //     TokenService.makeBasicAuthToken(user_name.value, password.value)
+  //   )
 
-    user_name.value = ''
-    password.value =''
-    // this.props.onLoginSuccess()
-  }
+  //   user_name.value = ''
+  //   password.value =''
+  //   this.props.onLoginSuccess()
+  // }
 
+  // handleLoginSuccess = () => {
+  //   const { location, history } = this.props
+  //   const destination = (location.state || {}).from || '/'
+  //   history.push(destination)
+  // }
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()

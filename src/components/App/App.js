@@ -2,13 +2,14 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LandingPage from "../LandingPage/LandingPage";
 import Header from "../Header/Header";
-import LoginForm from "../LoginForm/LoginForm";
+// import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import AddBackpack from "../AddBackpack/AddBackpack";
 import BackpackCollection from "../BackpackCollection/BackpackCollection";
 import items from "../../items";
 import ItemContext from "../../contexts/ItemContext";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import LoginPage from "../../routes/LoginPage/LoginPage";
 
 export default class App extends React.Component {
   static contextType = ItemContext;
@@ -28,8 +29,8 @@ export default class App extends React.Component {
                 size: "65L",
                 weight: 4.4
               },
-              'Trekking Poles': {
-                brand: 'Trail Buddy',
+              "Trekking Poles": {
+                brand: "Trail Buddy",
                 weight: 2.5
               }
             },
@@ -42,7 +43,7 @@ export default class App extends React.Component {
               }
             }
           },
-            total: 8.2,
+          total: 8.2
         }
       ],
       addBackpack: backpack => {
@@ -61,10 +62,10 @@ export default class App extends React.Component {
         <main className="App__main">
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
-            <Route exact path={"/backpacks"} component={BackpackCollection} />
-            <Route exact path={"/add_backpack"} component={AddBackpack} />
-            <Route exact path={"/login"} component={LoginForm} />
-            <Route exact path={"/register"} component={RegistrationForm} />
+            <Route  path={"/backpacks"} component={BackpackCollection} />
+            <Route  path={"/add_backpack"} component={AddBackpack} />
+            <Route  path={"/login"} component={LoginPage} />
+            <Route  path={"/register"} component={RegistrationForm} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>
