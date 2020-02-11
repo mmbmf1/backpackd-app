@@ -30,22 +30,19 @@ export default class Header extends React.Component {
 
   render() {
     return (
-        <nav className="Header">
-          <h1>
-            <Link to="/">
-              <FontAwesomeIcon icon={faHiking} /> backpackd
-            </Link>
-          </h1>
-          <div className="nav__link">
-            {TokenService.hasAuthToken()
-              ? this.renderLogoutLink()
-              : this.renderLoginLink()
-              }
-            {/* {console.log(TokenService.hasAuthToken())} */}
-          </div>
-        </nav>
+      <nav className="Header">
+        <h1>
+          <Link to="/">
+            <FontAwesomeIcon icon={faHiking} /> backpackd
+          </Link>
+        </h1>
+        <div className="nav__link">
+          {TokenService.hasAuthToken()
+            ? this.renderLogoutLink()
+            : this.renderLoginLink()}
+          {/* {console.log(TokenService.hasAuthToken())} */}
+        </div>
+      </nav>
     );
   }
 }
-
-// export default Header;

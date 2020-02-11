@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ItemContext from "../../contexts/ItemContext";
 import Backpack from "../Backpack/Backpack";
+import BackpackApiService from "../../services/backpacks-api-service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -13,6 +14,11 @@ export default class BackpackCollection extends React.Component {
     };
   }
   static contextType = ItemContext;
+
+  componentDidMount() {
+    BackpackApiService.getBackpacks()
+      .then(backpacks => this.context.setBackpacks(backpacks))
+  }
 
   handleClick = (e, name) => {
     this.setState({
@@ -32,7 +38,7 @@ export default class BackpackCollection extends React.Component {
                   icon={faPlus}
                   onClick={e => this.handleClick(e, backpack.name)}
                 />
-                {backpack.name.value}
+                {backpack.name}
               </h2>
               <p>Total Weight: {backpack.total} lbs</p>
               <div

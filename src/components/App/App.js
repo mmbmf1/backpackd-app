@@ -19,37 +19,16 @@ export default class App extends React.Component {
     super();
     this.state = {
       items,
-      backpacks: [
-        {
-          id: 1,
-          name: { value: "Test", touched: true },
-          userItems: {
-            "Backpack Gear": {
-              Pack: {
-                brand: "Gregory",
-                size: "65L",
-                weight: 4.4
-              },
-              "Trekking Poles": {
-                brand: "Trail Buddy",
-                weight: 2.5
-              }
-            },
-
-            Shelter: {
-              Tent: {
-                brand: "Big Agnes",
-                size: "2 person",
-                weight: 3.8
-              }
-            }
-          },
-          total: 8.2
-        }
-      ],
+      backpacks: [],
       addBackpack: backpack => {
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
         return this.state;
+      },
+      setBackpacks: backpacks => {
+        Object.values(backpacks).map(backpack =>
+          this.setState({ backpacks: [...this.state.backpacks, backpack] })
+        );
+        return this.state
       }
     };
   }

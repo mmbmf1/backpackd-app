@@ -14,7 +14,7 @@ export default class Backpack extends React.Component {
     const { backpacks = [] } = this.context;
     const backpack_id = this.props.id;
     const backpack = findBackpack(backpacks, backpack_id);
-    const items = backpack ? Object.values(backpack.userItems) : [];
+    const items = backpack ? Object.values(backpack.useritems) : [];
 
     // if(!backpack && backpacks.length){
     //   this.props.history.push("/404");

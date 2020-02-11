@@ -14,7 +14,7 @@ export default class AddBackpack extends React.Component {
         value: "",
         touched: false
       },
-      userItems: {},
+      useritems: {},
       total: 0,
       isToggleOn: ""
     };
@@ -50,21 +50,22 @@ export default class AddBackpack extends React.Component {
     const size = e.target.size.value;
     const weight = e.target.weight.value;
 
-    const { userItems } = this.state;
+    const { useritems } = this.state;
     let oldWeight = 0;
-    if (!userItems.hasOwnProperty(category)) {
-      userItems[category] = {};
-    } else if(userItems[category].hasOwnProperty(item)){
-      oldWeight = userItems[category][item].weight;
+    if (!useritems.hasOwnProperty(category)) {
+      useritems[category] = {};
+    } else if(useritems[category].hasOwnProperty(item)){
+      oldWeight = useritems[category][item].weight;
     }
     const sumWeight = parseFloat(weight, 10)-oldWeight;
 
-    userItems[category][item] = { brand, size, weight };
-    this.setState({ userItems, total:this.state.total+sumWeight });
+    useritems[category][item] = { brand, size, weight };
+    this.setState({ useritems, total:this.state.total+sumWeight });
   };
 
   handleCreateBackpack = e => {
     e.preventDefault();
+    // console.log(this.state)
     this.context.addBackpack(this.state);
     this.props.history.push(`/backpacks`);
   };
