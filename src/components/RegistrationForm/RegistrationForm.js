@@ -1,13 +1,46 @@
 import React from "react";
+import AuthApiService from '../../services/auth-api-service'
 
 export default class RegistrationForm extends React.Component {
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.history.push("/backpacks");
-  };
+  static defaultProps = {
+    onRegistratinSuccess: () => {}
+  }
+
+  state = { error: null }
+
+  handleSubmit = ev => {
+    ev.preventDefault()
+    const { first_name, last_name, user_email, user_name, password } = ev.target
+
+    this.setState({ error: null })
+
+    AuthApiService.postUser({
+      first_name: first_name.value,
+      last_name: last_name.value,
+      user_email: user_email.value,
+      user_name: user_name.value,
+      password: password.value
+    })
+      .then(user => {
+        first_name.value = ''
+        last_name.value = ''
+        user_email.value = ''
+        user_name.value = ''
+        password.value = ''
+        this.props.onRegistratinSuccess()
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
+  }
+
   render() {
+    const { error } = this.state
     return (
-      <form className="RegistrationForm" onSubmit={e => this.handleSubmit(e)}>
+      <form className="RegistrationForm" onSubmit={ev => this.handleSubmit(ev)}>
+        <div>
+          {error && <p>{error}</p>}
+        </div>
         <div className="first_name">
           <label htmlFor="Registration__first_name">
             First Name<span className="Required">*</span>
