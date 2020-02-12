@@ -5,9 +5,9 @@ import ItemContext from "../../contexts/ItemContext";
 export default class Backpack extends React.Component {
   static contextType = ItemContext;
 
-  handleClick = () => {
-    this.props.history.push("/backpacks");
-  };
+  // handleClick = () => {
+  //   this.props.history.push("/backpacks");
+  // };
 
 
   render() {

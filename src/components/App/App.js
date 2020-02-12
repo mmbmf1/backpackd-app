@@ -19,6 +19,7 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      user_id:"",
       items,
       backpacks: [],
       addBackpack: backpack => {
@@ -45,7 +46,7 @@ export default class App extends React.Component {
         <main className="App__main">
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
-            <Route
+            <PrivateRoute
               exact
               path={"/backpacks"}
               component={BackpackCollection}

@@ -19,6 +19,9 @@ export default class LoginForm extends React.Component {
       password: password.value
     })
       .then(res => {
+        // console.log(res.payload)
+        const { user_id } = res.payload
+        console.log(user_id)//could I take this user_id put it into context?// need to create a new branch for getting user backpacks
         user_name.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
