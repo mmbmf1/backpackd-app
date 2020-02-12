@@ -27,7 +27,7 @@ export default class RegistrationForm extends React.Component {
         user_email.value = ''
         user_name.value = ''
         password.value = ''
-        this.props.onRegistratinSuccess()
+        this.props.onRegistrationSuccess()
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -38,7 +38,7 @@ export default class RegistrationForm extends React.Component {
     const { error } = this.state
     // console.log(this.state)
     return (
-      <form className="RegistrationForm" onSubmit={this.handleSubmit}>
+      <form className="RegistrationForm" onSubmit={ev => this.handleSubmit(ev)}>
         <div>
           {error && <p>{error}</p>}
         </div>
