@@ -11,7 +11,8 @@ export default class LoginPage extends React.Component {
 
     handleLoginSuccess = () => {
         const { location, history } = this.props
-        const destination = (location.state || {}).from || '/'
+        console.log(location, history)
+        const destination = (location.state || {}).from || '/backpacks'
         history.push(destination)
     }
 

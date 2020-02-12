@@ -1,5 +1,4 @@
 import React from "react";
-// import uuid from "react-uuid";
 import BackpackApiService from '../../services/backpacks-api-service'
 import ItemContext from "../../contexts/ItemContext";
 import ValidationError from "../../ValidationError";
@@ -10,7 +9,6 @@ export default class AddBackpack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // id: uuid(),
       name: "",
       useritems: {},
       total: 0,
@@ -65,7 +63,8 @@ export default class AddBackpack extends React.Component {
   handleCreateBackpack = e => {
     e.preventDefault();
     BackpackApiService.postBackpack(this.state)
-      .then(this.context.addBackpack)
+      .then(console.log(this.state))
+      .then(this.context.addBackpack(this.state))
       .then(this.props.history.push('/backpacks'))
       // .catch()
   };

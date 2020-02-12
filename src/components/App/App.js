@@ -2,8 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LandingPage from "../LandingPage/LandingPage";
 import Header from "../Header/Header";
-// import LoginForm from "../LoginForm/LoginForm";
-// import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import AddBackpack from "../AddBackpack/AddBackpack";
 import BackpackCollection from "../BackpackCollection/BackpackCollection";
 import items from "../../items";
@@ -11,6 +9,7 @@ import ItemContext from "../../contexts/ItemContext";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import LoginPage from "../../routes/LoginPage/LoginPage";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
+import BackpackApiService from "../../services/backpacks-api-service";
 
 export default class App extends React.Component {
   static contextType = ItemContext;
@@ -20,18 +19,19 @@ export default class App extends React.Component {
     this.state = {
       items,
       backpacks: [],
-      // addBackpack: backpack => {
-      //   this.setState({ backpacks: [...this.state.backpacks, backpack] });
-      //   return this.state;
-      // },
-      
-      setBackpacks: backpacks => {
-        Object.values(backpacks).map(backpack =>
-          this.setState({ backpacks: [...this.state.backpacks, backpack] })
-        );
-        return this.state
+      addBackpack: backpack => {
+        this.setState({ backpacks: [...this.state.backpacks, backpack] });
+        return this.state;
       }
     };
+  }
+
+  componentDidMount() {
+    BackpackApiService.getBackpacks().then(backpacks =>
+      Object.values(backpacks).forEach(backpack => {
+        this.setState({ backpacks: [...this.state.backpacks, backpack] });
+      })
+    );
   }
 
   render() {

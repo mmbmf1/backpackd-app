@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ItemContext from "../../contexts/ItemContext";
 import Backpack from "../Backpack/Backpack";
-import BackpackApiService from "../../services/backpacks-api-service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,11 +14,6 @@ export default class BackpackCollection extends React.Component {
   }
   static contextType = ItemContext;
 
-  componentWillMount() {
-    BackpackApiService.getBackpacks()
-      .then(backpacks => this.context.setBackpacks(backpacks))
-  }
-
   handleClick = (e, name) => {
     this.setState({
       isToggleOn: this.state.isToggleOn === name ? "" : name
@@ -27,7 +21,6 @@ export default class BackpackCollection extends React.Component {
   };
 
   render() {
-
     const backpacks = this.context.backpacks;
     return (
       <div className="backpack-container">

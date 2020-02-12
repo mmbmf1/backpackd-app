@@ -1,70 +1,39 @@
 import React from "react";
-import TokenService from '../../services/token-service'
-import AuthApiService from '../../services/auth-api-service'
+import TokenService from "../../services/token-service";
+import AuthApiService from "../../services/auth-api-service";
 
 export default class LoginForm extends React.Component {
   static defafultProps = {
     onLoginSuccess: () => {}
-  }
+  };
 
-  // static defualtProps = {
-  //   location: {},
-  //   history: {
-  //     push: () => {},
-  //   },
-  // }
-
-  state = {error: null }
-
-  // handleSubmitBasicAuth = ev => {
-  //   ev.preventDefault()
-  //   const { user_name, password } = ev.target
-
-  //   TokenService.saveAuthToken(
-  //     TokenService.makeBasicAuthToken(user_name.value, password.value)
-  //   )
-
-  //   user_name.value = ''
-  //   password.value =''
-  //   this.props.onLoginSuccess()
-  // }
-
-  // handleLoginSuccess = () => {
-  //   const { location, history } = this.props
-  //   const destination = (location.state || {}).from || '/'
-  //   history.push(destination)
-  // }
+  state = { error: null };
 
   handleSubmitJwtAuth = ev => {
-    ev.preventDefault()
-    this.setState({ error: null })
-    const { user_name, password } = ev.target
-
-    // console.log('login form submitted')
-    // console.log({ user_name, password })
+    ev.preventDefault();
+    this.setState({ error: null });
+    const { user_name, password } = ev.target;
 
     AuthApiService.postLogin({
       user_name: user_name.value,
-      password: password.value,
+      password: password.value
     })
       .then(res => {
-        user_name.value = ''
-        password.value = ''
-        TokenService.saveAuthToken(res.authToken)
-        this.props.onLoginSuccess()
+        user_name.value = "";
+        password.value = "";
+        TokenService.saveAuthToken(res.authToken);
+        this.props.onLoginSuccess();
       })
       .catch(res => {
-        this.setState({ error: res.error })
-      })
-  }
+        this.setState({ error: res.error });
+      });
+  };
 
   render() {
-    const { error } = this.state
+    const { error } = this.state;
     return (
       <form className="LoginForm" onSubmit={ev => this.handleSubmitJwtAuth(ev)}>
-        <div role='alert'>
-          {error && <p className='red'>{error}</p>}
-        </div>
+        <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="user_name">
           <label htmlFor="LoginForm__user_name">User Name</label>
           <input
@@ -84,7 +53,7 @@ export default class LoginForm extends React.Component {
             id="LoginFrom__password"
           ></input>
         </div>
-        <input className='Button' type="submit" value="Login" />
+        <input className="Button" type="submit" value="Login" />
       </form>
     );
   }
