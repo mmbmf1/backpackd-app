@@ -20,10 +20,11 @@ export default class App extends React.Component {
     this.state = {
       items,
       backpacks: [],
-      addBackpack: backpack => {
-        this.setState({ backpacks: [...this.state.backpacks, backpack] });
-        return this.state;
-      },
+      // addBackpack: backpack => {
+      //   this.setState({ backpacks: [...this.state.backpacks, backpack] });
+      //   return this.state;
+      // },
+      
       setBackpacks: backpacks => {
         Object.values(backpacks).map(backpack =>
           this.setState({ backpacks: [...this.state.backpacks, backpack] })

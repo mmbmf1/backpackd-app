@@ -1,5 +1,6 @@
 import React from "react";
-import uuid from "react-uuid";
+// import uuid from "react-uuid";
+import BackpackApiService from '../../services/backpacks-api-service'
 import ItemContext from "../../contexts/ItemContext";
 import ValidationError from "../../ValidationError";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,14 +10,12 @@ export default class AddBackpack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: uuid(),
-      name: {
-        value: "",
-        touched: false
-      },
+      // id: uuid(),
+      name: "",
       useritems: {},
       total: 0,
-      isToggleOn: ""
+      isToggleOn: "",
+      touched: false,
     };
   }
 
@@ -29,11 +28,11 @@ export default class AddBackpack extends React.Component {
   static contextType = ItemContext;
 
   updateBackpackName(name) {
-    this.setState({ name: { value: name, touched: true } });
+    this.setState({ name: name, touched: true });
   }
 
   validateBackpackName() {
-    const name = this.state.name.value;
+    const name = this.state.name;
     if (name.length === 0) {
       return "A Backpack Name is required";
     }
@@ -65,9 +64,10 @@ export default class AddBackpack extends React.Component {
 
   handleCreateBackpack = e => {
     e.preventDefault();
-    // console.log(this.state)
-    this.context.addBackpack(this.state);
-    this.props.history.push(`/backpacks`);
+    BackpackApiService.postBackpack(this.state)
+      .then(this.context.addBackpack)
+      .then(this.props.history.push('/backpacks'))
+      // .catch()
   };
 
   render() {

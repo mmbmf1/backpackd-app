@@ -15,7 +15,7 @@ export default class BackpackCollection extends React.Component {
   }
   static contextType = ItemContext;
 
-  componentDidMount() {
+  componentWillMount() {
     BackpackApiService.getBackpacks()
       .then(backpacks => this.context.setBackpacks(backpacks))
   }
@@ -27,6 +27,7 @@ export default class BackpackCollection extends React.Component {
   };
 
   render() {
+
     const backpacks = this.context.backpacks;
     return (
       <div className="backpack-container">
