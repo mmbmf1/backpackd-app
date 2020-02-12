@@ -4,6 +4,7 @@ import ItemContext from "../../contexts/ItemContext";
 import Backpack from "../Backpack/Backpack";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+// import TokenService from "../../services/token-service";
 
 export default class BackpackCollection extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ export default class BackpackCollection extends React.Component {
       isToggleOn: this.state.isToggleOn === name ? "" : name
     });
   };
+
 
   render() {
     const backpacks = this.context.backpacks;

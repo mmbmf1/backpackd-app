@@ -2,9 +2,9 @@ import React from "react";
 import AuthApiService from '../../services/auth-api-service'
 
 export default class RegistrationForm extends React.Component {
-  // static defaultProps = {
-  //   onRegistratinSuccess: () => {}
-  // }
+  static defaultProps = {
+    onRegistratinSuccess: () => {}
+  }
 
   state = { error: null }
 
@@ -36,6 +36,7 @@ export default class RegistrationForm extends React.Component {
 
   render() {
     const { error } = this.state
+    // console.log(this.state)
     return (
       <form className="RegistrationForm" onSubmit={this.handleSubmit}>
         <div>
