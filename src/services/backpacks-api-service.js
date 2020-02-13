@@ -24,6 +24,7 @@ const BackpackApiService = {
   },
 
   postBackpack(backpack) {
+    console.log(typeof backpack)
     return fetch(`${config.API_ENDPOINT}/backpacks`, {
       method: "POST",
       headers: {
@@ -34,6 +35,23 @@ const BackpackApiService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+
+  deleteUserBackpack(id) {
+    // console.log(typeof id)
+    // const bpId = { id }
+    // console.log(typeof bpId)
+    return fetch(`${config.API_ENDPOINT}/backpacks/${id}`, {
+      method: 'DELETE',
+      headers: {
+        "content-type": "application/json",
+        // 'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      // body: JSON.stringify(bpId),
+    })
+      // .then(res => {
+      //   !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+      // })
   }
 };
 

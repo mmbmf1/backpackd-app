@@ -17,6 +17,13 @@ export default class BackpackCollection extends React.Component {
   }
   static contextType = ItemContext;
 
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => {}
+    }
+  };
+
   componentDidMount() {
     const user_name = TokenService.getUser();
     if (!TokenService.hasAuthToken()) {
@@ -25,15 +32,23 @@ export default class BackpackCollection extends React.Component {
           this.setState({ backpacks: [...this.state.backpacks, backpack] });
         })
       );
-    }
-    else {
+    } else {
       BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
         Object.values(backpacks).forEach(backpack => {
           this.setState({ backpacks: [...this.state.backpacks, backpack] });
         })
       );
-      }
+    }
   }
+
+  handleDelete = (ev, id) => {
+    const { location, history } = this.props;
+    const user_name = TokenService.getUser();
+    const destination =
+      (location.state || {}).from || `/backpacks/${user_name}`;
+    BackpackApiService.deleteUserBackpack(id);
+    history.push(destination);
+  };
 
   handleClick = (e, name) => {
     this.setState({
@@ -42,9 +57,8 @@ export default class BackpackCollection extends React.Component {
   };
 
   render() {
-    // const backpacks = TokenService.hasAuthToken() ? this.state.backpacks : [];
-    // const backpacks = this.context.backpacks
     const backpacks = this.state.backpacks;
+    console.log(backpacks);
     return (
       <div className="backpack-container">
         <section className="cards">
@@ -63,6 +77,13 @@ export default class BackpackCollection extends React.Component {
                   backpack.name}`}
               >
                 <Backpack id={backpack.id} />
+                <button
+                  type="submit"
+                  disabled={!TokenService.hasAuthToken()}
+                  onClick={ev => this.handleDelete(ev, backpack.id)}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))}
