@@ -13,7 +13,6 @@ const BackpackApiService = {
   },
 
   getUserBackpacks(user_name) {
-    // console.log(user_name)
     return fetch(`${config.API_ENDPOINT}/backpacks/${user_name}`, {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`

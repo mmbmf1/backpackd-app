@@ -27,11 +27,7 @@ export default class App extends React.Component {
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
         return this.state;
       },
-      // setUserId: id => {
-      //   // console.log(id)
-      //   this.setState({ user_id: id });
-      // }
-    };
+     };
   }
 
   componentDidMount() {

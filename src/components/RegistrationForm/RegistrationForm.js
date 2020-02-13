@@ -42,7 +42,6 @@ export default class RegistrationForm extends React.Component {
 
   render() {
     const { error } = this.state;
-    // console.log(this.state)
     return (
       <form
         className="RegistrationForm"
