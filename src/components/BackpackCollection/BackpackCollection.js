@@ -4,16 +4,27 @@ import ItemContext from "../../contexts/ItemContext";
 import Backpack from "../Backpack/Backpack";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import BackpackApiService from "../../services/backpacks-api-service";
 // import TokenService from "../../services/token-service";
 
 export default class BackpackCollection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      backpacks: [],
       isToggleOn: ""
     };
   }
   static contextType = ItemContext;
+
+  componentDidMount() {
+    const { user_id } = this.context;
+    BackpackApiService.getUserBackpacks(user_id).then(backpacks =>
+      Object.values(backpacks).forEach(backpack => {
+        this.setState({ backpacks: [...this.state.backpacks, backpack] });
+      })
+    );
+  }
 
   handleClick = (e, name) => {
     this.setState({
@@ -21,9 +32,10 @@ export default class BackpackCollection extends React.Component {
     });
   };
 
-
   render() {
-    const backpacks = this.context.backpacks;
+    // const backpacks = TokenService.hasAuthToken() ? this.state.backpacks : [];
+    // const backpacks = this.context.backpacks
+    const backpacks = this.state.backpacks
     return (
       <div className="backpack-container">
         <section className="cards">

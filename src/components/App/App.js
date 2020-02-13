@@ -25,7 +25,11 @@ export default class App extends React.Component {
       addBackpack: backpack => {
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
         return this.state;
-      }
+      },
+      setUserId: id => {
+        // console.log(id)
+        this.setState({ user_id: id })
+      },
     };
   }
 
@@ -46,11 +50,12 @@ export default class App extends React.Component {
         <main className="App__main">
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
-            <PrivateRoute
+            <Route
               exact
               path={"/backpacks"}
               component={BackpackCollection}
             />
+            <PrivateRoute exact path={'/backpacks/:user_id'} component={BackpackCollection} />
             <PrivateRoute exact path={"/add_backpack"} component={AddBackpack} />
             <PublicOnlyRoute exact path={"/login"} component={LoginPage} />
             <PublicOnlyRoute

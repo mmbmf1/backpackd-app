@@ -1,8 +1,10 @@
 import React from "react";
 import TokenService from "../../services/token-service";
 import AuthApiService from "../../services/auth-api-service";
+import ItemContext from '../../contexts/ItemContext'
 
 export default class LoginForm extends React.Component {
+  static contextType = ItemContext
   static defafultProps = {
     onLoginSuccess: () => {}
   };
@@ -21,7 +23,8 @@ export default class LoginForm extends React.Component {
       .then(res => {
         // console.log(res.payload)
         const { user_id } = res.payload
-        console.log(user_id)//could I take this user_id put it into context?// need to create a new branch for getting user backpacks
+        this.context.setUserId(user_id)
+        // console.log(user_id)//could I take this user_id put it into context?// need to create a new branch for getting user backpacks
         user_name.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
