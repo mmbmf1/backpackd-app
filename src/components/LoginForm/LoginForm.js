@@ -21,13 +21,10 @@ export default class LoginForm extends React.Component {
       password: password.value
     })
       .then(res => {
-        // console.log(res.payload)
-        const { user_id } = res.payload
-        this.context.setUserId(user_id)
-        // console.log(user_id)//could I take this user_id put it into context?// need to create a new branch for getting user backpacks
         user_name.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
+        TokenService.saveUser(res.sub);
         this.props.onLoginSuccess();
       })
       .catch(res => {

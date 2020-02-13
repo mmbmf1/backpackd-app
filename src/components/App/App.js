@@ -12,6 +12,7 @@ import AddBackpack from "../AddBackpack/AddBackpack";
 import BackpackApiService from "../../services/backpacks-api-service";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import PrivateRoute from "../Utils/PrivateRoute";
+import TokenService from "../../services/token-service";
 
 export default class App extends React.Component {
   static contextType = ItemContext;
@@ -19,27 +20,36 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      user_id:"",
+      user_id: "",
       items,
       backpacks: [],
       addBackpack: backpack => {
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
         return this.state;
       },
-      setUserId: id => {
-        // console.log(id)
-        this.setState({ user_id: id })
-      },
+      // setUserId: id => {
+      //   // console.log(id)
+      //   this.setState({ user_id: id });
+      // }
     };
   }
 
   componentDidMount() {
-    BackpackApiService.getBackpacks().then(backpacks =>
-      Object.values(backpacks).forEach(backpack => {
-        this.setState({ backpacks: [...this.state.backpacks, backpack] });
-      })
-    );
-  }
+    if (!TokenService.hasAuthToken()) {
+      BackpackApiService.getBackpacks().then(backpacks =>
+        Object.values(backpacks).forEach(backpack => {
+          this.setState({ backpacks: [...this.state.backpacks, backpack] });
+        })
+      );
+    }
+    // else {
+    //   BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
+    //     Object.values(backpacks).forEach(backpack => {
+    //       this.setState({ backpacks: [...this.state.backpacks, backpack] });
+    //     })
+    //   );        
+    //   }
+    }
 
   render() {
     return (
@@ -50,13 +60,17 @@ export default class App extends React.Component {
         <main className="App__main">
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
-            <Route
+            <Route exact path={"/backpacks"} component={BackpackCollection} />
+            <PrivateRoute
               exact
-              path={"/backpacks"}
+              path={"/backpacks/:user_id"}
               component={BackpackCollection}
             />
-            <PrivateRoute exact path={'/backpacks/:user_id'} component={BackpackCollection} />
-            <PrivateRoute exact path={"/add_backpack"} component={AddBackpack} />
+            <PrivateRoute
+              exact
+              path={"/add_backpack"}
+              component={AddBackpack}
+            />
             <PublicOnlyRoute exact path={"/login"} component={LoginPage} />
             <PublicOnlyRoute
               exact
