@@ -5,20 +5,17 @@ import ItemContext from "../../contexts/ItemContext";
 export default class Backpack extends React.Component {
   static contextType = ItemContext;
 
-  // handleClick = () => {
-  //   this.props.history.push("/backpacks");
-  // };
 
 
   render() {
-    const { backpacks = [] } = this.context;
+    const backpacks = this.props.backpacks
     const backpack_id = this.props.id;
     const backpack = findBackpack(backpacks, backpack_id);
     const items = backpack ? Object.values(backpack.useritems) : [];
 
-    // if(!backpack && backpacks.length){
-    //   this.props.history.push("/404");
-    // }
+    if(!backpack && backpacks.length){
+      this.props.history.push("/404");
+    }
 
     return (
       <div>

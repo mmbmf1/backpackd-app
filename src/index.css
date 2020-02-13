@@ -232,10 +232,6 @@ h4 {
   margin-left: 20px;
 }
 
-.backpack-item-list {
-  /* text-align: center; */
-}
-
 .pack.categories,
 .total.weight {
   padding: 0 20px;
@@ -258,10 +254,6 @@ h4 {
 
 .category-display-false {
   display: none;
-}
-
-.pack.items {
-  /* display: inline-flex; */
 }
 
 .pack.items p {

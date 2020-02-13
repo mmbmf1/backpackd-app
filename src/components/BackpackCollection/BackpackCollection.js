@@ -58,7 +58,6 @@ export default class BackpackCollection extends React.Component {
 
   render() {
     const backpacks = this.state.backpacks;
-    console.log(backpacks);
     return (
       <div className="backpack-container">
         <section className="cards">
@@ -76,7 +75,7 @@ export default class BackpackCollection extends React.Component {
                 className={`category-display-${this.state.isToggleOn ===
                   backpack.name}`}
               >
-                <Backpack id={backpack.id} />
+                <Backpack backpacks={backpacks} id={backpack.id} />
                 <button
                   type="submit"
                   disabled={!TokenService.hasAuthToken()}
