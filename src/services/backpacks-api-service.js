@@ -38,9 +38,6 @@ const BackpackApiService = {
   },
 
   deleteUserBackpack(id) {
-    // console.log(typeof id)
-    // const bpId = { id }
-    // console.log(typeof bpId)
     return fetch(`${config.API_ENDPOINT}/backpacks/${id}`, {
       method: 'DELETE',
       headers: {

@@ -26,8 +26,8 @@ export default class App extends React.Component {
       addBackpack: backpack => {
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
         return this.state;
-      },
-     };
+      }
+    };
   }
 
   componentDidMount() {
@@ -38,14 +38,7 @@ export default class App extends React.Component {
         })
       );
     }
-    // else {
-    //   BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
-    //     Object.values(backpacks).forEach(backpack => {
-    //       this.setState({ backpacks: [...this.state.backpacks, backpack] });
-    //     })
-    //   );        
-    //   }
-    }
+  }
 
   render() {
     return (
