@@ -2,6 +2,7 @@ import React from "react";
 import BackpackApiService from "../../services/backpacks-api-service";
 import ItemContext from "../../contexts/ItemContext";
 import ValidationError from "../../ValidationError";
+import { findBackpackName } from "../../backpack-helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -31,8 +32,15 @@ export default class AddBackpack extends React.Component {
 
   validateBackpackName() {
     const name = this.state.name;
+    const backpackName = findBackpackName(
+      this.context.backpacks,
+      this.state.name
+    );
     if (name.length === 0) {
       return "A Backpack Name is required";
+    }
+    if (backpackName) {
+      return "Backpack name already exists";
     }
   }
   handleClick = (e, category) => {

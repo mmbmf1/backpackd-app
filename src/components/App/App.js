@@ -12,6 +12,7 @@ import AddBackpack from "../AddBackpack/AddBackpack";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import PrivateRoute from "../Utils/PrivateRoute";
 import TokenService from "../../services/token-service";
+import BackpackApiService from "../../services/backpacks-api-service";
 
 export default class App extends React.Component {
   static contextType = ItemContext;
@@ -32,7 +33,15 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    const user_name = TokenService.getUser();
     this.setState({ loggedIn: TokenService.hasAuthToken() });
+    if (TokenService.hasAuthToken()) {
+      BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
+        Object.values(backpacks).forEach(backpack => {
+          this.setState({ backpacks: [...this.state.backpacks, backpack] });
+        })
+      );
+    }
   }
 
   render() {
