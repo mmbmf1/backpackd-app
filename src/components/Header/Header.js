@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHiking } from "@fortawesome/free-solid-svg-icons";
 import TokenService from "../../services/token-service";
+import ItemContext from "../../contexts/ItemContext";
 
 export default class Header extends React.Component {
+  static contextType = ItemContext;
   handleLogoutClick = () => {
-    TokenService.clearAuthToken()
-    TokenService.clearUser()
+    TokenService.clearAuthToken();
+    TokenService.clearUser();
+    this.context.setLoggedIn(false);
   };
 
   renderLogoutLink() {
@@ -38,7 +41,7 @@ export default class Header extends React.Component {
           </Link>
         </h1>
         <div className="nav__link">
-          {TokenService.hasAuthToken()
+          {this.context.loggedIn
             ? this.renderLogoutLink()
             : this.renderLoginLink()}
         </div>

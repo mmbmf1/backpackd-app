@@ -9,7 +9,6 @@ import LoginPage from "../../routes/LoginPage/LoginPage";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
 import BackpackCollection from "../BackpackCollection/BackpackCollection";
 import AddBackpack from "../AddBackpack/AddBackpack";
-import BackpackApiService from "../../services/backpacks-api-service";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import PrivateRoute from "../Utils/PrivateRoute";
 import TokenService from "../../services/token-service";
@@ -23,21 +22,17 @@ export default class App extends React.Component {
       user_id: "",
       items,
       backpacks: [],
+      loggedIn: false,
+      setLoggedIn: loggedIn => this.setState({ loggedIn }),
       addBackpack: backpack => {
+        console.log(backpack);
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
-        return this.state;
       }
     };
   }
 
   componentDidMount() {
-    if (!TokenService.hasAuthToken()) {
-      BackpackApiService.getBackpacks().then(backpacks =>
-        Object.values(backpacks).forEach(backpack => {
-          this.setState({ backpacks: [...this.state.backpacks, backpack] });
-        })
-      );
-    }
+    this.setState({ loggedIn: TokenService.hasAuthToken() });
   }
 
   render() {

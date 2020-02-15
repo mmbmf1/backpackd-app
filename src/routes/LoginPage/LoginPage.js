@@ -1,33 +1,28 @@
-import React from 'react'
-import ItemsContext from '../../contexts/ItemContext'
-import LoginForm from '../../components/LoginForm/LoginForm'
-import TokenService from '../../services/token-service'
+import React from "react";
+import ItemsContext from "../../contexts/ItemContext";
+import LoginForm from "../../components/LoginForm/LoginForm";
+import TokenService from "../../services/token-service";
 
 export default class LoginPage extends React.Component {
-    static contextType = ItemsContext
+  static contextType = ItemsContext;
 
-    static defaultProps = {
-        location: {},
-        history: {
-            push: () => {},
-        },
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => {}
     }
+  };
 
-    handleLoginSuccess = () => {
-        const { location, history } = this.props
-        const user_name = TokenService.getUser()
-        const destination = (location.state || {}).from || `/backpacks/${user_name}`
-        history.push(destination)
-    }
+  handleLoginSuccess = () => {
+    this.props.history.push("/backpacks");
+  };
 
-    render(){
-        return (
-            <div>
-                <h2>Login</h2>
-                <LoginForm 
-                    onLoginSuccess={this.handleLoginSuccess}
-                    />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <h2>Login</h2>
+        <LoginForm onLoginSuccess={this.handleLoginSuccess} />
+      </div>
+    );
+  }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import BackpackApiService from '../../services/backpacks-api-service'
+import BackpackApiService from "../../services/backpacks-api-service";
 import ItemContext from "../../contexts/ItemContext";
 import ValidationError from "../../ValidationError";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +13,7 @@ export default class AddBackpack extends React.Component {
       useritems: {},
       total: 0,
       isToggleOn: "",
-      touched: false,
+      touched: false
     };
   }
 
@@ -51,21 +51,21 @@ export default class AddBackpack extends React.Component {
     let oldWeight = 0;
     if (!useritems.hasOwnProperty(category)) {
       useritems[category] = {};
-    } else if(useritems[category].hasOwnProperty(item)){
+    } else if (useritems[category].hasOwnProperty(item)) {
       oldWeight = useritems[category][item].weight;
     }
-    const sumWeight = parseFloat(weight, 10)-oldWeight;
+    const sumWeight = parseFloat(weight, 10) - oldWeight;
 
     useritems[category][item] = { brand, size, weight };
-    this.setState({ useritems, total:this.state.total+sumWeight });
+    this.setState({ useritems, total: this.state.total + sumWeight });
   };
 
   handleCreateBackpack = e => {
-    e.preventDefault();
-    BackpackApiService.postBackpack(this.state)
-      .then(this.context.addBackpack(this.state))
-      .then(this.props.history.push(`/backpacks/${this.context.user_id}`))
-      // .catch()??
+    e.preventDefault(); //method to mod context
+    this.context.addBackpack(this.state);
+    BackpackApiService.postBackpack(this.state).then(
+      this.props.history.push(`/backpacks`)
+    );
   };
 
   render() {
@@ -105,45 +105,47 @@ export default class AddBackpack extends React.Component {
                       />
                       {`${category}`}
                     </h4>
-                    <section className={`category-display-${this.state.isToggleOn === category}`}>
+                    <section
+                      className={`category-display-${this.state.isToggleOn ===
+                        category}`}
+                    >
                       {items[category].map((item, key) => (
-                          <div className="item inputs" key={key}>
-                            <form
-                              onSubmit={e => this.handleItem(e, item, category)}
-                            >
-                              <input type="checkbox" name="checked" />
-                              <label htmlFor={`${item}-item`}>{item}:</label>
-                              <input
-                                className="Input"
-                                type="text"
-                                name="brand"
-                                placeholder="Brand name or model of gear"
-                                required
-                              />
-                              <input
-                                className="Input"
-                                type="text"
-                                name="size"
-                                placeholder="Size"
-                              />
-                              <input
-                                className="Input"
-                                type="text"
-                                name="weight"
-                                placeholder="Weight (lbs)"
-                                required
-                              />
-                              <input
-                                className="Save Button"
-                                type="submit"
-                                value="Save"
-                                disabled={this.validateBackpackName()}
-                              />
-                            </form>
-                          </div>
-                        ))
-                      }{" "}
-                      </section>
+                        <div className="item inputs" key={key}>
+                          <form
+                            onSubmit={e => this.handleItem(e, item, category)}
+                          >
+                            <input type="checkbox" name="checked" />
+                            <label htmlFor={`${item}-item`}>{item}:</label>
+                            <input
+                              className="Input"
+                              type="text"
+                              name="brand"
+                              placeholder="Brand name or model of gear"
+                              required
+                            />
+                            <input
+                              className="Input"
+                              type="text"
+                              name="size"
+                              placeholder="Size"
+                            />
+                            <input
+                              className="Input"
+                              type="number"
+                              name="weight"
+                              placeholder="Weight (lbs)"
+                              required
+                            />
+                            <input
+                              className="Save Button"
+                              type="submit"
+                              value="Save"
+                              disabled={this.validateBackpackName()}
+                            />
+                          </form>
+                        </div>
+                      ))}{" "}
+                    </section>
                   </div>
                 );
               })}
@@ -152,8 +154,7 @@ export default class AddBackpack extends React.Component {
           <form onSubmit={e => this.handleCreateBackpack(e)}>
             <div className="pack list">
               <div className="pack-list-row">
-                <h2>Total Weight:{" "}
-                {this.state.total.toFixed(2)} lbs</h2>
+                <h2>Total Weight: {this.state.total.toFixed(2)} lbs</h2>
               </div>
             </div>
             <input
@@ -168,4 +169,3 @@ export default class AddBackpack extends React.Component {
     );
   }
 }
-

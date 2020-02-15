@@ -12,7 +12,14 @@ export default class BackpackCollection extends React.Component {
     super(props);
     this.state = {
       backpacks: [],
-      isToggleOn: ""
+      isToggleOn: "",
+      deleteBackpack: backpackId => {
+        this.setState({
+          backpacks: this.state.backpacks.filter(
+            backpack => backpack.id !== backpackId
+          )
+        });
+      }
     };
   }
   static contextType = ItemContext;
@@ -42,12 +49,9 @@ export default class BackpackCollection extends React.Component {
   }
 
   handleDelete = (ev, id) => {
-    const { location, history } = this.props;
-    const user_name = TokenService.getUser();
-    const destination =
-      (location.state || {}).from || `/backpacks/${user_name}`;
-    BackpackApiService.deleteUserBackpack(id);
-    history.push(destination);
+    this.state.deleteBackpack(id);
+    BackpackApiService.deleteUserBackpack(id); //method in context to delete backpack
+    this.props.history.push("/backpacks");
   };
 
   handleClick = (e, name) => {
