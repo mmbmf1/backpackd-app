@@ -69,11 +69,10 @@ export default class AddBackpack extends React.Component {
   };
 
   handleCreateBackpack = e => {
-    e.preventDefault(); //method to mod context
-    this.context.addBackpack(this.state);
-    BackpackApiService.postBackpack(this.state).then(
-      this.props.history.push(`/backpacks`)
-    );
+    e.preventDefault();
+    BackpackApiService.postBackpack(this.state)
+      .then(backpack => this.context.addBackpack(backpack))
+      .then(this.props.history.push(`/backpacks`));
   };
 
   render() {

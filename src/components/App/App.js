@@ -26,8 +26,14 @@ export default class App extends React.Component {
       loggedIn: false,
       setLoggedIn: loggedIn => this.setState({ loggedIn }),
       addBackpack: backpack => {
-        console.log(backpack);
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
+      },
+      deleteBackpack: backpackId => {
+        this.setState({
+          backpacks: this.state.backpacks.filter(
+            backpack => backpack.id !== backpackId
+          )
+        });
       }
     };
   }
