@@ -94,7 +94,7 @@ export default class BackpackCollection extends React.Component {
         </section>
         <br />
         <Link className="Button" to={"/add_backpack"}>
-          Add Backpack To Collection
+          <span>Add Backpack</span>
         </Link>
       </div>
     );

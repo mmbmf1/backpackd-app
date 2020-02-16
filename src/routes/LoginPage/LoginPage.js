@@ -1,7 +1,7 @@
 import React from "react";
 import ItemsContext from "../../contexts/ItemContext";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import TokenService from "../../services/token-service";
+// import TokenService from "../../services/token-service";
 
 export default class LoginPage extends React.Component {
   static contextType = ItemsContext;
@@ -14,7 +14,7 @@ export default class LoginPage extends React.Component {
   };
 
   handleLoginSuccess = () => {
-    this.props.history.push("/backpacks");
+    this.props.history.push("/add_backpack");
   };
 
   render() {

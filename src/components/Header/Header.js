@@ -37,7 +37,10 @@ export default class Header extends React.Component {
       <nav className="Header">
         <h1>
           <Link to="/">
-            <FontAwesomeIcon icon={faHiking} /> backpackd
+            <div className="bottom">
+              <FontAwesomeIcon icon={faHiking} />
+              <span className="home link">backpackd</span>
+            </div>
           </Link>
         </h1>
         <div className="nav__link">

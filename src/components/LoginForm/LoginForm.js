@@ -39,7 +39,7 @@ export default class LoginForm extends React.Component {
       <form className="LoginForm" onSubmit={ev => this.handleSubmitJwtAuth(ev)}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="user_name">
-          <label htmlFor="LoginForm__user_name">User Name</label>
+          <label htmlFor="LoginForm__user_name">User Name:</label>
           <input
             className="Input"
             required
@@ -48,7 +48,7 @@ export default class LoginForm extends React.Component {
           ></input>
         </div>
         <div className="password">
-          <label htmlFor="LoginForm__password">Password</label>
+          <label htmlFor="LoginForm__password">Password:</label>
           <input
             className="Input"
             required
@@ -57,7 +57,10 @@ export default class LoginForm extends React.Component {
             id="LoginFrom__password"
           ></input>
         </div>
-        <input className="Button" type="submit" value="Login" />
+        {/* <input className="Button" type="submit" value="Login" /> */}
+        <button className="Button" type="submit">
+          <span>Login</span>
+        </button>
       </form>
     );
   }

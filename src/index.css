@@ -30,22 +30,17 @@ h1 {
 }
 
 .App__main {
-  height: calc(100vh - 70px);
   max-width: 600px;
-  overflow: auto;
   margin-top: 25px;
   margin-right: auto;
   margin-left: auto;
-  padding-bottom: 40px;
 }
 
 .LandingPage_wrapper {
   padding: 0 60px;
 }
 
-.section-one,
-.section-two,
-.section-three {
+.section-one {
   height: calc(100vh - 150px);
 }
 
@@ -93,14 +88,113 @@ h1 a {
   text-decoration: none;
 }
 
+.home.link {
+  vertical-align: -3px;
+  padding-left: 5px;
+}
+
 .nav__link {
   position: relative;
   top: 8px;
 }
 
 .nav__link a {
-  padding: 0 1.2rem;
+  margin-right: 5px;
+  padding: 0 0.5em;
+  vertical-align: -3px;
   text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.8em;
+  color: #7c6809;
+  border: 2px solid #314675;
+  border-radius: 4px;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button.btn {
+  width: 12rem;
+  height: auto;
+}
+
+button.btn .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #314675;
+  border-radius: 1.625rem;
+}
+button.btn .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+button.btn .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+button.btn .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+button.btn .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+button:hover .circle {
+  width: 100%;
+}
+button:hover .circle .icon.arrow {
+  background: #fff;
+  -webkit-transform: translate(1rem, 0);
+  transform: translate(1rem, 0);
+}
+button:hover .button-text {
+  color: #fff;
+}
+
+#container {
+  text-align: center;
 }
 
 label {
@@ -126,24 +220,47 @@ label {
 
 a.Button {
   display: block;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 300px;
-  text-align: center;
-  border: 1px solid #aaa;
-  background-color: #657497;
+  width: 200px;
   color: white;
-  text-decoration: none;
 }
 
 .Button {
-  border: 1px solid #aaa;
-  background-color: #657497;
-  color: white;
-  font-size: 1.1em;
   border-radius: 4px;
+  background-color: #021031;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.1em;
   padding: 8px 12px;
-  font-weight: bold;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.Button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.Button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.Button:hover span {
+  padding-right: 25px;
+}
+
+.Button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .Required {
@@ -186,10 +303,19 @@ a.Button {
   font-size: 0.8em;
 }
 
-.card:hover {
+/* .card:hover {
   transform: scale(1.05);
+  margin-bottom: 30px;
+} */
+
+.form.section {
+  max-height: 275px;
+  overflow-y: scroll;
 }
 
+.form.section::-webkit-scrollbar {
+  display: none;
+}
 .form.section,
 .pack.list {
   padding: 0 20px;
@@ -211,7 +337,12 @@ h4 {
   font-size: 0.75em;
 }
 
-.Save.Button {
+.pack.inputs {
+  height: 200px;
+}
+
+.Save.Button,
+.Delete {
   border: 1px solid #aaa;
   background-color: #657497;
   color: white;
@@ -220,12 +351,6 @@ h4 {
   padding: 8px 12px;
   font-weight: bold;
   margin-bottom: 20px;
-}
-
-.Add.Button,
-.Back.Button {
-  margin-top: 20px;
-  margin-left: 20px;
 }
 
 .pack.categories,
@@ -262,10 +387,10 @@ h4 {
   margin-top: 50px;
 }
 
-.Back.Button {
+/* .Back.Button {
   display: flex;
   width: 100px;
   margin-right: auto;
   margin-left: auto;
   justify-content: center;
-}
+} */

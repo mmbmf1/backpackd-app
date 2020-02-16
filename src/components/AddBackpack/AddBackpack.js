@@ -71,7 +71,7 @@ export default class AddBackpack extends React.Component {
   handleCreateBackpack = e => {
     e.preventDefault();
     BackpackApiService.postBackpack(this.state)
-      .then(backpack => this.context.addBackpack(backpack))
+      .then(backpack => this.context.addBackpack(backpack)) //may need to set back id in state here and then add to context after an id is returned
       .then(this.props.history.push(`/backpacks`));
   };
 
@@ -164,12 +164,19 @@ export default class AddBackpack extends React.Component {
                 <h2>Total Weight: {this.state.total.toFixed(2)} lbs</h2>
               </div>
             </div>
-            <input
+            {/* <input
               className="Add Button"
               type="submit"
               value="Done"
               disabled={this.validateBackpackName()}
-            />
+            /> */}
+            <button
+              className="Button"
+              type="submit"
+              disabled={this.validateBackpackName()}
+            >
+              <span>Done</span>
+            </button>
           </form>
         </section>
       </>

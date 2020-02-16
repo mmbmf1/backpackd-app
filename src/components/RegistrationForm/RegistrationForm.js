@@ -43,10 +43,7 @@ export default class RegistrationForm extends React.Component {
   render() {
     const { error } = this.state;
     return (
-      <form
-        className="RegistrationForm"
-        onSubmit={ev => this.handleSubmit(ev)}
-      >
+      <form className="RegistrationForm" onSubmit={ev => this.handleSubmit(ev)}>
         <div>{error && <p>{error}</p>}</div>
         <div className="first_name">
           <label htmlFor="Registration__first_name">
@@ -106,11 +103,11 @@ export default class RegistrationForm extends React.Component {
             type="password"
             required
             id="RegistrationFrom__password"
-            autoComplete='new-password'
+            autoComplete="new-password"
           ></input>
         </div>
         <button className="Button" type="submit">
-          Register
+          <span>Register</span>
         </button>
       </form>
     );

@@ -1,35 +1,61 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
-    return(
-        <div className='LandingPage_wrapper'>
-            <section className='section-one'>
-                <div className='section-one-box'>
-                    <h3>a better way to backpack</h3>
-                    <p>backpackd helps you optimize your backpack by tracking the weight of all your items</p>
-                    <Link className='Button' to={'/backpacks'}>Explore</Link>
-                    <br />
-                    <Link className='Button' to={'/add_backpack'}>Add Backpack</Link>
-                </div>
-            </section>
-            <section className='section-two'>
-                <div className='section-two-box'>
-                    <h3>Know the weight of each item in your pack</h3>
-                    <p>[<em>placeholder for screenshot of backpackitem summary</em>]</p>
-                    <p>The key to backpacking further is to optimize the weight of your backpack. backpackd provides you with a quick and simple interface that helps you quickly calculate backpack weight</p>
-                </div>
-            </section>
-            <section className='section-three'>
-                <div className='section-three-box'>
-                    <h3>Save your loadouts</h3>
-                    <p>[<em>placeholder for screenshot of scrolling backpackd collection</em>]</p>
-                    <p>Keep track of all your backpack loadouts to improve weight on future trips</p>
-                </div>
-            </section>
-            <footer>    </footer>
+  return (
+    <div className="LandingPage_wrapper">
+      <section className="section-one">
+        <div className="section-one-box">
+          <h3>a better way to backpack</h3>
+          <p>
+            backpackd helps you optimize your backpack by tracking the weight of
+            all your items
+          </p>
+          <div id="container">
+            <button className="btn">
+              <span className="circle">
+                <span className="icon arrow"></span>
+              </span>
+              <Link className="button-text" to={"/backpacks"}>
+                Explore
+              </Link>
+            </button>
+          </div>
+          <br />
         </div>
-    )
+      </section>
+      {/* <section className="section-two">
+        <div className="section-two-box">
+          <h3>Know the weight of each item in your pack</h3>
+          <p>
+            [<em>placeholder for screenshot of backpackitem summary</em>]
+          </p>
+          <p>
+            The key to backpacking further is to optimize the weight of your
+            backpack. backpackd provides you with a quick and simple interface
+            that helps you quickly calculate backpack weight
+          </p>
+        </div>
+      </section>
+      <section className="section-three">
+        <div className="section-three-box">
+          <h3>Save your loadouts</h3>
+          <p>
+            [
+            <em>
+              placeholder for screenshot of scrolling backpackd collection
+            </em>
+            ]
+          </p>
+          <p>
+            Keep track of all your backpack loadouts to improve weight on future
+            trips
+          </p>
+        </div>
+      </section> */}
+      <footer> </footer>
+    </div>
+  );
 }
 
 export default LandingPage;
