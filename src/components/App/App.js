@@ -9,6 +9,7 @@ import LoginPage from "../../routes/LoginPage/LoginPage";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
 import BackpackCollection from "../BackpackCollection/BackpackCollection";
 import AddBackpack from "../AddBackpack/AddBackpack";
+import EditBackpack from "../EditBackpack/EditBackpack";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import PrivateRoute from "../Utils/PrivateRoute";
 import TokenService from "../../services/token-service";
@@ -69,6 +70,11 @@ export default class App extends React.Component {
               exact
               path={"/add_backpack"}
               component={AddBackpack}
+            />
+            <PrivateRoute
+              exact
+              path={"/edit/:backpack_id"}
+              component={EditBackpack}
             />
             <PublicOnlyRoute exact path={"/login"} component={LoginPage} />
             <PublicOnlyRoute

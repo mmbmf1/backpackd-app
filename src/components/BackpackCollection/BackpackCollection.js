@@ -48,12 +48,14 @@ export default class BackpackCollection extends React.Component {
     }
   }
 
-  handleDelete = (ev, id) => {
-    this.state.deleteBackpack(id);
-    this.context.deleteBackpack(id);
-    BackpackApiService.deleteUserBackpack(id);
+  handleDelete = (ev, backpack_id) => {
+    this.state.deleteBackpack(backpack_id);
+    this.context.deleteBackpack(backpack_id);
+    BackpackApiService.deleteUserBackpack(backpack_id);
     this.props.history.push("/backpacks");
   };
+
+  handleEdit = (ev, id) => {};
 
   handleClick = (e, name) => {
     this.setState({
@@ -88,6 +90,7 @@ export default class BackpackCollection extends React.Component {
                 >
                   Delete
                 </button>
+                <Link to={`/edit/${backpack.id}`}>Edit Backpack</Link>
               </div>
             </div>
           ))}

@@ -20,6 +20,18 @@ const BackpackApiService = {
     );
   },
 
+  getBackpackById(backpack_id) {
+    console.log(backpack_id);
+    return fetch(`${config.API_ENDPOINT}/backpacks/edit/${backpack_id}`, {
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+
   postBackpack(backpack) {
     return fetch(`${config.API_ENDPOINT}/backpacks`, {
       method: "POST",
