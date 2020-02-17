@@ -8,18 +8,6 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Backpack from "../Backpack/Backpack";
 
 export default class EditBackpack extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     isReady: false,
-  //     // name: "",
-  //     // useritems: {},
-  //     // total: 0,
-  //     isToggleOn: "",
-  //     touched: false
-  //   };
-  // }
-
   static defaultProps = {
     history: {
       push: () => {}
@@ -30,6 +18,7 @@ export default class EditBackpack extends React.Component {
 
   state = {
     isReady: false,
+    id: "",
     name: "",
     useritems: {},
     total: 0,
@@ -43,7 +32,7 @@ export default class EditBackpack extends React.Component {
       .then(responseData => {
         this.setState({
           isReady: true,
-          // items: this.context.items,
+          items: this.context.items,
           id: responseData[0].id,
           name: responseData[0].name,
           useritems: responseData[0].useritems,
@@ -61,19 +50,20 @@ export default class EditBackpack extends React.Component {
     this.setState({ name: name, touched: true });
   }
 
-  // validateBackpackName() {
-  //   const name = this.state.name;
-  //   const backpackName = findBackpackName(
-  //     this.context.backpacks,
-  //     this.state.name
-  //   );
-  //   if (name.length === 0) {
-  //     return "A Backpack Name is required";
-  //   }
-  //   if (backpackName) {
-  //     return "Backpack name already exists";
-  //   }
-  // }
+  validateBackpackName() {
+    const name = this.state.name;
+    const backpacks = this.context.backpacks.filter(
+      backpack => backpack.id !== this.state.id
+    );
+    const backpackName = findBackpackName(backpacks, this.state.name);
+
+    if (name.length === 0) {
+      return "A Backpack Name is required";
+    }
+    if (backpackName) {
+      return "Backpack name already exists";
+    }
+  }
 
   handleClick = (e, category) => {
     this.setState({
@@ -81,39 +71,85 @@ export default class EditBackpack extends React.Component {
     });
   };
 
-  getValuesForEdit(category, item) {}
+  getBrandForEdit(category, item) {
+    const { useritems } = this.state;
+    let { items } = this.context;
+    if (!useritems.hasOwnProperty(category)) {
+      useritems[category] = { [category]: items[{ category }] };
+    }
 
-  // handleItem = (e, item, category) => {
-  //   e.preventDefault();
-  //   const brand = e.target.brand.value;
-  //   const size = e.target.size.value;
-  //   const weight = e.target.weight.value;
+    for (const [key, value] of Object.entries(useritems[category])) {
+      if (item === key) {
+        return value.brand;
+      }
+    }
+  }
 
-  //   const { useritems } = this.state;
-  //   console.log(useritems);
+  getSizeForEdit(category, item) {
+    const { useritems } = this.state;
+    let { items } = this.context;
+    if (!useritems.hasOwnProperty(category)) {
+      useritems[category] = { [category]: items[category] };
+    }
 
-  //   let oldWeight = 0;
-  //   if (!useritems.hasOwnProperty(category)) {
-  //     useritems[category] = {};
-  //   } else if (useritems[category].hasOwnProperty(item)) {
-  //     oldWeight = useritems[category][item].weight;
-  //   }
-  //   const sumWeight = parseFloat(weight, 10) - oldWeight;
+    for (const [key, value] of Object.entries(useritems[category])) {
+      if (item === key) {
+        return value.size;
+      }
+    }
+  }
 
-  //   useritems[category][item] = { brand, size, weight };
-  //   this.setState({ useritems, total: this.state.total + sumWeight });
-  // };
+  getWeightForEdit(category, item) {
+    const { useritems } = this.state;
+    let { items } = this.context;
+    if (!useritems.hasOwnProperty(category)) {
+      useritems[category] = { [category]: items[category] };
+    }
+
+    for (const [key, value] of Object.entries(useritems[category])) {
+      if (item === key) {
+        return value.weight;
+      }
+    }
+  }
+
+  handleItem = (e, item, category) => {
+    e.preventDefault();
+    const brand = e.target.brand.value;
+    const size = e.target.size.value;
+    const weight = e.target.weight.value;
+
+    const { useritems } = this.state;
+
+    let oldWeight = 0;
+
+    if (useritems.hasOwnProperty(category)) {
+      useritems[category] = { ...useritems[category] };
+    }
+    if (useritems[category].hasOwnProperty(item)) {
+      oldWeight = useritems[category][item].weight;
+    }
+
+    const sumWeight = parseFloat(weight, 10) - oldWeight;
+
+    useritems[category][item] = { brand, size, weight };
+    this.setState({
+      useritems,
+      total: parseFloat(this.state.total, 10) + sumWeight
+    });
+  };
 
   handleEditBackpack = e => {
     e.preventDefault();
-    //Backpack service to patch---
-    // BackpackApiService.postBackpack(this.state)
-    //   .then(backpack => this.context.addBackpack(backpack))
-    //   .then(this.props.history.push(`/backpacks`));
+    BackpackApiService.patchBackpack(this.state)
+      .then(backpack => this.context.updateBackpack(backpack))
+      .then(backpack => console.log(backpack))
+      .then(this.props.history.push("/backpacks"));
   };
 
   content() {
     const items = this.context.items;
+    const BackpackNameError = this.validateBackpackName();
     return (
       <>
         <header>
@@ -128,10 +164,10 @@ export default class EditBackpack extends React.Component {
                 type="text"
                 id="backpack name input"
                 name="backpack title"
-                // value={this.state.name}
-                // onChange={e => this.updateBackpackName(e.target.value)}
+                value={this.state.name}
+                onChange={e => this.updateBackpackName(e.target.value)}
               />
-              {/* <ValidationError message={BackpackNameError} /> */}
+              <ValidationError message={BackpackNameError} />
             </div>
           </form>
           <div className="form section">
@@ -154,7 +190,7 @@ export default class EditBackpack extends React.Component {
                       {items[category].map((item, key) => (
                         <div className="item inputs" key={key}>
                           <form
-                          // onSubmit={e => this.handleItem(e, item, category)}
+                            onSubmit={e => this.handleItem(e, item, category)}
                           >
                             <input type="checkbox" name="checked" />
                             <label htmlFor={`${item}-item`}>{item}:</label>
@@ -162,8 +198,7 @@ export default class EditBackpack extends React.Component {
                               className="Input"
                               type="text"
                               name="brand"
-                              // defaultValue={console.log(category, item)}
-                              defaultValue={this.getValuesForEdit(
+                              defaultValue={this.getBrandForEdit(
                                 category,
                                 item
                               )}
@@ -174,12 +209,18 @@ export default class EditBackpack extends React.Component {
                               className="Input"
                               type="text"
                               name="size"
+                              defaultValue={this.getSizeForEdit(category, item)}
                               placeholder="Size"
                             />
                             <input
                               className="Input"
                               type="number"
+                              step="any"
                               name="weight"
+                              defaultValue={this.getWeightForEdit(
+                                category,
+                                item
+                              )}
                               placeholder="Weight (lbs)"
                               required
                             />
@@ -187,7 +228,7 @@ export default class EditBackpack extends React.Component {
                               className="Save Button"
                               type="submit"
                               value="Save"
-                              // disabled={this.validateBackpackName()}
+                              disabled={this.validateBackpackName()}
                             />
                           </form>
                         </div>
@@ -198,18 +239,16 @@ export default class EditBackpack extends React.Component {
               })}
             </div>
           </div>
-          <form
-          // onSubmit={e => this.handleEditBackpack(e)}
-          >
+          <form onSubmit={e => this.handleEditBackpack(e)}>
             <div className="pack list">
               <div className="pack-list-row">
-                {/* <h2>Total Weight: {this.state.total.toFixed(2)} lbs</h2> */}
+                <h2>Total Weight: {this.state.total} lbs</h2>
               </div>
             </div>
             <button
               className="Button"
               type="submit"
-              // disabled={this.validateBackpackName()}
+              disabled={this.validateBackpackName()}
             >
               <span>Done</span>
             </button>

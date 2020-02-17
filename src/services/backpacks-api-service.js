@@ -40,6 +40,19 @@ const BackpackApiService = {
         authorization: `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(backpack)
+    }).then(res => {
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
+    });
+  },
+
+  patchBackpack(backpack) {
+    return fetch(`${config.API_ENDPOINT}/backpacks/${backpack.id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(backpack)
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
