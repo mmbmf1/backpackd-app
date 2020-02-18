@@ -1,4 +1,5 @@
 import React from "react";
+import ValidationError from "../../ValidationError";
 import AuthApiService from "../../services/auth-api-service";
 
 export default class RegistrationForm extends React.Component {
@@ -6,7 +7,9 @@ export default class RegistrationForm extends React.Component {
     onRegistratinSuccess: () => {}
   };
 
-  state = { error: null };
+  state = {
+    error: ""
+  };
 
   handleSubmit = ev => {
     ev.preventDefault();
@@ -41,10 +44,10 @@ export default class RegistrationForm extends React.Component {
   };
 
   render() {
-    const { error } = this.state;
+    const error = this.state.error;
     return (
       <form className="RegistrationForm" onSubmit={ev => this.handleSubmit(ev)}>
-        <div>{error && <p>{error}</p>}</div>
+        <ValidationError message={error} />
         <div className="first_name">
           <label htmlFor="Registration__first_name">
             First Name<span className="Required">*</span>
@@ -91,7 +94,7 @@ export default class RegistrationForm extends React.Component {
             type="text"
             required
             id="RegistrationForm__user_name"
-          ></input>
+          />
         </div>
         <div className="password">
           <label htmlFor="Registration__password">
@@ -104,7 +107,7 @@ export default class RegistrationForm extends React.Component {
             required
             id="RegistrationFrom__password"
             autoComplete="new-password"
-          ></input>
+          />
         </div>
         <button className="Button" type="submit">
           <span>Register</span>
