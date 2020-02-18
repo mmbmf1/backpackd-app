@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Lacquer&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -9,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #0e2353;
+  color: white;
 }
 
 a {
@@ -30,18 +31,14 @@ h1 {
 }
 
 .App__main {
-  max-width: 600px;
+  /* max-width: 600px; */
   margin-top: 25px;
   margin-right: auto;
   margin-left: auto;
 }
 
-.LandingPage_wrapper {
-  padding: 0 60px;
-}
-
-.section-one {
-  height: calc(100vh - 150px);
+footer {
+  background-color: #314675;
 }
 
 section {
@@ -50,25 +47,26 @@ section {
   position: relative;
 }
 
-.section-one-box,
-.section-two-box,
-.section-three-box {
+.section-one {
+  height: calc(100vh - 100px);
+  background-color: #314675;
+}
+
+.section-one-box {
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-}
-
-.section-two,
-.section-three {
-  display: none;
+  width: 100%;
+  background-color: #314675;
 }
 
 .section-one-box h3,
 .section-one-box p {
   text-transform: capitalize;
   text-align: center;
+  font-family: "Lacquer", sans-serif;
+  font-size: 4em;
 }
 
 .Header {
@@ -105,9 +103,8 @@ h1 a {
   text-decoration: none;
   text-align: center;
   font-weight: bold;
-  font-size: 0.8em;
-  color: #7c6809;
-  border: 2px solid #314675;
+  font-size: 1.2em;
+  color: #314675;
   border-radius: 4px;
 }
 
@@ -137,7 +134,7 @@ button.btn .circle {
   margin: 0;
   width: 3rem;
   height: 3rem;
-  background: #314675;
+  background: #fff;
   border-radius: 1.625rem;
 }
 button.btn .circle .icon {
@@ -146,7 +143,7 @@ button.btn .circle .icon {
   top: 0;
   bottom: 0;
   margin: auto;
-  background: #fff;
+  background: #314675;
 }
 button.btn .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -162,8 +159,8 @@ button.btn .circle .icon.arrow::before {
   right: 0.0625rem;
   width: 0.625rem;
   height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
+  border-top: 0.125rem solid #314675;
+  border-right: 0.125rem solid #314675;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
@@ -179,18 +176,19 @@ button.btn .button-text {
   font-weight: 700;
   line-height: 1.6;
   text-align: center;
+  color: #fff;
   text-transform: uppercase;
 }
 button:hover .circle {
   width: 100%;
 }
 button:hover .circle .icon.arrow {
-  background: #fff;
+  background: #314675;
   -webkit-transform: translate(1rem, 0);
   transform: translate(1rem, 0);
 }
 button:hover .button-text {
-  color: #fff;
+  color: #314675;
 }
 
 #container {
@@ -303,10 +301,10 @@ a.Button {
   font-size: 0.8em;
 }
 
-/* .card:hover {
+.card:hover {
   transform: scale(1.05);
   margin-bottom: 30px;
-} */
+}
 
 .form.section {
   max-height: 275px;
@@ -386,11 +384,3 @@ h4 {
   text-align: center;
   margin-top: 50px;
 }
-
-/* .Back.Button {
-  display: flex;
-  width: 100px;
-  margin-right: auto;
-  margin-left: auto;
-  justify-content: center;
-} */

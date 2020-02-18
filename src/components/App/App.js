@@ -99,6 +99,7 @@ export default class App extends React.Component {
             <Route component={NotFoundPage} />
           </Switch>
         </main>
+        {/* <footer className="App__footer"></footer> */}
       </ItemContext.Provider>
     );
   }
