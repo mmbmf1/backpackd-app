@@ -25,7 +25,6 @@ export default class Backpack extends React.Component {
                   <div key={key} className="category">
                     <h4>{cat}:</h4>
                     <div className="pack items">
-                      {" "}
                       <p>{item[cat].brand}</p>
                       <p>{item[cat].size}</p>
                       <p>{item[cat].weight} lbs</p>

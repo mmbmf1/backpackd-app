@@ -145,7 +145,7 @@ export default class EditBackpack extends React.Component {
     e.preventDefault();
     this.context.updateBackpack(this.state);
     BackpackApiService.patchBackpack(this.state)
-      // .then(backpack => this.context.updateBackpack(backpack))
+      .then(backpack => this.context.updateBackpack(backpack))
       .then(this.props.history.push("/backpacks"));
   };
 

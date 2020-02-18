@@ -74,10 +74,9 @@ export default class AddBackpack extends React.Component {
 
   handleCreateBackpack = e => {
     e.preventDefault();
-    this.context.addBackpack(this.state);
     BackpackApiService.postBackpack(this.state)
-      .then(backpack => this.context.addBackpack(backpack)) //may need to set back id in state here and then add to context after an id is returned
-      .then(this.props.history.push(`/backpacks`));
+      .then(backpack => this.context.addBackpack(backpack))
+      .then(this.props.history.push(`/backpacks/`));
   };
 
   render() {
