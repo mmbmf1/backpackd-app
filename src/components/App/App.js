@@ -30,10 +30,8 @@ export default class App extends React.Component {
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
       },
       deleteBackpack: backpackId => {
-        // console.log(backpackId);
         this.setState({
           backpacks: this.state.backpacks.filter(
-            // backpack => console.log(backpackId)
             backpack => backpack.id !== backpackId
           )
         });
