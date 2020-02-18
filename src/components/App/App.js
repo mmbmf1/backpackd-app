@@ -56,6 +56,8 @@ export default class App extends React.Component {
           this.setState({ backpacks: [...this.state.backpacks, backpack] });
         })
       );
+    } else {
+      this.setState({ backpacks: [] });
     }
   }
 
