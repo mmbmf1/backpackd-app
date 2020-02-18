@@ -36,13 +36,13 @@ export default class BackpackCollection extends React.Component {
     if (!TokenService.hasAuthToken()) {
       BackpackApiService.getBackpacks().then(backpacks =>
         Object.values(backpacks).forEach(backpack => {
-          this.setState({ backpacks: [...this.state.backpacks, backpack] });
+          this.setState({ backpacks: [...this.context.backpacks, backpack] });
         })
       );
     } else {
       BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
         Object.values(backpacks).forEach(backpack => {
-          this.setState({ backpacks: [...this.state.backpacks, backpack] });
+          this.setState({ backpacks: [...this.context.backpacks, backpack] });
         })
       );
     }
