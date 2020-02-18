@@ -75,7 +75,7 @@ export default class BackpackCollection extends React.Component {
                 />
                 {backpack.name}
               </h2>
-              <p>Total Weight: {backpack.total} lbs</p>
+              <p>Total Weight: {parseFloat(backpack.total).toFixed(2)} lbs</p>
               <div
                 className={`category-display-${this.state.isToggleOn ===
                   backpack.name}`}

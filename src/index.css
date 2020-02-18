@@ -1,16 +1,21 @@
-@import url("https://fonts.googleapis.com/css?family=Lacquer&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lacquer|Montserrat|Open+Sans&display=swap");
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
+  background-image: url("https://github.com/mmbmf1/backpackd-app/blob/backpack-patch/src/images/man-in-black-backpack-during-golden-hour-1230302.jpg?raw=true");
+  background-position: 65%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 a {
@@ -31,15 +36,14 @@ h1 {
 }
 
 .App__main {
-  /* max-width: 600px; */
   margin-top: 25px;
   margin-right: auto;
   margin-left: auto;
 }
 
-footer {
+/* footer {
   background-color: #314675;
-}
+} */
 
 section {
   width: 100%;
@@ -49,30 +53,28 @@ section {
 
 .section-one {
   height: calc(100vh - 100px);
-  background-color: #314675;
 }
 
 .section-one-box {
   position: absolute;
   top: 45%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  background-color: #314675;
+  transform: translate(-70%, -75%);
+  width: 60%;
 }
 
-.section-one-box h3,
-.section-one-box p {
+.section-one-box h3 {
   text-transform: capitalize;
   text-align: center;
   font-family: "Lacquer", sans-serif;
-  font-size: 4em;
+  font-size: 1.75em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #657497;
+  color: #0e2353;
 }
 
 .Header {
-  height: 40px;
   display: flex;
-  align-items: normal;
   justify-content: space-between;
   padding: 10px;
 }
@@ -88,7 +90,7 @@ h1 a {
 
 .home.link {
   vertical-align: -3px;
-  padding-left: 5px;
+  padding-left: 8px;
 }
 
 .nav__link {
@@ -103,9 +105,8 @@ h1 a {
   text-decoration: none;
   text-align: center;
   font-weight: bold;
-  font-size: 1.2em;
-  color: #314675;
-  border-radius: 4px;
+  font-size: 1.3em;
+  color: #0e2353;
 }
 
 button {
@@ -119,6 +120,7 @@ button {
   background: transparent;
   padding: 0;
   font-size: inherit;
+  font-weight: inherit;
   font-family: inherit;
 }
 
@@ -134,7 +136,7 @@ button.btn .circle {
   margin: 0;
   width: 3rem;
   height: 3rem;
-  background: #fff;
+  background: #0e2353;
   border-radius: 1.625rem;
 }
 button.btn .circle .icon {
@@ -143,7 +145,7 @@ button.btn .circle .icon {
   top: 0;
   bottom: 0;
   margin: auto;
-  background: #314675;
+  background: #fff;
 }
 button.btn .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -159,8 +161,8 @@ button.btn .circle .icon.arrow::before {
   right: 0.0625rem;
   width: 0.625rem;
   height: 0.625rem;
-  border-top: 0.125rem solid #314675;
-  border-right: 0.125rem solid #314675;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
@@ -173,22 +175,22 @@ button.btn .button-text {
   bottom: 0;
   padding: 0.75rem 0;
   margin: 0 0 0 1.85rem;
-  font-weight: 700;
+  font-weight: inherit;
   line-height: 1.6;
   text-align: center;
-  color: #fff;
+  color: #0e2353;
   text-transform: uppercase;
 }
 button:hover .circle {
   width: 100%;
 }
 button:hover .circle .icon.arrow {
-  background: #314675;
+  background: #fff;
   -webkit-transform: translate(1rem, 0);
   transform: translate(1rem, 0);
 }
 button:hover .button-text {
-  color: #314675;
+  color: #fff;
 }
 
 #container {
@@ -383,4 +385,26 @@ h4 {
 .total.weight {
   text-align: center;
   margin-top: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav__link a {
+    margin-right: 5px;
+    padding: 0 0.5em;
+    vertical-align: -3px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8em;
+    color: #0e2353;
+  }
+  .section-one-box h3 {
+    font-size: 2.25em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .section-one-box h3 {
+    font-size: 2.75em;
+  }
 }
