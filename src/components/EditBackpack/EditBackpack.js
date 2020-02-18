@@ -5,7 +5,7 @@ import ValidationError from "../../ValidationError";
 import { findBackpackName } from "../../backpack-helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import Backpack from "../Backpack/Backpack";
+// import Backpack from "../Backpack/Backpack";
 
 export default class EditBackpack extends React.Component {
   static defaultProps = {
@@ -55,7 +55,9 @@ export default class EditBackpack extends React.Component {
     const backpacks = this.context.backpacks.filter(
       backpack => backpack.id !== this.state.id
     );
-    const backpackName = findBackpackName(backpacks, this.state.name);
+    const backpackName = backpacks
+      ? findBackpackName(backpacks, this.state.name)
+      : [];
 
     if (name.length === 0) {
       return "A Backpack Name is required";
@@ -141,9 +143,9 @@ export default class EditBackpack extends React.Component {
 
   handleEditBackpack = e => {
     e.preventDefault();
+    this.context.updateBackpack(this.state);
     BackpackApiService.patchBackpack(this.state)
-      .then(backpack => this.context.updateBackpack(backpack))
-      .then(backpack => console.log(backpack))
+      // .then(backpack => this.context.updateBackpack(backpack))
       .then(this.props.history.push("/backpacks"));
   };
 

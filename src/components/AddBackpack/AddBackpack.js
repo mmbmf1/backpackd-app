@@ -1,3 +1,4 @@
+import uuid from "react-uuid";
 import React from "react";
 import BackpackApiService from "../../services/backpacks-api-service";
 import ItemContext from "../../contexts/ItemContext";
@@ -10,6 +11,7 @@ export default class AddBackpack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // id: uuid(),
       name: "",
       useritems: {},
       total: 0,
@@ -32,10 +34,13 @@ export default class AddBackpack extends React.Component {
 
   validateBackpackName() {
     const name = this.state.name;
-    const backpackName = findBackpackName(
-      this.context.backpacks,
-      this.state.name
+    const backpacks = this.context.backpacks.filter(
+      backpack => backpack.id !== this.state.id
     );
+    const backpackName = backpacks
+      ? findBackpackName(backpacks, this.state.name)
+      : [];
+
     if (name.length === 0) {
       return "A Backpack Name is required";
     }
@@ -43,6 +48,7 @@ export default class AddBackpack extends React.Component {
       return "Backpack name already exists";
     }
   }
+
   handleClick = (e, category) => {
     this.setState({
       isToggleOn: this.state.isToggleOn === category ? "" : category
@@ -70,9 +76,9 @@ export default class AddBackpack extends React.Component {
 
   handleCreateBackpack = e => {
     e.preventDefault();
-    this.context.addBackpack(this.state);
+    // this.context.addBackpack(this.state);
     BackpackApiService.postBackpack(this.state)
-      // .then(backpack => this.context.addBackpack(backpack)) //may need to set back id in state here and then add to context after an id is returned
+      .then(backpack => this.context.addBackpack(backpack)) //may need to set back id in state here and then add to context after an id is returned
       .then(this.props.history.push(`/backpacks`));
   };
 
