@@ -40,9 +40,9 @@ const BackpackApiService = {
         authorization: `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(backpack)
-    }).then(res => {
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
-    });
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   },
 
   patchBackpack(backpack) {
