@@ -21,7 +21,7 @@ const BackpackApiService = {
   },
 
   getBackpackById(backpack_id) {
-    console.log(backpack_id);
+    // console.log(backpack_id);
     return fetch(`${config.API_ENDPOINT}/backpacks/edit/${backpack_id}`, {
       headers: {
         "content-type": "application/json",

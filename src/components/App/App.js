@@ -4,7 +4,7 @@ import items from "../../items";
 import ItemContext from "../../contexts/ItemContext";
 import LandingPage from "../LandingPage/LandingPage";
 import Header from "../Header/Header";
-import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import LoginPage from "../../routes/LoginPage/LoginPage";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
 import BackpackCollection from "../BackpackCollection/BackpackCollection";
