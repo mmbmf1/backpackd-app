@@ -17,13 +17,13 @@ export default class EditBackpack extends React.Component {
   static contextType = ItemContext;
 
   state = {
-    isReady: false,
-    id: "",
-    name: "",
-    useritems: {},
-    total: 0,
-    isToggleOn: "",
-    touched: false
+    isReady: false
+    // id: "",
+    // name: "",
+    // useritems: {},
+    // total: 0,
+    // isToggleOn: "",
+    // touched: false
   };
 
   componentDidMount() {
@@ -52,6 +52,7 @@ export default class EditBackpack extends React.Component {
 
   validateBackpackName() {
     const name = this.state.name;
+    console.log(this.context.backpacks);
     const backpacks = this.context.backpacks.filter(
       backpack => backpack.id !== this.state.id
     );

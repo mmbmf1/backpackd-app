@@ -52,7 +52,7 @@ export default class BackpackCollection extends React.Component {
     this.context.deleteBackpack(backpack_id);
     this.state.deleteBackpack(backpack_id);
     BackpackApiService.deleteUserBackpack(backpack_id);
-    this.props.history.push("/backpacks");
+    this.props.history.push("/");
   };
 
   handleClick = (e, name) => {
