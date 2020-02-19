@@ -27,7 +27,7 @@ export default class LoginPage extends React.Component {
         <div className="Register__link">
           <p>Don't have an account?</p>
           <Link className="r_link" to={"/register"}>
-            Register Here
+            Sign up now
           </Link>
         </div>
       </div>

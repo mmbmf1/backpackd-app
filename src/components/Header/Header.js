@@ -33,6 +33,7 @@ export default class Header extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <nav className="Header">
         <h1>
@@ -46,8 +47,7 @@ export default class Header extends React.Component {
         <div className="nav__link">
           {this.context.loggedIn
             ? this.renderLogoutLink()
-            : //this.renderLoginLink()}
-              ""}
+            : this.renderLoginLink()}
         </div>
       </nav>
     );

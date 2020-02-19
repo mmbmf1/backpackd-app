@@ -13,7 +13,7 @@ import EditBackpack from "../EditBackpack/EditBackpack";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import PrivateRoute from "../Utils/PrivateRoute";
 import TokenService from "../../services/token-service";
-import BackpackApiService from "../../services/backpacks-api-service";
+// import BackpackApiService from "../../services/backpacks-api-service";
 
 export default class App extends React.Component {
   static contextType = ItemContext;

@@ -207,12 +207,22 @@ button:hover .button-text {
   z-index: -1;
 }
 
+.registration_background {
+  position: absolute;
+  width: 215px;
+  height: 470px;
+  border-radius: 10px;
+  background-color: #021031;
+  opacity: 0.2;
+  z-index: -1;
+}
+
 .Login__main {
   position: relative;
   top: 50%;
   left: 50%;
   margin-left: -150px;
-  margin-top: 17.5vh;
+  margin-top: 24vh;
   max-width: 250px;
 }
 
@@ -258,7 +268,6 @@ label {
   margin-bottom: 5px;
   font-size: 0.9em;
   color: #021031;
-  /* color: white; */
 }
 
 a.r_link {
@@ -310,6 +319,29 @@ a.Button {
 .Button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.Registration__main {
+  position: relative;
+  top: 2vh;
+  left: 50%;
+  width: 220px;
+  margin-left: -150px;
+  margin-top: 6vh;
+  max-width: 250px;
+  font-size: 0.8em;
+}
+
+.Registration__main h2 {
+  background-color: #021031;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 215px;
+  height: 70px;
+  padding-left: 20px;
+  padding-top: 10px;
+  /* margin-bottom: 40px; */
+  color: white;
 }
 
 .Required {
@@ -453,7 +485,7 @@ h4 {
 
   .login_background {
     /* position: absolute; */
-    width: 400px;
+    width: 350px;
     /* height: 335px;
     border-radius: 10px;
     background-color: #021031;
@@ -461,10 +493,20 @@ h4 {
     z-index: -1; */
   }
 
+  .registration_background {
+    /* position: absolute; */
+    width: 350px;
+    /* height: 470px;
+    border-radius: 10px;
+    background-color: #021031;
+    opacity: 0.2;
+    z-index: -1; */
+  }
+
   .Login__main {
-    /* position: relative;
-    left: 45%; */
-    margin-left: -290px;
+    /* position: relative; */
+    left: 30%;
+    /* margin-left: -290px; */
     margin-top: 24vh;
     /* max-width: 250px; */
   }
@@ -473,7 +515,7 @@ h4 {
     /* background-color: #021031;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px; */
-    width: 400px;
+    width: 350px;
     /* height: 50px;
     padding-left: 20px;
     padding-top: 10px;
@@ -490,7 +532,27 @@ h4 {
     font-size: 1.2em;
     color: #021031;
   } */
+  .Registration__main {
+    position: relative;
+    /* top: 50%; */
+    left: 30%;
+    /* margin-left: -150px; */
+    margin-top: 15vh;
+    /* width: 250px; */
+    font-size: 0.8em;
+  }
 
+  .Registration__main h2 {
+    /* background-color: #021031;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    width: 350px;
+    /* height: 70px;
+    padding-left: 20px;
+    padding-top: 10px; */
+    /* margin-bottom: 40px; */
+    /* color: white; */
+  }
   .Input,
   .Title {
     /* display: block; */
@@ -526,7 +588,17 @@ h4 {
 
   .login_background {
     /* position: absolute; */
-    width: 600px;
+    width: 500px;
+    /* height: 335px; */
+    /* border-radius: 10px;
+    background-color: #021031;
+    opacity: 0.2;
+    z-index: -1; */
+  }
+
+  .registration_background {
+    /* position: absolute; */
+    width: 500px;
     /* height: 335px; */
     /* border-radius: 10px;
     background-color: #021031;
@@ -535,10 +607,11 @@ h4 {
   }
 
   .Login__main {
-    /* position: relative;
-    left: 45%; */
-    margin-left: -450px;
-    margin-top: 20vh;
+    position: relative;
+    left: 25%;
+    /* top: 25%; */
+    /* margin-left: -450px; */
+    margin-top: 24vh;
     /* max-width: 250px; */
   }
 
@@ -546,11 +619,33 @@ h4 {
     /* background-color: #021031;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px; */
-    width: 600px;
+    width: 500px;
     /* height: 50px;
     padding-left: 20px;
     padding-top: 10px;
     color: white; */
+  }
+
+  .Registration__main {
+    /* position: relative;
+    top: 10vh;
+    left: 30%; */
+    margin-left: -150px;
+    /* margin-top: 6vh; */
+    /* width: 250px; */
+    font-size: 0.8em;
+  }
+
+  .Registration__main h2 {
+    /* background-color: #021031;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    width: 500px;
+    /* height: 70px;
+    padding-left: 20px;
+    padding-top: 10px; */
+    /* margin-bottom: 40px; */
+    /* color: white; */
   }
 
   .Input,

@@ -9,14 +9,17 @@ export default class RegistrationPage extends React.Component {
   };
 
   handleRegistrationSuccess = () => {
-    const { location, history } = this.props
-    const destination = (location.state || {}).from || '/login'
-    history.push(destination)}
+    const { location, history } = this.props;
+    const destination = (location.state || {}).from || "/login";
+    history.push(destination);
+  };
 
   render() {
     return (
-      <div>
-        <h2>Register</h2>
+      <div className="Registration__main">
+        <div className="registration_background"></div>
+
+        <h2>Create a New Account</h2>
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />
