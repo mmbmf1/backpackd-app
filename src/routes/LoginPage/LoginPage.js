@@ -20,15 +20,14 @@ export default class LoginPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Login__main">
+        <div className="login_background"></div>
         <h2>Login</h2>
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
-        <p>
-          Don't have an account?
-          <span>
-            <Link to={"/register"}>Register Here</Link>
-          </span>
-        </p>
+        <div className="Register__link">
+          <p>Don't have an account?</p>
+          <Link to={"/register"}>Register Here</Link>
+        </div>
       </div>
     );
   }

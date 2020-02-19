@@ -1,18 +1,19 @@
-@import url("https://fonts.googleapis.com/css?family=Lacquer|Montserrat|Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900|Raleway:900&display=swap");
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  /* font-family: "Open Sans", sans-serif; */
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
   font-weight: bolder;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
   background-image: url("https://github.com/mmbmf1/backpackd-app/blob/backpack-patch/src/images/man-in-black-backpack-during-golden-hour-1230302.jpg?raw=true");
-  background-position: 65%;
+  background-position: 60% center;
+  /* background-position: center center; */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -66,10 +67,9 @@ section {
 .section-one-box h3 {
   text-transform: capitalize;
   text-align: center;
-  font-family: "Lacquer", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.75em;
   font-weight: bold;
-  text-shadow: 2px 2px 4px #657497;
   color: #0e2353;
 }
 
@@ -197,13 +197,39 @@ button:hover .button-text {
   text-align: center;
 }
 
-label {
-  font-size: 1.2em;
+.login_background {
+  position: absolute;
+  width: 280px;
+  height: 325px;
+  border-radius: 10px;
+  background-color: #021031;
+  opacity: 0.2;
+}
+
+.Login__main {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -140px;
+  margin-top: 10vh;
+  max-width: 250px;
+}
+
+.Login__main h2 {
+  margin-left: 20px;
+  padding-top: 10px;
+  color: #021031;
 }
 
 .LoginForm,
 .RegistrationForm {
+  max-width: 250px;
   margin: 20px 20px 0 20px;
+}
+
+label {
+  font-size: 1.2em;
+  color: #021031;
 }
 
 .Input,
@@ -214,8 +240,24 @@ label {
   margin-bottom: 10px;
   padding: 10px;
   text-align: left;
-  width: 100%;
+  /* width: 100%; */
   border-radius: 4px;
+}
+
+.Register__link {
+  margin-left: 20px;
+}
+
+.Register__link p {
+  margin-bottom: 5px;
+  color: #021031;
+  /* color: white; */
+}
+
+.Register__link a {
+  color: white;
+  font-weight: lighter;
+  text-decoration: underline;
 }
 
 a.Button {
