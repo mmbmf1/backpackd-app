@@ -26,7 +26,9 @@ export default class LoginPage extends React.Component {
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
         <div className="Register__link">
           <p>Don't have an account?</p>
-          <Link to={"/register"}>Register Here</Link>
+          <Link className="r_link" to={"/register"}>
+            Register Here
+          </Link>
         </div>
       </div>
     );

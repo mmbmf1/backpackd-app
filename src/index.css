@@ -200,10 +200,11 @@ button:hover .button-text {
 .login_background {
   position: absolute;
   width: 280px;
-  height: 325px;
+  height: 335px;
   border-radius: 10px;
   background-color: #021031;
   opacity: 0.2;
+  z-index: -1;
 }
 
 .Login__main {
@@ -239,13 +240,12 @@ label {
 
 .Input,
 .Title {
-  border: 1px solid #ddd;
   display: block;
-  font-size: 1.1em;
   margin-bottom: 10px;
   padding: 10px;
+  font-size: 1.1em;
   text-align: left;
-  /* width: 100%; */
+  border: 1px solid #ddd;
   border-radius: 4px;
 }
 
@@ -259,10 +259,9 @@ label {
   /* color: white; */
 }
 
-.Register__link a {
+a.r_link {
   color: white;
-  font-weight: lighter;
-  text-decoration: underline;
+  font-weight: normal;
 }
 
 a.Button {
@@ -448,10 +447,118 @@ h4 {
   .section-one-box h3 {
     font-size: 2.25em;
   }
+
+  .login_background {
+    /* position: absolute; */
+    width: 400px;
+    /* height: 335px;
+    border-radius: 10px;
+    background-color: #021031;
+    opacity: 0.2;
+    z-index: -1; */
+  }
+
+  .Login__main {
+    /* position: relative;
+    left: 45%; */
+    margin-left: -290px;
+    margin-top: 24vh;
+    /* max-width: 250px; */
+  }
+
+  .Login__main h2 {
+    /* background-color: #021031;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    width: 400px;
+    /* height: 50px;
+    padding-left: 20px;
+    padding-top: 10px;
+    color: white; */
+  }
+
+  /* .LoginForm,
+  .RegistrationForm {
+    max-width: 250px;
+    margin: 20px 20px 0 20px;
+  } */
+
+  /* label {
+    font-size: 1.2em;
+    color: #021031;
+  } */
+
+  .Input,
+  .Title {
+    /* display: block; */
+    width: 300px;
+    /* margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1.1em;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 4px; */
+  }
+
+  /* .Register__link {
+    margin-left: 20px;
+  } */
+
+  /* .Register__link p {
+    margin-bottom: 5px;
+    color: #021031; */
+  /* color: white; */
+  /* } */
+
+  /* a.r_link {
+    color: white;
+    font-weight: normal;
+  } */
 }
 
 @media screen and (min-width: 1024px) {
   .section-one-box h3 {
     font-size: 2.75em;
+  }
+
+  .login_background {
+    /* position: absolute; */
+    width: 600px;
+    /* height: 335px; */
+    /* border-radius: 10px;
+    background-color: #021031;
+    opacity: 0.2;
+    z-index: -1; */
+  }
+
+  .Login__main {
+    /* position: relative;
+    left: 45%; */
+    margin-left: -450px;
+    margin-top: 20vh;
+    /* max-width: 250px; */
+  }
+
+  .Login__main h2 {
+    /* background-color: #021031;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    width: 600px;
+    /* height: 50px;
+    padding-left: 20px;
+    padding-top: 10px;
+    color: white; */
+  }
+
+  .Input,
+  .Title {
+    /* display: block; */
+    width: 450px;
+    /* margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1.1em;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 4px; */
   }
 }
