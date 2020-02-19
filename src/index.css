@@ -200,7 +200,7 @@ button:hover .button-text {
 .login_background {
   position: absolute;
   width: 215px;
-  height: 335px;
+  height: 315px;
   border-radius: 10px;
   background-color: #021031;
   opacity: 0.2;
@@ -229,8 +229,8 @@ button:hover .button-text {
 
 .LoginForm,
 .RegistrationForm {
-  max-width: 250px;
-  margin: 15px 15px 0 15px;
+  max-width: 200px;
+  margin: 15px 15px 0 20px;
 }
 
 label {
@@ -241,6 +241,7 @@ label {
 .Input,
 .Title {
   display: block;
+  width: 175px;
   margin-bottom: 10px;
   padding: 10px;
   text-align: left;
@@ -253,12 +254,15 @@ label {
 }
 
 .Register__link p {
+  width: 175px;
   margin-bottom: 5px;
+  font-size: 0.9em;
   color: #021031;
   /* color: white; */
 }
 
 a.r_link {
+  font-size: 0.9em;
   color: white;
   font-weight: normal;
 }
@@ -270,7 +274,7 @@ a.Button {
 }
 
 .Button {
-  width: 150px;
+  width: 175px;
   margin-left: 0;
   padding: 8px 12px;
   border: none;
