@@ -32,6 +32,7 @@ export default class BackpackCollection extends React.Component {
   };
 
   componentDidMount() {
+    console.log("mounted");
     const user_name = TokenService.getUser();
     if (!TokenService.hasAuthToken()) {
       BackpackApiService.getBackpacks().then(backpacks =>
@@ -40,11 +41,16 @@ export default class BackpackCollection extends React.Component {
         })
       );
     } else {
-      BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
-        Object.values(backpacks).forEach(backpack => {
-          this.setState({ backpacks: [...this.state.backpacks, backpack] });
-        })
-      );
+      BackpackApiService.getUserBackpacks(user_name)
+        // .then(backpacks =>
+        //   console.log(backpacks)
+        // )
+        .then(backpacks => this.context.setBackpacks(backpacks));
+      // .then(backpacks =>
+      //   Object.values(backpacks).forEach(backpack => {
+      //     this.setState({ backpacks: [...this.state.backpacks, backpack] });
+      //   })
+      // );
     }
   }
 
@@ -62,7 +68,7 @@ export default class BackpackCollection extends React.Component {
   };
 
   render() {
-    const backpacks = this.state.backpacks;
+    const backpacks = this.context.backpacks;
     return (
       <div className="backpack-container">
         <section className="cards">

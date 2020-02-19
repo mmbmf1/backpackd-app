@@ -26,6 +26,7 @@ export default class App extends React.Component {
       backpacks: [],
       loggedIn: false,
       setLoggedIn: loggedIn => this.setState({ loggedIn }),
+      setBackpacks: backpacks => this.setState({ backpacks }),
       addBackpack: backpack => {
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
       },
@@ -48,17 +49,21 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    const user_name = TokenService.getUser();
+    // const user_name = TokenService.getUser();
     this.setState({ loggedIn: TokenService.hasAuthToken() });
-    if (TokenService.hasAuthToken()) {
-      BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
-        Object.values(backpacks).forEach(backpack => {
-          this.setState({ backpacks: [...this.state.backpacks, backpack] });
-        })
-      );
-    } else {
-      this.setState({ backpacks: [] });
-    }
+    // if (!TokenService.hasAuthToken()) {
+    //   BackpackApiService.getBackpacks().then(backpacks =>
+    //     Object.values(backpacks).forEach(backpack => {
+    //       this.setState({ backpacks: [...this.state.backpacks, backpack] });
+    //     })
+    //   );
+    // } else {
+    //   BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
+    //     Object.values(backpacks).forEach(backpack => {
+    //       this.setState({ backpacks: [...this.state.backpacks, backpack] });
+    //     })
+    //   );
+    // }
   }
 
   render() {

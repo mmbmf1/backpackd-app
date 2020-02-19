@@ -2,6 +2,7 @@ import React from "react";
 import BackpackApiService from "../../services/backpacks-api-service";
 import ItemContext from "../../contexts/ItemContext";
 import ValidationError from "../../ValidationError";
+import TokenService from "../../services/token-service";
 import { findBackpackName } from "../../backpack-helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -28,6 +29,10 @@ export default class EditBackpack extends React.Component {
 
   componentDidMount() {
     const backpackId = this.props.match.params.backpack_id;
+    const user_name = TokenService.getUser();
+    BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
+      this.context.setBackpacks(backpacks)
+    );
     BackpackApiService.getBackpackById(backpackId)
       .then(responseData => {
         this.setState({
@@ -52,7 +57,7 @@ export default class EditBackpack extends React.Component {
 
   validateBackpackName() {
     const name = this.state.name;
-    console.log(this.context.backpacks);
+    // console.log(this.context.backpacks);
     const backpacks = this.context.backpacks.filter(
       backpack => backpack.id !== this.state.id
     );
@@ -144,8 +149,12 @@ export default class EditBackpack extends React.Component {
 
   handleEditBackpack = e => {
     e.preventDefault();
-    this.context.updateBackpack(this.state);
+    // this.context.updateBackpack(this.state);
     BackpackApiService.patchBackpack(this.state)
+
+      // .then(backpack =>
+      //   console.log(backpack)
+      // );
       .then(backpack => this.context.updateBackpack(backpack))
       .then(this.props.history.push("/backpacks"));
   };

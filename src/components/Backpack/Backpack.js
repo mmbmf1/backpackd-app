@@ -6,7 +6,7 @@ export default class Backpack extends React.Component {
   static contextType = ItemContext;
 
   render() {
-    const backpacks = this.props.backpacks;
+    const backpacks = this.context.backpacks;
     const backpack_id = this.props.id;
     const backpack = findBackpack(backpacks, backpack_id);
     const items = backpack ? Object.values(backpack.useritems) : [];
