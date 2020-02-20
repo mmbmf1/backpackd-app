@@ -156,20 +156,25 @@ export default class AddBackpack extends React.Component {
               })}
             </div>
           </div>
-          <form onSubmit={e => this.handleCreateBackpack(e)}>
+          <form
+            className="bp_form"
+            onSubmit={e => this.handleCreateBackpack(e)}
+          >
             <div className="total_row">
               <h2>
-                <FontAwesomeIcon icon={faDumbbell} />
-                {this.state.total.toFixed(2)} lbs
+                <FontAwesomeIcon icon={faDumbbell} />{" "}
               </h2>
+              <h2>{this.state.total.toFixed(2)} lbs</h2>
             </div>
-            <button
-              className="Done"
-              type="submit"
-              disabled={this.validateBackpackName()}
-            >
-              <span>Done</span>
-            </button>
+            <div className="done_btn_container">
+              <button
+                className="Done"
+                type="submit"
+                disabled={this.validateBackpackName()}
+              >
+                <span>Done</span>
+              </button>
+            </div>
           </form>
         </section>
       </>

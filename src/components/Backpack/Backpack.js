@@ -28,6 +28,7 @@ export default class Backpack extends React.Component {
                       {parseFloat(item[cat].weight).toFixed(2)} lbs
                     </p>
                     {/* <div className="pack items"> */}
+                    <p className="category">{cat}</p>
                     <p className="brand">{item[cat].brand}</p>
                     {/* <p className="size">{item[cat].size}</p> */}
                     {/* </div> */}

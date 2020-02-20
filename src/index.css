@@ -37,11 +37,7 @@ a {
   margin-right: 5px;
   padding: 0 0.5em;
   vertical-align: -3px;
-  /* text-decoration: none;
-  text-align: center;
-  font-weight: bold; */
   font-size: 1.1em;
-  /* color: #0e2353; */
 }
 
 .App__main {
@@ -76,7 +72,6 @@ a {
 
 .Header h1 {
   margin: 0;
-  /* position: relative; */
 }
 
 h1 a {
@@ -189,14 +184,13 @@ button:hover .button-text {
   margin-left: -150px;
   margin-top: -240px;
   width: 300px;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .Login__main h2 {
   background-color: #021031;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  /* width: 215px; */
   height: 60px;
   padding-left: 20px;
   padding-top: 10px;
@@ -220,7 +214,8 @@ label {
 .login_input {
   display: block;
   width: 260px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 10px;
   text-align: left;
   border: 1px solid #ddd;
@@ -231,6 +226,7 @@ label {
   display: flex;
   justify-content: center;
   width: 260px;
+  margin-top: 50px;
 }
 
 .Login {
@@ -246,16 +242,6 @@ label {
 
 .Login span {
   font-size: smaller;
-}
-
-.Title {
-  display: block;
-  width: 175px;
-  margin-bottom: 10px;
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ddd;
-  border-radius: 4px;
 }
 
 .Register__link {
@@ -323,8 +309,8 @@ a.Button {
 .registration_background {
   position: absolute;
   top: 17px;
-  width: 215px;
-  height: 470px;
+  width: 300px;
+  height: 500px;
   border-radius: 10px;
   background-color: #021031;
   opacity: 0.2;
@@ -335,9 +321,9 @@ a.Button {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -105px;
-  margin-top: -220px;
-  max-width: 250px;
+  margin-left: -150px;
+  margin-top: -240px;
+  width: 300;
   font-size: 0.8em;
 }
 
@@ -345,8 +331,8 @@ a.Button {
   background-color: #021031;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  width: 215px;
-  height: 70px;
+  width: 300px;
+  height: 50px;
   padding-left: 20px;
   padding-top: 10px;
   font-size: 1.6em;
@@ -363,10 +349,9 @@ a.Button {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-top: 10px;
-  margin-left: -125px;
-  margin-top: -250px;
-  height: 70vh;
+  margin-left: -150px;
+  margin-top: -260px;
+  width: 300px;
 }
 
 .backpack-container a.Button {
@@ -376,7 +361,7 @@ a.Button {
 }
 
 .cards {
-  max-height: 70vh;
+  max-height: 450px;
   margin-top: 20px;
   overflow-y: scroll;
 }
@@ -386,11 +371,13 @@ a.Button {
 }
 
 .card {
-  width: 250px;
+  width: 300px;
   margin-top: 10px;
+  padding-bottom: 10px;
   font-size: 0.8em;
   border-radius: 10px;
   background-color: #021031;
+  opacity: 0.8;
 }
 
 .card h2 {
@@ -407,8 +394,9 @@ a.Button {
   justify-content: space-between;
   width: 225px;
   padding-left: 20px;
-  padding-right: 20px;
-  font-size: 1.2em;
+  padding-right: 45px;
+  padding-bottom: 10px;
+  font-size: 1.4em;
   color: white;
 }
 
@@ -419,12 +407,6 @@ a.Button {
 .card p {
   margin-bottom: 0;
   margin-top: 0;
-}
-
-.backpack_item_list {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
 }
 
 .card:hover {
@@ -451,6 +433,15 @@ h4 {
   margin-top: 10px;
   margin-left: 4px;
 }
+.Title {
+  display: block;
+  width: 175px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
 
 .error {
   margin-left: 5px;
@@ -462,21 +453,6 @@ h4 {
   padding-left: 25px;
 }
 
-.Save {
-  margin-bottom: 20px;
-  margin-left: 25px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: 0;
-  color: white;
-  background-color: #021031;
-  font-size: 0.75em;
-  font-weight: bold;
-  font-family: inherit;
-  outline: none;
-  text-decoration: none;
-}
-
 .backpack_item_list {
   margin-left: 10px;
 }
@@ -484,14 +460,28 @@ h4 {
 .items {
   display: table;
   margin-right: 5px;
+  margin-left: 5px;
   margin-bottom: 5px;
+  padding: 5px;
   font-size: 0.8em;
 }
 
 .items p.weight {
   display: table-cell;
-  width: 45px;
+  padding-right: 10px;
 }
+
+.items p.category {
+  display: table-cell;
+  padding-right: 10px;
+}
+
+.items p.brand {
+  display: table-cell;
+  padding-right: 10px;
+  justify-content: left;
+}
+
 .category-display-true {
   display: block;
   height: 100%;
@@ -515,16 +505,15 @@ h4 {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 100%;
+  width: 325px;
   margin-left: -170px;
-  margin-top: -225px;
-  padding: 10px;
+  margin-top: -230px;
   border-radius: 10px;
 }
 
 .addbackpack_title,
 .editbackpack_title {
-  width: 275px;
+  width: 300px;
   margin-left: 20px;
   padding: 20px;
   border-top-left-radius: 10px;
@@ -536,7 +525,7 @@ h4 {
 .editbackpack_background {
   position: absolute;
   top: 17px;
-  width: 275px;
+  width: 300px;
   height: 375px;
   border-radius: 10px;
   background-color: #021031;
@@ -572,12 +561,38 @@ h4 {
   border-radius: 4px;
 }
 
-.total_row h2 {
-  margin-left: 65px;
+.Save {
+  margin-bottom: 20px;
+  margin-left: 25px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 0;
+  color: white;
+  background-color: #021031;
+  font-size: 0.75em;
+  font-weight: bold;
+  font-family: inherit;
+  outline: none;
+  text-decoration: none;
 }
 
-.svg-inline--fa.fa-dumbbell.fa-w-20 {
-  margin-left: 20px;
+.total_row {
+  display: flex;
+  justify-content: center;
+}
+
+.total_row h2 {
+  margin-right: 10px;
+}
+
+.done_btn_container {
+  display: flex;
+  justify-content: center;
+  width: 260px;
+}
+
+.bp_form {
+  margin: unset;
 }
 
 .Done {
@@ -605,45 +620,45 @@ h4 {
   }
 
   .login_background {
-    width: 350px;
-  }
-
-  .registration_background {
-    width: 350px;
+    width: 600px;
   }
 
   .Login__main {
-    position: relative;
-    left: 30%;
-    margin-top: 24vh;
+    margin-left: -325px;
+    width: 600px;
   }
 
-  .Login__main h2 {
-    width: 350px;
+  .login_input {
+    width: 550px;
+  }
+
+  .btn_container {
+    width: 550px;
+  }
+
+  .registration_background {
+    width: 600px;
   }
 
   .Registration__main {
-    position: relative;
-    left: 30%;
-    margin-top: 15vh;
-    font-size: 0.8em;
+    margin-left: -325px;
   }
 
   .Registration__main h2 {
-    width: 350px;
+    width: 600px;
   }
 
-  .addbackpack_input,
-  .Title {
+  .addbackpack_input {
     width: 300px;
   }
 
   .backpack-container {
     margin-left: -275px;
+    width: 500px;
   }
 
   .card {
-    width: 400px;
+    width: 500px;
   }
 
   .card_button {
@@ -656,75 +671,72 @@ h4 {
     font-size: 1.2em;
   }
 
-  .backpack_item_list {
-    position: relative;
-    overflow: hidden;
-    height: 100%;
+  .card_options {
+    padding-right: 10px;
   }
 
-  .items p.weight {
-    display: table-cell;
-    width: 60px;
+  .Title {
+    width: 300px;
   }
 
-  .card:hover {
-    background-color: #021031;
-  }
-
-  .add_button {
-    margin-top: 30px;
-  }
-
-  .AddBackpack__main {
+  .AddBackpack__main,
+  .EditBackpack__main {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 100%;
-    margin-left: -170px;
-    margin-top: -225px;
-    padding: 10px;
+    width: 500px;
+    margin-left: -350px;
+    margin-top: -250px;
     border-radius: 10px;
   }
 
-  .addbackpack_title {
-    width: 350px;
+  .addbackpack_title,
+  .editbackpack_title {
+    width: 525px;
+    margin-left: 20px;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #021031;
   }
 
-  .addbackpack_background {
-    width: 350px;
+  .addbackpack_background,
+  .editbackpack_background {
+    position: absolute;
+    top: 17px;
+    width: 525px;
+    height: 375px;
+    border-radius: 10px;
+    background-color: #021031;
+    opacity: 0.2;
+    z-index: -1;
+  }
+
+  .bp_form {
+    margin-left: 30px;
+  }
+
+  .total_row {
+    width: 500px;
+  }
+
+  .total_row h2 {
+    margin-right: 10px;
+  }
+
+  .done_btn_container {
+    width: 500px;
+    margin: unset;
+  }
+
+  .Done {
+    margin: 0;
   }
 }
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .section-one-box h3 {
     font-size: 2.75em;
-  }
-
-  .login_background {
-    width: 500px;
-  }
-
-  .registration_background {
-    width: 500px;
-  }
-
-  .Login__main {
-    position: relative;
-    left: 25%;
-    margin-top: 24vh;
-  }
-
-  .Login__main h2 {
-    width: 500px;
-  }
-
-  .Registration__main {
-    margin-left: -150px;
-    font-size: 0.8em;
-  }
-
-  .Registration__main h2 {
-    width: 500px;
   }
 
   .AddBackpack__main {
@@ -753,4 +765,4 @@ h4 {
   .Title {
     width: 400px;
   }
-}
+} */

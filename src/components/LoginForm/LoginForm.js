@@ -58,7 +58,7 @@ export default class LoginForm extends React.Component {
           ></input>
         </div>
         <div className="btn_container">
-          <button className="Login" type="submit">
+          <button className="Button" type="submit">
             <span>Login</span>
           </button>
         </div>

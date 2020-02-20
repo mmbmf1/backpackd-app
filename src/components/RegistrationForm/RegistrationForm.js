@@ -53,7 +53,7 @@ export default class RegistrationForm extends React.Component {
             First Name<span className="Required">*</span>
           </label>
           <input
-            className="Input"
+            className="login_input"
             name="first_name"
             type="text"
             required
@@ -65,7 +65,7 @@ export default class RegistrationForm extends React.Component {
             Last Name<span className="Required">*</span>
           </label>
           <input
-            className="Input"
+            className="login_input"
             name="last_name"
             type="text"
             required
@@ -77,7 +77,7 @@ export default class RegistrationForm extends React.Component {
             Email<span className="Required">*</span>
           </label>
           <input
-            className="Input"
+            className="login_input"
             name="user_email"
             type="email"
             required
@@ -89,7 +89,7 @@ export default class RegistrationForm extends React.Component {
             User Name<span className="Required">*</span>
           </label>
           <input
-            className="Input"
+            className="login_input"
             name="user_name"
             type="text"
             required
@@ -101,7 +101,7 @@ export default class RegistrationForm extends React.Component {
             Password<span className="Required">*</span>
           </label>
           <input
-            className="Input"
+            className="login_input"
             name="password"
             type="password"
             required
@@ -109,9 +109,11 @@ export default class RegistrationForm extends React.Component {
             autoComplete="new-password"
           />
         </div>
-        <button className="Button" type="submit">
-          <span>Register</span>
-        </button>
+        <div className="btn_container">
+          <button className="Button" type="submit">
+            <span>Register</span>
+          </button>
+        </div>
       </form>
     );
   }

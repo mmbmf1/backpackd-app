@@ -236,20 +236,22 @@ export default class EditBackpack extends React.Component {
               })}
             </div>
           </div>
-          <form onSubmit={e => this.handleEditBackpack(e)}>
+          <form className="bp_form" onSubmit={e => this.handleEditBackpack(e)}>
             <div className="total_row">
               <h2>
-                <FontAwesomeIcon icon={faDumbbell} />
-                {parseFloat(this.state.total).toFixed(2)} lbs
+                <FontAwesomeIcon icon={faDumbbell} />{" "}
               </h2>
+              <h2>{parseFloat(this.state.total).toFixed(2)} lbs</h2>
             </div>
-            <button
-              className="Done"
-              type="submit"
-              disabled={this.validateBackpackName()}
-            >
-              <span>Done</span>
-            </button>
+            <div className="done_btn_container">
+              <button
+                className="Done"
+                type="submit"
+                disabled={this.validateBackpackName()}
+              >
+                <span>Done</span>
+              </button>
+            </div>
           </form>
         </section>
       </>
