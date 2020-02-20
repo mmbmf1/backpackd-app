@@ -24,7 +24,6 @@ function LandingPage() {
           <br />
         </div>
       </section>
-      <footer> </footer>
     </div>
   );
 }

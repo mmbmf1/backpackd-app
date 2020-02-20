@@ -5,8 +5,7 @@ import ValidationError from "../../ValidationError";
 import TokenService from "../../services/token-service";
 import { findBackpackName } from "../../backpack-helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-// import Backpack from "../Backpack/Backpack";
+import { faPlus, faDumbbell } from "@fortawesome/free-solid-svg-icons";
 
 export default class EditBackpack extends React.Component {
   static defaultProps = {
@@ -19,12 +18,6 @@ export default class EditBackpack extends React.Component {
 
   state = {
     isReady: false
-    // id: "",
-    // name: "",
-    // useritems: {},
-    // total: 0,
-    // isToggleOn: "",
-    // touched: false
   };
 
   componentDidMount() {
@@ -57,7 +50,6 @@ export default class EditBackpack extends React.Component {
 
   validateBackpackName() {
     const name = this.state.name;
-    // console.log(this.context.backpacks);
     const backpacks = this.context.backpacks.filter(
       backpack => backpack.id !== this.state.id
     );
@@ -149,12 +141,7 @@ export default class EditBackpack extends React.Component {
 
   handleEditBackpack = e => {
     e.preventDefault();
-    // this.context.updateBackpack(this.state);
     BackpackApiService.patchBackpack(this.state)
-
-      // .then(backpack =>
-      //   console.log(backpack)
-      // );
       .then(backpack => this.context.updateBackpack(backpack))
       .then(this.props.history.push("/backpacks"));
   };
@@ -164,13 +151,12 @@ export default class EditBackpack extends React.Component {
     const BackpackNameError = this.validateBackpackName();
     return (
       <>
-        <header>
-          <h1>Edit Backpack</h1>
-        </header>
-        <section>
-          <form id="record backpack">
+        <section className="EditBackpack__main">
+          <form className="editbackpack_title">
             <div className="form section">
-              <label htmlFor="backpack title">Backpack Title</label>
+              <label className="_title" htmlFor="backpack title">
+                Backpack Title
+              </label>
               <input
                 className="Title"
                 type="text"
@@ -182,8 +168,8 @@ export default class EditBackpack extends React.Component {
               <ValidationError message={BackpackNameError} />
             </div>
           </form>
-          <div className="form section">
-            <h3>Edit Items in Backpack</h3>
+          <div className="editbackpack_items">
+            <div className="editbackpack_background"></div>
             <div className="pack inputs">
               {Object.keys(items).map((category, key) => {
                 return (
@@ -204,10 +190,9 @@ export default class EditBackpack extends React.Component {
                           <form
                             onSubmit={e => this.handleItem(e, item, category)}
                           >
-                            <input type="checkbox" name="checked" />
                             <label htmlFor={`${item}-item`}>{item}:</label>
                             <input
-                              className="Input"
+                              className="editbackpack_input"
                               type="text"
                               name="brand"
                               defaultValue={this.getBrandForEdit(
@@ -218,14 +203,14 @@ export default class EditBackpack extends React.Component {
                               required
                             />
                             <input
-                              className="Input"
+                              className="editbackpack_input"
                               type="text"
                               name="size"
                               defaultValue={this.getSizeForEdit(category, item)}
                               placeholder="Size"
                             />
                             <input
-                              className="Input"
+                              className="editbackpack_input"
                               type="number"
                               step="any"
                               name="weight"
@@ -252,13 +237,14 @@ export default class EditBackpack extends React.Component {
             </div>
           </div>
           <form onSubmit={e => this.handleEditBackpack(e)}>
-            <div className="pack list">
-              <div className="pack-list-row">
-                <h2>Total Weight: {this.state.total} lbs</h2>
-              </div>
+            <div className="total_row">
+              <h2>
+                <FontAwesomeIcon icon={faDumbbell} />
+                {parseFloat(this.state.total).toFixed(2)} lbs
+              </h2>
             </div>
             <button
-              className="Button"
+              className="Done"
               type="submit"
               disabled={this.validateBackpackName()}
             >

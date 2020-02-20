@@ -41,7 +41,7 @@ export default class LoginForm extends React.Component {
         <div className="user_name">
           <label htmlFor="LoginForm__user_name">User Name:</label>
           <input
-            className="Input"
+            className="login_input"
             required
             name="user_name"
             id="LoginForm__user_name"
@@ -50,16 +50,18 @@ export default class LoginForm extends React.Component {
         <div className="password">
           <label htmlFor="LoginForm__password">Password:</label>
           <input
-            className="Input"
+            className="login_input"
             required
             name="password"
             type="password"
             id="LoginFrom__password"
           ></input>
         </div>
-        <button className="Button" type="submit">
-          <span>Login</span>
-        </button>
+        <div className="btn_container">
+          <button className="Login" type="submit">
+            <span>Login</span>
+          </button>
+        </div>
       </form>
     );
   }

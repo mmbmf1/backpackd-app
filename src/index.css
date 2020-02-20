@@ -23,6 +23,27 @@ a {
   text-decoration: none;
 }
 
+.home.link {
+  vertical-align: -3px;
+  padding-left: 8px;
+}
+
+.nav__link {
+  position: relative;
+  top: 8px;
+}
+
+.nav__link a {
+  margin-right: 5px;
+  padding: 0 0.5em;
+  vertical-align: -3px;
+  /* text-decoration: none;
+  text-align: center;
+  font-weight: bold; */
+  font-size: 1.1em;
+  /* color: #0e2353; */
+}
+
 .App__main {
   margin-top: 25px;
   margin-right: auto;
@@ -34,7 +55,7 @@ a {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -160px;
+  margin-left: -150px;
   margin-top: -115px;
 }
 
@@ -55,32 +76,11 @@ a {
 
 .Header h1 {
   margin: 0;
-  position: relative;
+  /* position: relative; */
 }
 
 h1 a {
   text-decoration: none;
-}
-
-.home.link {
-  vertical-align: -3px;
-  padding-left: 8px;
-}
-
-.nav__link {
-  position: relative;
-  top: 8px;
-}
-
-.nav__link a {
-  margin-right: 5px;
-  padding: 0 0.5em;
-  vertical-align: -3px;
-  text-decoration: none;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.1em;
-  color: #0e2353;
 }
 
 button {
@@ -173,9 +173,9 @@ button:hover .button-text {
 
 .login_background {
   position: absolute;
-  top: 20px;
-  width: 215px;
-  height: 315px;
+  top: 32px;
+  width: 300px;
+  height: 425px;
   border-radius: 10px;
   background-color: #021031;
   opacity: 0.2;
@@ -186,33 +186,68 @@ button:hover .button-text {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -105px;
-  margin-top: -150px;
-  max-width: 250px;
+  margin-left: -150px;
+  margin-top: -240px;
+  width: 300px;
+  font-size: 1.5em;
 }
 
 .Login__main h2 {
   background-color: #021031;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  width: 215px;
-  height: 45px;
+  /* width: 215px; */
+  height: 60px;
   padding-left: 20px;
   padding-top: 10px;
   color: white;
 }
 
-.LoginForm,
+.LoginForm {
+  margin-left: 20px;
+}
+
 .RegistrationForm {
   max-width: 200px;
   margin: 15px 15px 0 20px;
 }
 
 label {
+  font-size: 1.3em;
   color: white;
 }
 
-.Input,
+.login_input {
+  display: block;
+  width: 260px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn_container {
+  display: flex;
+  justify-content: center;
+  width: 260px;
+}
+
+.Login {
+  width: 175px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #021031;
+  color: #ffffff;
+  font-size: 1.1em;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.Login span {
+  font-size: smaller;
+}
+
 .Title {
   display: block;
   width: 175px;
@@ -224,7 +259,10 @@ label {
 }
 
 .Register__link {
-  margin-left: 20px;
+  width: 175px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: medium;
 }
 
 .Register__link p {
@@ -245,20 +283,6 @@ a.Button {
   width: 200px;
   color: white;
 }
-
-/* .Button {
-  width: 175px;
-  margin-left: 0;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  background-color: #021031;
-  color: #ffffff;
-  text-align: center;
-  font-size: 1.1em;
-  transition: all 0.5s;
-  cursor: pointer;
-} */
 
 .Button span {
   cursor: pointer;
@@ -419,28 +443,38 @@ h4 {
   margin-right: 15px;
 }
 
+._title {
+  margin-left: 5px;
+}
+
 .Title {
-  margin: 1px 0;
+  margin-top: 10px;
+  margin-left: 4px;
 }
 
 .error {
+  margin-left: 5px;
   font-size: 0.75em;
 }
 
 .pack.inputs {
-  height: 200px;
+  height: 240px;
   padding-left: 25px;
 }
 
-.Save.Button,
-.Delete {
-  background-color: #021031;
-  color: white;
-  font-size: 0.75em;
-  border-radius: 4px;
-  padding: 8px 12px;
-  font-weight: bold;
+.Save {
   margin-bottom: 20px;
+  margin-left: 25px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 0;
+  color: white;
+  background-color: #021031;
+  font-size: 0.75em;
+  font-weight: bold;
+  font-family: inherit;
+  outline: none;
+  text-decoration: none;
 }
 
 .backpack_item_list {
@@ -476,7 +510,8 @@ h4 {
   font-size: 0.9em;
 }
 
-.AddBackpack__main {
+.AddBackpack__main,
+.EditBackpack__main {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -487,7 +522,8 @@ h4 {
   border-radius: 10px;
 }
 
-.addbackpack_title {
+.addbackpack_title,
+.editbackpack_title {
   width: 275px;
   margin-left: 20px;
   padding: 20px;
@@ -496,41 +532,36 @@ h4 {
   background-color: #021031;
 }
 
-.addbackpack_background {
+.addbackpack_background,
+.editbackpack_background {
   position: absolute;
   top: 17px;
   width: 275px;
-  height: 350px;
+  height: 375px;
   border-radius: 10px;
   background-color: #021031;
   opacity: 0.2;
   z-index: -1;
 }
 
-.addbackpack_items {
+.addbackpack_items,
+.editbackpack_items {
   max-height: 275px;
   overflow-y: scroll;
   padding: 0 20px;
 }
 
-.addbackpack_items h3 {
-  text-align: center;
-}
-
-.addbackpack_items::-webkit-scrollbar {
+.addbackpack_items::-webkit-scrollbar,
+.editbackpack_items::-webkit-scrollbar {
   display: none;
 }
 
 .category-display-true {
-  /* display: block;
-  height: 100%;
-  margin-top: 5.5px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; */
   background-color: unset;
 }
 
 .addbackpack_input,
+.editbackpack_input,
 .Title {
   display: block;
   width: 225px;

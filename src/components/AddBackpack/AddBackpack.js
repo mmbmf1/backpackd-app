@@ -1,4 +1,3 @@
-// import uuid from "react-uuid";
 import React from "react";
 import BackpackApiService from "../../services/backpacks-api-service";
 import ItemContext from "../../contexts/ItemContext";
@@ -11,7 +10,6 @@ export default class AddBackpack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // id: uuid(),
       name: "",
       useritems: {},
       total: 0,
@@ -74,7 +72,6 @@ export default class AddBackpack extends React.Component {
 
   handleCreateBackpack = e => {
     e.preventDefault();
-    // this.context.addBackpack(this.state);
     BackpackApiService.postBackpack(this.state)
       .then(backpack => this.context.addBackpack(backpack))
       .then(this.props.history.push(`/`));
@@ -85,12 +82,11 @@ export default class AddBackpack extends React.Component {
     const BackpackNameError = this.validateBackpackName();
     return (
       <>
-        {/* <header>
-          <h1>Create New Backpack</h1>
-        </header> */}
         <section className="AddBackpack__main">
           <form className="addbackpack_title">
-            <label htmlFor="backpack title">Backpack Title</label>
+            <label className="_title" htmlFor="backpack title">
+              Backpack Title
+            </label>
             <input
               className="Title"
               type="text"
@@ -108,7 +104,6 @@ export default class AddBackpack extends React.Component {
                 return (
                   <div key={key} className={`${category} category`}>
                     <h4>
-                      {" "}
                       <FontAwesomeIcon
                         icon={faPlus}
                         onClick={e => this.handleClick(e, category)}
@@ -124,7 +119,6 @@ export default class AddBackpack extends React.Component {
                           <form
                             onSubmit={e => this.handleItem(e, item, category)}
                           >
-                            <input type="checkbox" name="checked" />
                             <label htmlFor={`${item}-item`}>{item}:</label>
                             <input
                               className="addbackpack_input"
@@ -155,7 +149,7 @@ export default class AddBackpack extends React.Component {
                             />
                           </form>
                         </div>
-                      ))}{" "}
+                      ))}
                     </section>
                   </div>
                 );
