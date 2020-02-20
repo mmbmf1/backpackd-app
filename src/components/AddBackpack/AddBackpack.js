@@ -5,7 +5,7 @@ import ItemContext from "../../contexts/ItemContext";
 import ValidationError from "../../ValidationError";
 import { findBackpackName } from "../../backpack-helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faDumbbell } from "@fortawesome/free-solid-svg-icons";
 
 export default class AddBackpack extends React.Component {
   constructor(props) {
@@ -85,26 +85,24 @@ export default class AddBackpack extends React.Component {
     const BackpackNameError = this.validateBackpackName();
     return (
       <>
-        <header>
+        {/* <header>
           <h1>Create New Backpack</h1>
-        </header>
-        <section>
-          <form id="record backpack">
-            <div className="form section">
-              <label htmlFor="backpack title">Backpack Title</label>
-              <input
-                className="Title"
-                type="text"
-                id="backpack name input"
-                name="backpack title"
-                placeholder="e.g. Backpack One"
-                onChange={e => this.updateBackpackName(e.target.value)}
-              />
-              <ValidationError message={BackpackNameError} />
-            </div>
+        </header> */}
+        <section className="AddBackpack__main">
+          <form className="addbackpack_title">
+            <label htmlFor="backpack title">Backpack Title</label>
+            <input
+              className="Title"
+              type="text"
+              id="backpack name input"
+              name="backpack title"
+              placeholder="e.g. Backpack One"
+              onChange={e => this.updateBackpackName(e.target.value)}
+            />
+            <ValidationError message={BackpackNameError} />
           </form>
-          <div className="form section">
-            <h3>Select Items for Backpack</h3>
+          <div className="addbackpack_items">
+            <div className="addbackpack_background"></div>
             <div className="pack inputs">
               {Object.keys(items).map((category, key) => {
                 return (
@@ -129,20 +127,20 @@ export default class AddBackpack extends React.Component {
                             <input type="checkbox" name="checked" />
                             <label htmlFor={`${item}-item`}>{item}:</label>
                             <input
-                              className="Input"
+                              className="addbackpack_input"
                               type="text"
                               name="brand"
                               placeholder="Brand name or model of gear"
                               required
                             />
                             <input
-                              className="Input"
+                              className="addbackpack_input"
                               type="text"
                               name="size"
                               placeholder="Size"
                             />
                             <input
-                              className="Input"
+                              className="addbackpack_input"
                               type="number"
                               step="any"
                               name="weight"
@@ -165,13 +163,14 @@ export default class AddBackpack extends React.Component {
             </div>
           </div>
           <form onSubmit={e => this.handleCreateBackpack(e)}>
-            <div className="pack list">
-              <div className="pack-list-row">
-                <h2>Total Weight: {this.state.total.toFixed(2)} lbs</h2>
-              </div>
+            <div className="total_row">
+              <h2>
+                <FontAwesomeIcon icon={faDumbbell} />
+                {this.state.total.toFixed(2)} lbs
+              </h2>
             </div>
             <button
-              className="Button"
+              className="Done"
               type="submit"
               disabled={this.validateBackpackName()}
             >

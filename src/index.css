@@ -6,14 +6,13 @@
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  /* font-family: "Montserrat", sans-serif; */
   font-weight: bolder;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
   background-image: url("https://github.com/mmbmf1/backpackd-app/blob/backpack-patch/src/images/man-in-black-backpack-during-golden-hour-1230302.jpg?raw=true");
   background-position: 60% center;
-  /* background-position: center center; */
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -24,36 +23,19 @@ a {
   text-decoration: none;
 }
 
-h1 {
-  text-align: center;
-}
-
 .App__main {
   margin-top: 25px;
   margin-right: auto;
   margin-left: auto;
 }
 
-/* footer {
-  background-color: #314675;
-} */
-
-section {
-  /* width: 100%;
-  margin: 0; */
-  position: relative;
-}
-
-.section-one {
-  height: calc(100vh - 100px);
-}
-
-.section-one-box {
+.LandingPage_wrapper {
+  width: 300px;
   position: absolute;
-  top: 45%;
   left: 50%;
-  transform: translate(-70%, -75%);
-  width: 60%;
+  top: 50%;
+  margin-left: -160px;
+  margin-top: -115px;
 }
 
 .section-one-box h3 {
@@ -97,7 +79,7 @@ h1 a {
   text-decoration: none;
   text-align: center;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.1em;
   color: #0e2353;
 }
 
@@ -196,7 +178,7 @@ button:hover .button-text {
   height: 315px;
   border-radius: 10px;
   background-color: #021031;
-  opacity: 0.5;
+  opacity: 0.2;
   z-index: -1;
 }
 
@@ -204,10 +186,8 @@ button:hover .button-text {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -135px;
+  margin-left: -105px;
   margin-top: -150px;
-  left: 50%;
-  margin-left: -110px;
   max-width: 250px;
 }
 
@@ -229,8 +209,6 @@ button:hover .button-text {
 }
 
 label {
-  font-size: 1.2em;
-  /* color: #021031; */
   color: white;
 }
 
@@ -253,7 +231,6 @@ label {
   width: 175px;
   margin-bottom: 5px;
   font-size: 0.9em;
-  /* color: #021031; */
   color: white;
 }
 
@@ -269,7 +246,7 @@ a.Button {
   color: white;
 }
 
-.Button {
+/* .Button {
   width: 175px;
   margin-left: 0;
   padding: 8px 12px;
@@ -281,7 +258,7 @@ a.Button {
   font-size: 1.1em;
   transition: all 0.5s;
   cursor: pointer;
-}
+} */
 
 .Button span {
   cursor: pointer;
@@ -308,9 +285,20 @@ a.Button {
   right: 0;
 }
 
+.Button {
+  width: 175px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #021031;
+  color: #ffffff;
+  font-size: 1.1em;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
 .registration_background {
   position: absolute;
-  top: 15px;
+  top: 17px;
   width: 215px;
   height: 470px;
   border-radius: 10px;
@@ -323,10 +311,8 @@ a.Button {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -135px;
-  margin-top: -250px;
-  left: 50%;
-  margin-left: -110px;
+  margin-left: -105px;
+  margin-top: -220px;
   max-width: 250px;
   font-size: 0.8em;
 }
@@ -339,7 +325,7 @@ a.Button {
   height: 70px;
   padding-left: 20px;
   padding-top: 10px;
-  /* margin-bottom: 40px; */
+  font-size: 1.6em;
   color: white;
 }
 
@@ -356,28 +342,19 @@ a.Button {
   margin-top: 10px;
   margin-left: -125px;
   margin-top: -250px;
+  height: 70vh;
 }
 
 .backpack-container a.Button {
   margin-left: auto;
   margin-right: auto;
-}
-
-.backpack_background {
-  position: absolute;
-  width: 250px;
-  min-height: 80px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background-color: #021031;
-  /* opacity: 0.7; */
-  z-index: -1;
+  text-align: center;
 }
 
 .cards {
   max-height: 70vh;
   margin-top: 20px;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .cards::-webkit-scrollbar {
@@ -388,8 +365,8 @@ a.Button {
   width: 250px;
   margin-top: 10px;
   font-size: 0.8em;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-radius: 10px;
+  background-color: #021031;
 }
 
 .card h2 {
@@ -415,10 +392,6 @@ a.Button {
   color: white;
 }
 
-/* .card_button:hover {
-  color: #021031;
-} */
-
 .card p {
   margin-bottom: 0;
   margin-top: 0;
@@ -436,19 +409,6 @@ a.Button {
 
 .add_button {
   margin-top: 30px;
-}
-
-.form.section {
-  max-height: 275px;
-  overflow-y: scroll;
-}
-
-.form.section::-webkit-scrollbar {
-  display: none;
-}
-.form.section,
-.pack.list {
-  padding: 0 20px;
 }
 
 h4 {
@@ -469,12 +429,12 @@ h4 {
 
 .pack.inputs {
   height: 200px;
+  padding-left: 25px;
 }
 
 .Save.Button,
 .Delete {
-  border: 1px solid #aaa;
-  background-color: #657497;
+  background-color: #021031;
   color: white;
   font-size: 0.75em;
   border-radius: 4px;
@@ -483,22 +443,21 @@ h4 {
   margin-bottom: 20px;
 }
 
-.pack.categories,
-.total.weight {
-  padding: 0 20px;
+.backpack_item_list {
+  margin-left: 10px;
 }
 
-.pack.categories h4 {
-  display: inline-block;
-  margin-top: 0;
-  margin-bottom: 1px;
+.items {
+  display: table;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 0.8em;
 }
 
-.pack.categories {
-  width: 100%;
-  margin-left: 15px;
+.items p.weight {
+  display: table-cell;
+  width: 45px;
 }
-
 .category-display-true {
   display: block;
   height: 100%;
@@ -506,7 +465,6 @@ h4 {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   background-color: #021031;
-  /* opacity: 0.7; */
 }
 
 .category-display-false {
@@ -518,122 +476,192 @@ h4 {
   font-size: 0.9em;
 }
 
-.total.weight {
+.AddBackpack__main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  margin-left: -170px;
+  margin-top: -225px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.addbackpack_title {
+  width: 275px;
+  margin-left: 20px;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #021031;
+}
+
+.addbackpack_background {
+  position: absolute;
+  top: 17px;
+  width: 275px;
+  height: 350px;
+  border-radius: 10px;
+  background-color: #021031;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.addbackpack_items {
+  max-height: 275px;
+  overflow-y: scroll;
+  padding: 0 20px;
+}
+
+.addbackpack_items h3 {
   text-align: center;
-  margin-top: 50px;
+}
+
+.addbackpack_items::-webkit-scrollbar {
+  display: none;
+}
+
+.category-display-true {
+  /* display: block;
+  height: 100%;
+  margin-top: 5.5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
+  background-color: unset;
+}
+
+.addbackpack_input,
+.Title {
+  display: block;
+  width: 225px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.total_row h2 {
+  margin-left: 65px;
+}
+
+.svg-inline--fa.fa-dumbbell.fa-w-20 {
+  margin-left: 20px;
+}
+
+.Done {
+  width: 175px;
+  margin-left: 70px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #021031;
+  color: #ffffff;
+  font-size: 1.1em;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
+  .LandingPage_wrapper {
+    margin-left: -250px;
+  }
+
   .nav__link a {
-    margin-right: 5px;
-    padding: 0 0.5em;
-    vertical-align: -3px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.8em;
-    color: #0e2353;
+    font-size: 1.4em;
   }
   .section-one-box h3 {
     font-size: 2.25em;
   }
 
   .login_background {
-    /* position: absolute; */
     width: 350px;
-    /* height: 335px;
-    border-radius: 10px;
-    background-color: #021031;
-    opacity: 0.2;
-    z-index: -1; */
   }
 
   .registration_background {
-    /* position: absolute; */
     width: 350px;
-    /* height: 470px;
-    border-radius: 10px;
-    background-color: #021031;
-    opacity: 0.2;
-    z-index: -1; */
   }
 
   .Login__main {
-    /* position: relative; */
+    position: relative;
     left: 30%;
-    /* margin-left: -290px; */
     margin-top: 24vh;
-    /* max-width: 250px; */
   }
 
   .Login__main h2 {
-    /* background-color: #021031;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px; */
     width: 350px;
-    /* height: 50px;
-    padding-left: 20px;
-    padding-top: 10px;
-    color: white; */
   }
 
-  /* .LoginForm,
-  .RegistrationForm {
-    max-width: 250px;
-    margin: 20px 20px 0 20px;
-  } */
-
-  /* label {
-    font-size: 1.2em;
-    color: #021031;
-  } */
   .Registration__main {
     position: relative;
-    /* top: 50%; */
     left: 30%;
-    /* margin-left: -150px; */
     margin-top: 15vh;
-    /* width: 250px; */
     font-size: 0.8em;
   }
 
   .Registration__main h2 {
-    /* background-color: #021031;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px; */
     width: 350px;
-    /* height: 70px;
-    padding-left: 20px;
-    padding-top: 10px; */
-    /* margin-bottom: 40px; */
-    /* color: white; */
   }
-  .Input,
+
+  .addbackpack_input,
   .Title {
-    /* display: block; */
     width: 300px;
-    /* margin-bottom: 10px;
-    padding: 10px;
-    font-size: 1.1em;
-    text-align: left;
-    border: 1px solid #ddd;
-    border-radius: 4px; */
   }
 
-  /* .Register__link {
-    margin-left: 20px;
-  } */
+  .backpack-container {
+    margin-left: -275px;
+  }
 
-  /* .Register__link p {
-    margin-bottom: 5px;
-    color: #021031; */
-  /* color: white; */
-  /* } */
+  .card {
+    width: 400px;
+  }
 
-  /* a.r_link {
+  .card_button {
     color: white;
-    font-weight: normal;
-  } */
+  }
+
+  .card p {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 1.2em;
+  }
+
+  .backpack_item_list {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .items p.weight {
+    display: table-cell;
+    width: 60px;
+  }
+
+  .card:hover {
+    background-color: #021031;
+  }
+
+  .add_button {
+    margin-top: 30px;
+  }
+
+  .AddBackpack__main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    margin-left: -170px;
+    margin-top: -225px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .addbackpack_title {
+    width: 350px;
+  }
+
+  .addbackpack_background {
+    width: 350px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -642,76 +670,56 @@ h4 {
   }
 
   .login_background {
-    /* position: absolute; */
     width: 500px;
-    /* height: 335px; */
-    /* border-radius: 10px;
-    background-color: #021031;
-    opacity: 0.2;
-    z-index: -1; */
   }
 
   .registration_background {
-    /* position: absolute; */
     width: 500px;
-    /* height: 335px; */
-    /* border-radius: 10px;
-    background-color: #021031;
-    opacity: 0.2;
-    z-index: -1; */
   }
 
   .Login__main {
     position: relative;
     left: 25%;
-    /* top: 25%; */
-    /* margin-left: -450px; */
     margin-top: 24vh;
-    /* max-width: 250px; */
   }
 
   .Login__main h2 {
-    /* background-color: #021031;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px; */
     width: 500px;
-    /* height: 50px;
-    padding-left: 20px;
-    padding-top: 10px;
-    color: white; */
   }
 
   .Registration__main {
-    /* position: relative;
-    top: 10vh;
-    left: 30%; */
     margin-left: -150px;
-    /* margin-top: 6vh; */
-    /* width: 250px; */
     font-size: 0.8em;
   }
 
   .Registration__main h2 {
-    /* background-color: #021031;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px; */
     width: 500px;
-    /* height: 70px;
-    padding-left: 20px;
-    padding-top: 10px; */
-    /* margin-bottom: 40px; */
-    /* color: white; */
   }
 
-  .Input,
-  .Title {
-    /* display: block; */
-    width: 450px;
-    /* margin-bottom: 10px;
+  .AddBackpack__main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    margin-left: -325px;
+    margin-top: -175px;
     padding: 10px;
-    font-size: 1.1em;
-    text-align: left;
-    border: 1px solid #ddd;
-    border-radius: 4px; */
+    border-radius: 10px;
+  }
+
+  .addbackpack_title {
+    width: 450px;
+  }
+
+  .addbackpack_background {
+    width: 450px;
+  }
+  .Input {
+    width: 450px;
+  }
+
+  .addbackpack_input,
+  .Title {
+    width: 400px;
   }
 }

@@ -18,18 +18,19 @@ export default class Backpack extends React.Component {
     return (
       <div>
         <div className="backpack_item_list">
-          <div className="pack_items_background"></div>
+          {/* <div className="pack_items_background"></div> */}
           {Object.values(items).map((item, index) => {
             return (
-              <div className="pack categories" key={index}>
+              <div className="pack_items" key={index}>
                 {Object.keys(item).map((cat, key) => (
-                  <div key={key} className="category">
-                    <h4>{cat}:</h4>
-                    <div className="pack items">
-                      <p>{item[cat].brand}</p>
-                      <p>{item[cat].size}</p>
-                      <p>{item[cat].weight} lbs</p>
-                    </div>
+                  <div key={key} className="items">
+                    <p className="weight">
+                      {parseFloat(item[cat].weight).toFixed(2)} lbs
+                    </p>
+                    {/* <div className="pack items"> */}
+                    <p className="brand">{item[cat].brand}</p>
+                    {/* <p className="size">{item[cat].size}</p> */}
+                    {/* </div> */}
                   </div>
                 ))}
               </div>
