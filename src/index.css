@@ -24,14 +24,6 @@ a {
   text-decoration: none;
 }
 
-a:visited {
-  color: #0e2353;
-}
-
-a:hover {
-  color: #ae9b3e;
-}
-
 h1 {
   text-align: center;
 }
@@ -47,8 +39,8 @@ h1 {
 } */
 
 section {
-  width: 100%;
-  margin: 0;
+  /* width: 100%;
+  margin: 0; */
   position: relative;
 }
 
@@ -199,30 +191,23 @@ button:hover .button-text {
 
 .login_background {
   position: absolute;
+  top: 20px;
   width: 215px;
   height: 315px;
   border-radius: 10px;
   background-color: #021031;
-  opacity: 0.2;
-  z-index: -1;
-}
-
-.registration_background {
-  position: absolute;
-  width: 215px;
-  height: 470px;
-  border-radius: 10px;
-  background-color: #021031;
-  opacity: 0.2;
+  opacity: 0.5;
   z-index: -1;
 }
 
 .Login__main {
-  position: relative;
-  top: 50%;
+  position: absolute;
   left: 50%;
-  margin-left: -150px;
-  margin-top: 24vh;
+  top: 50%;
+  margin-left: -135px;
+  margin-top: -150px;
+  left: 50%;
+  margin-left: -110px;
   max-width: 250px;
 }
 
@@ -245,7 +230,8 @@ button:hover .button-text {
 
 label {
   font-size: 1.2em;
-  color: #021031;
+  /* color: #021031; */
+  color: white;
 }
 
 .Input,
@@ -267,12 +253,13 @@ label {
   width: 175px;
   margin-bottom: 5px;
   font-size: 0.9em;
-  color: #021031;
+  /* color: #021031; */
+  color: white;
 }
 
 a.r_link {
   font-size: 0.9em;
-  color: white;
+  color: red;
   font-weight: normal;
 }
 
@@ -321,13 +308,25 @@ a.Button {
   right: 0;
 }
 
+.registration_background {
+  position: absolute;
+  top: 15px;
+  width: 215px;
+  height: 470px;
+  border-radius: 10px;
+  background-color: #021031;
+  opacity: 0.2;
+  z-index: -1;
+}
+
 .Registration__main {
-  position: relative;
-  top: 2vh;
+  position: absolute;
   left: 50%;
-  width: 220px;
-  margin-left: -150px;
-  margin-top: 6vh;
+  top: 50%;
+  margin-left: -135px;
+  margin-top: -250px;
+  left: 50%;
+  margin-left: -110px;
   max-width: 250px;
   font-size: 0.8em;
 }
@@ -351,8 +350,12 @@ a.Button {
 }
 
 .backpack-container {
-  margin-left: 20px;
-  margin-right: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: 10px;
+  margin-left: -125px;
+  margin-top: -250px;
 }
 
 .backpack-container a.Button {
@@ -360,33 +363,79 @@ a.Button {
   margin-right: auto;
 }
 
+.backpack_background {
+  position: absolute;
+  width: 250px;
+  min-height: 80px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #021031;
+  /* opacity: 0.7; */
+  z-index: -1;
+}
+
+.cards {
+  max-height: 70vh;
+  margin-top: 20px;
+  overflow-y: auto;
+}
+
+.cards::-webkit-scrollbar {
+  display: none;
+}
+
 .card {
-  display: block;
-  width: 100%;
+  width: 250px;
   margin-top: 10px;
+  font-size: 0.8em;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.card h2 {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 10px 20px 0 20px;
+  font-size: 1.5em;
+}
+
+.card_options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 225px;
   padding-left: 20px;
   padding-right: 20px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  background-color: #afb4bf;
+  font-size: 1.2em;
   color: white;
-  text-decoration: none;
 }
 
-.card h2,
-.card p {
-  margin-bottom: 2px;
-  margin-top: 2px;
+.card_button {
+  color: white;
 }
 
+/* .card_button:hover {
+  color: #021031;
+} */
+
 .card p {
-  margin-left: 35px;
-  font-size: 0.8em;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.backpack_item_list {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  margin-bottom: 30px;
+  background-color: #021031;
+}
+
+.add_button {
+  margin-top: 30px;
 }
 
 .form.section {
@@ -452,6 +501,12 @@ h4 {
 
 .category-display-true {
   display: block;
+  height: 100%;
+  margin-top: 5.5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #021031;
+  /* opacity: 0.7; */
 }
 
 .category-display-false {

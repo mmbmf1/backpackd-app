@@ -16,7 +16,7 @@ export default class Header extends React.Component {
   renderLogoutLink() {
     return (
       <div className="Header__logged_in">
-        <Link onClick={this.handleLogoutClick} to="/">
+        <Link onClick={this.handleLogoutClick} to="/login">
           Logout
         </Link>
       </div>
@@ -33,7 +33,6 @@ export default class Header extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <nav className="Header">
         <h1>

@@ -17,7 +17,8 @@ export default class Backpack extends React.Component {
 
     return (
       <div>
-        <div className="backpack-item-list">
+        <div className="backpack_item_list">
+          <div className="pack_items_background"></div>
           {Object.values(items).map((item, index) => {
             return (
               <div className="pack categories" key={index}>

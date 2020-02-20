@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import ItemContext from "../../contexts/ItemContext";
 import Backpack from "../Backpack/Backpack";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faDumbbell,
+  faTrash,
+  faEdit
+} from "@fortawesome/free-solid-svg-icons";
 import BackpackApiService from "../../services/backpacks-api-service";
 import TokenService from "../../services/token-service";
 
@@ -72,37 +77,46 @@ export default class BackpackCollection extends React.Component {
     return (
       <div className="backpack-container">
         <section className="cards">
+          {/* <div className="backpack_background"></div> */}
           {backpacks.map((backpack, key) => (
             <div className="card" key={key}>
+              <div className="backpack_background"></div>
               <h2>
                 <FontAwesomeIcon
-                  icon={faPlus}
+                  icon={faChevronDown}
                   onClick={e => this.handleClick(e, backpack.name)}
                 />
                 {backpack.name}
               </h2>
-              <p>Total Weight: {parseFloat(backpack.total).toFixed(2)} lbs</p>
+              <div className="card_options">
+                <FontAwesomeIcon icon={faDumbbell} />
+                <p>{parseFloat(backpack.total).toFixed(2)} lbs</p>
+                <Link className="card_button" to={`/edit/${backpack.id}`}>
+                  <FontAwesomeIcon icon={faEdit} />
+                </Link>
+                <button
+                  className="card_button"
+                  type="submit"
+                  disabled={!TokenService.hasAuthToken()}
+                  onClick={ev => this.handleDelete(ev, backpack.id)}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </div>
               <div
                 className={`category-display-${this.state.isToggleOn ===
                   backpack.name}`}
               >
                 <Backpack backpacks={backpacks} id={backpack.id} />
-                <button
-                  type="submit"
-                  disabled={!TokenService.hasAuthToken()}
-                  onClick={ev => this.handleDelete(ev, backpack.id)}
-                >
-                  Delete
-                </button>
-                <Link to={`/edit/${backpack.id}`}>Edit Backpack</Link>
               </div>
             </div>
           ))}
         </section>
-        <br />
-        <Link className="Button" to={"/add_backpack"}>
-          <span>Add Backpack</span>
-        </Link>
+        <div className="add_button">
+          <Link className="Button" to={"/add_backpack"}>
+            <span>Add Backpack</span>
+          </Link>
+        </div>
       </div>
     );
   }
