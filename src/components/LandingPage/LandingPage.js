@@ -16,7 +16,7 @@ function LandingPage() {
               <span className="circle">
                 <span className="icon arrow"></span>
               </span>
-              <Link className="button-text" to={"/register"}>
+              <Link className="button-text" to={"/backpacks"}>
                 Explore
               </Link>
             </button>

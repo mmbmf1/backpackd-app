@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ItemsContext from "../../contexts/ItemContext";
 import LoginForm from "../../components/LoginForm/LoginForm";
-// import TokenService from "../../services/token-service";
+import TokenService from "../../services/token-service";
 
 export default class LoginPage extends React.Component {
   static contextType = ItemsContext;
@@ -15,19 +15,20 @@ export default class LoginPage extends React.Component {
   };
 
   handleLoginSuccess = () => {
-    this.props.history.push("/backpacks");
+    const user_id = TokenService.getUser();
+    this.props.history.push(`/backpacks/${user_id}`);
   };
 
   render() {
     return (
       <div className="Login__main">
         <div className="login_background"></div>
-        <h2>Login</h2>
+        {/* <h2>Login</h2> */}
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
         <div className="Register__link">
-          <p>Don't have an account?</p>
+          <p>Not Registered?</p>
           <Link className="r_link" to={"/register"}>
-            Sign up now
+            Create an Account
           </Link>
         </div>
       </div>

@@ -1,610 +1,678 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:900|Raleway:900&display=swap");
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
-  font-weight: bolder;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: white;
-  background-image: url("https://github.com/mmbmf1/backpackd-app/blob/backpack-patch/src/images/man-in-black-backpack-during-golden-hour-1230302.jpg?raw=true");
-  background-position: 60% center;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-a {
-  color: #0e2353;
-  text-decoration: none;
-}
-
-.home.link {
-  vertical-align: -3px;
-  padding-left: 8px;
-}
-
-.nav__link {
-  position: relative;
-  top: 8px;
-}
-
-.nav__link a {
-  margin-right: 5px;
-  padding: 0 0.5em;
-  vertical-align: -3px;
-  font-size: 1.1em;
-}
-
-.App__main {
-  margin-top: 25px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.LandingPage_wrapper {
-  width: 300px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -150px;
-  margin-top: -115px;
-}
-
-.section-one-box h3 {
-  text-transform: capitalize;
-  text-align: center;
-  font-family: "Raleway", sans-serif;
-  font-size: 1.75em;
-  font-weight: bold;
-  color: #0e2353;
-}
-
-.Header {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.Header h1 {
-  margin: 0;
-}
-
-h1 a {
-  text-decoration: none;
-}
-
-button {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-}
-
-button.btn {
-  width: 12rem;
-  height: auto;
-}
-
-button.btn .circle {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: relative;
-  display: block;
-  margin: 0;
-  width: 3rem;
-  height: 3rem;
-  background: #0e2353;
-  border-radius: 1.625rem;
-}
-button.btn .circle .icon {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: #fff;
-}
-button.btn .circle .icon.arrow {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.625rem;
-  width: 1.125rem;
-  height: 0.125rem;
-  background: none;
-}
-button.btn .circle .icon.arrow::before {
-  position: absolute;
-  content: "";
-  top: -0.25rem;
-  right: 0.0625rem;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-button.btn .button-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.75rem 0;
-  margin: 0 0 0 1.85rem;
-  font-weight: inherit;
-  line-height: 1.6;
-  text-align: center;
-  color: #0e2353;
-  text-transform: uppercase;
-}
-button:hover .circle {
-  width: 100%;
-}
-button:hover .circle .icon.arrow {
-  background: #fff;
-  -webkit-transform: translate(1rem, 0);
-  transform: translate(1rem, 0);
-}
-button:hover .button-text {
-  color: #fff;
-}
-
-#container {
-  text-align: center;
-}
-
-.login_background {
-  position: absolute;
-  top: 32px;
-  width: 300px;
-  height: 425px;
-  border-radius: 10px;
-  background-color: #021031;
-  opacity: 0.2;
-  z-index: -1;
-}
-
-.Login__main {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -150px;
-  margin-top: -240px;
-  width: 300px;
-  font-size: 1.2em;
-}
-
-.Login__main h2 {
-  background-color: #021031;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  height: 60px;
-  padding-left: 20px;
-  padding-top: 10px;
-  color: white;
-}
-
-.LoginForm {
-  margin-left: 20px;
-}
-
-.RegistrationForm {
-  max-width: 200px;
-  margin: 15px 15px 0 20px;
-}
-
-label {
-  font-size: 1.3em;
-  color: white;
-}
-
-.login_input {
-  display: block;
-  width: 260px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.btn_container {
-  display: flex;
-  justify-content: center;
-  width: 260px;
-  margin-top: 50px;
-}
-
-.Login {
-  width: 175px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  background-color: #021031;
-  color: #ffffff;
-  font-size: 1.1em;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-
-.Login span {
-  font-size: smaller;
-}
-
-.Register__link {
-  width: 175px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: medium;
-}
-
-.Register__link p {
-  width: 175px;
-  margin-bottom: 5px;
-  font-size: 0.9em;
-  color: white;
-}
-
-a.r_link {
-  font-size: 0.9em;
-  color: red;
-  font-weight: normal;
-}
-
-a.Button {
-  display: block;
-  width: 200px;
-  color: white;
-}
-
-.Button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.Button span:after {
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.Button:hover span {
-  padding-right: 25px;
-}
-
-.Button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-.Button {
-  width: 175px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  background-color: #021031;
-  color: #ffffff;
-  font-size: 1.1em;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-
-.registration_background {
-  position: absolute;
-  top: 17px;
-  width: 300px;
-  height: 500px;
-  border-radius: 10px;
-  background-color: #021031;
-  opacity: 0.2;
-  z-index: -1;
-}
-
-.Registration__main {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -150px;
-  margin-top: -240px;
-  width: 300;
-  font-size: 0.8em;
-}
-
-.Registration__main h2 {
-  background-color: #021031;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  width: 300px;
-  height: 50px;
-  padding-left: 20px;
-  padding-top: 10px;
-  font-size: 1.6em;
-  color: white;
-}
-
-.Required {
-  color: #ca1551;
-  font-family: Arial;
-  font-weight: bold;
-}
-
-.backpack-container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -150px;
-  margin-top: -260px;
-  width: 300px;
-}
-
-.backpack-container a.Button {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.cards {
-  max-height: 450px;
-  margin-top: 20px;
-  overflow-y: scroll;
-}
-
-.cards::-webkit-scrollbar {
-  display: none;
-}
-
-.card {
-  width: 300px;
-  margin-top: 10px;
-  padding-bottom: 10px;
-  font-size: 0.8em;
-  border-radius: 10px;
-  background-color: #021031;
-  opacity: 0.8;
-}
-
-.card h2 {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  padding: 10px 20px 0 20px;
-  font-size: 1.5em;
-}
-
-.card_options {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 225px;
-  padding-left: 20px;
-  padding-right: 45px;
-  padding-bottom: 10px;
-  font-size: 1.4em;
-  color: white;
-}
-
-.card_button {
-  color: white;
-}
-
-.card p {
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-.card:hover {
-  background-color: #021031;
-}
-
-.add_button {
-  margin-top: 30px;
-}
-
-h4 {
-  margin-bottom: 20px;
-}
-
-.svg-inline--fa.fa-plus.fa-w-14 {
-  margin-right: 15px;
-}
-
-._title {
-  margin-left: 5px;
-}
-
-.Title {
-  margin-top: 10px;
-  margin-left: 4px;
-}
-.Title {
-  display: block;
-  width: 175px;
-  margin-bottom: 10px;
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.error {
-  margin-left: 5px;
-  font-size: 0.75em;
-}
-
-.pack.inputs {
-  height: 240px;
-  padding-left: 25px;
-}
-
-.backpack_item_list {
-  margin-left: 10px;
-}
-
-.items {
-  display: table;
-  margin-right: 5px;
-  margin-left: 5px;
-  margin-bottom: 5px;
-  padding: 5px;
-  font-size: 0.8em;
-}
-
-.items p.weight {
-  display: table-cell;
-  padding-right: 10px;
-}
-
-.items p.category {
-  display: table-cell;
-  padding-right: 10px;
-}
-
-.items p.brand {
-  display: table-cell;
-  padding-right: 10px;
-  justify-content: left;
-}
-
-.category-display-true {
-  display: block;
-  height: 100%;
-  margin-top: 5.5px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background-color: #021031;
-}
-
-.category-display-false {
-  display: none;
-}
-
-.pack.items p {
-  margin: 0 5px;
-  font-size: 0.9em;
-}
-
-.AddBackpack__main,
-.EditBackpack__main {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 325px;
-  margin-left: -170px;
-  margin-top: -230px;
-  border-radius: 10px;
-}
-
-.addbackpack_title,
-.editbackpack_title {
-  width: 300px;
-  margin-left: 20px;
-  padding: 20px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background-color: #021031;
-}
-
-.addbackpack_background,
-.editbackpack_background {
-  position: absolute;
-  top: 17px;
-  width: 300px;
-  height: 375px;
-  border-radius: 10px;
-  background-color: #021031;
-  opacity: 0.2;
-  z-index: -1;
-}
-
-.addbackpack_items,
-.editbackpack_items {
-  max-height: 275px;
-  overflow-y: scroll;
-  padding: 0 20px;
-}
-
-.addbackpack_items::-webkit-scrollbar,
-.editbackpack_items::-webkit-scrollbar {
-  display: none;
-}
-
-.category-display-true {
-  background-color: unset;
-}
-
-.addbackpack_input,
-.editbackpack_input,
-.Title {
-  display: block;
-  width: 225px;
-  margin-bottom: 10px;
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.Save {
-  margin-bottom: 20px;
-  margin-left: 25px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: 0;
-  color: white;
-  background-color: #021031;
-  font-size: 0.75em;
-  font-weight: bold;
-  font-family: inherit;
-  outline: none;
-  text-decoration: none;
-}
-
-.total_row {
-  display: flex;
-  justify-content: center;
-}
-
-.total_row h2 {
-  margin-right: 10px;
-}
-
-.done_btn_container {
-  display: flex;
-  justify-content: center;
-  width: 260px;
-}
-
-.bp_form {
-  margin: unset;
-}
-
-.Done {
-  width: 175px;
-  margin-left: 70px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  background-color: #021031;
-  color: #ffffff;
-  font-size: 1.1em;
-  transition: all 0.5s;
-  cursor: pointer;
+@media screen and (min-width: 300px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bolder;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: white;
+    background-image: url("https://github.com/mmbmf1/backpackd-app/blob/backpack-patch/src/images/man-in-black-backpack-during-golden-hour-1230302.jpg?raw=true");
+    background-position: 60% center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .red {
+    padding-bottom: 10px;
+    width: 275px;
+
+    font-weight: 400;
+    font-size: 1em;
+    color: red;
+  }
+
+  a {
+    color: #0e2353;
+    text-decoration: none;
+  }
+
+  .home.link {
+    vertical-align: -3px;
+    padding-left: 8px;
+  }
+
+  .nav__link {
+    position: relative;
+    top: 8px;
+  }
+
+  .nav__link a {
+    margin-right: 5px;
+    padding: 0 0.5em;
+    vertical-align: -3px;
+    font-size: 1.1em;
+  }
+
+  .App__main {
+    margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .LandingPage_wrapper {
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -115px;
+  }
+
+  .section-one-box h3 {
+    text-transform: capitalize;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.75em;
+    font-weight: bold;
+    color: #0e2353;
+  }
+
+  .Header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .Header h1 {
+    margin: 0;
+  }
+
+  h1 a {
+    text-decoration: none;
+  }
+
+  button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+  }
+
+  button.btn {
+    width: 12rem;
+    height: auto;
+  }
+
+  button.btn .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #0e2353;
+    border-radius: 1.625rem;
+  }
+  button.btn .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+  }
+  button.btn .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+  }
+  button.btn .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.25rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  button.btn .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    font-weight: inherit;
+    line-height: 1.6;
+    text-align: center;
+    color: #0e2353;
+    text-transform: uppercase;
+  }
+  button:hover .circle {
+    width: 100%;
+  }
+  button:hover .circle .icon.arrow {
+    background: #fff;
+    -webkit-transform: translate(1rem, 0);
+    transform: translate(1rem, 0);
+  }
+  button:hover .button-text {
+    color: #fff;
+  }
+
+  #container {
+    text-align: center;
+  }
+
+  .login_background {
+    position: absolute;
+    top: 32px;
+    width: 300px;
+    height: 425px;
+    border-radius: 10px;
+    background: linear-gradient(#021031, #657497);
+    opacity: 0.7;
+    z-index: -1;
+  }
+
+  .Login__main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -240px;
+    width: 300px;
+    font-size: 1.2em;
+  }
+
+  /* .Login__main h2 {
+    background-color: #021031;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 60px;
+    padding-left: 20px;
+    padding-top: 10px;
+    color: white;
+  } */
+
+  .LoginForm {
+    margin-left: 20px;
+    padding-top: 100px;
+  }
+
+  label {
+    font-size: 1.3em;
+    color: white;
+  }
+
+  .login_input {
+    display: block;
+    width: 260px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .login_btn_container {
+    display: flex;
+    justify-content: center;
+    width: 260px;
+    margin-top: 50px;
+  }
+
+  .Login {
+    width: 175px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #021031;
+    color: #ffffff;
+    font-size: 1.1em;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+  .Login span {
+    font-size: smaller;
+  }
+
+  .Register__link {
+    width: 175px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: medium;
+  }
+
+  .Register__link p {
+    width: 175px;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: white;
+  }
+
+  a.r_link {
+    font-size: 0.9em;
+    color: red;
+    font-weight: normal;
+  }
+
+  a.Button {
+    display: block;
+    width: 200px;
+    color: white;
+  }
+
+  .Button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .Done span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .Button span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .Done span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .Button:hover span {
+    padding-right: 25px;
+  }
+
+  .Done:hover span {
+    padding-right: 25px;
+  }
+
+  .Button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .Done:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .Button {
+    width: 175px;
+    height: 50px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #021031;
+    color: #ffffff;
+    font-size: 1.1em;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+  .registration_background {
+    position: absolute;
+    top: 17px;
+    width: 300px;
+    height: 500px;
+    border-radius: 10px;
+    background: linear-gradient(#021031, #657497);
+    opacity: 0.7;
+    z-index: -1;
+  }
+
+  .Registration__main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -240px;
+    width: 300px;
+    font-size: 0.8em;
+  }
+
+  .RegistrationForm {
+    width: 275px;
+    padding-left: 20px;
+    /* margin: 15px 15px 0 20px; */
+    /* padding-top: 50px; */
+  }
+
+  .Registration__main h2 {
+    background-color: #021031;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 300px;
+    height: 50px;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 1.6em;
+    color: white;
+  }
+  .register_btn_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .Required {
+    color: #ca1551;
+    font-family: Arial;
+    font-weight: bold;
+  }
+
+  .backpack-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -250px;
+    width: 300px;
+  }
+
+  .backpack-container a.Button {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .cards {
+    max-height: 450px;
+    margin-top: 20px;
+    overflow-y: scroll;
+  }
+
+  .cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    width: 300px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.8em;
+    border-radius: 10px;
+    background-color: #021031;
+    opacity: 0.8;
+  }
+
+  .card h2 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 10px 20px 0 20px;
+    font-size: 1.4em;
+  }
+
+  .card_options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 225px;
+    padding-left: 20px;
+    padding-right: 45px;
+    padding-bottom: 10px;
+    font-size: 1.4em;
+    color: white;
+  }
+
+  .card_button {
+    color: white;
+  }
+
+  .card p {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  /* .card:hover {
+    background-color: #657497;
+    transition: 0.5s ease-in;
+  } */
+
+  .add_button {
+    margin-top: 30px;
+  }
+
+  .Button.Add {
+    line-height: 2;
+    width: 150px;
+  }
+
+  h4 {
+    margin-bottom: 20px;
+  }
+
+  .svg-inline--fa.fa-plus.fa-w-14 {
+    margin-right: 10px;
+  }
+
+  ._title {
+    margin-left: 5px;
+  }
+
+  .Title {
+    margin-top: 10px;
+    margin-left: 4px;
+  }
+  .Title {
+    display: block;
+    width: 175px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .error {
+    margin-left: 5px;
+    font-size: 0.75em;
+  }
+
+  .pack.inputs {
+    height: 240px;
+    padding-left: 45px;
+  }
+  .pack_items {
+    padding-left: 10px;
+    background-color: #021031;
+    font-size: 1.3em;
+  }
+
+  .pack_items:nth-child(odd) {
+    background-color: #ae893e;
+  }
+
+  .items {
+    display: table;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-size: 0.8em;
+  }
+
+  .items p.weight {
+    width: 1px;
+    display: table-cell;
+    padding-right: 10px;
+  }
+
+  .items p.category {
+    width: 135px;
+    display: table-cell;
+    padding-right: 10px;
+  }
+
+  .items p.brand {
+    display: table-cell;
+    padding-right: 10px;
+    justify-content: left;
+  }
+
+  .category-display-true {
+    display: block;
+    height: 100%;
+    margin-top: 5.5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* background-color: #021031; */
+  }
+
+  .category-display-false {
+    display: none;
+  }
+
+  .category-rotate-true {
+    transform: rotate(45deg);
+  }
+
+  .chev-rotate-true {
+    transform: rotate(180deg);
+  }
+
+  .pack.items p {
+    margin: 0 5px;
+    font-size: 1.3em;
+  }
+
+  .AddBackpack__main,
+  .EditBackpack__main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 325px;
+    margin-left: -170px;
+    margin-top: -230px;
+    border-radius: 10px;
+  }
+
+  .addbackpack_title,
+  .editbackpack_title {
+    width: 300px;
+    margin-left: 20px;
+    padding: 20px 20px 20px 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #021031;
+    opacity: 0.8;
+  }
+
+  .addbackpack_background,
+  .editbackpack_background {
+    position: absolute;
+    top: 17px;
+    width: 300px;
+    height: 375px;
+    border-radius: 10px;
+    background-color: #021031;
+    opacity: 0.2;
+    z-index: -1;
+  }
+
+  .addbackpack_items,
+  .editbackpack_items {
+    max-height: 275px;
+    overflow-y: scroll;
+    padding: 0 20px;
+  }
+
+  .addbackpack_items::-webkit-scrollbar,
+  .editbackpack_items::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-display-true {
+    background-color: unset;
+  }
+
+  .addbackpack_input,
+  .editbackpack_input,
+  .Title {
+    display: block;
+    width: 200px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .Save {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 0;
+    color: white;
+    background-color: #021031;
+    font-size: 0.75em;
+    font-weight: bold;
+    font-family: inherit;
+    outline: none;
+    text-decoration: none;
+  }
+
+  .total_row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .total_row h2 {
+    margin-right: 10px;
+  }
+
+  .done_btn_container {
+    display: flex;
+    justify-content: center;
+    width: 260px;
+  }
+
+  .bp_form {
+    margin: unset;
+  }
+
+  .Done {
+    width: 175px;
+    margin-left: 70px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #021031;
+    color: #ffffff;
+    font-size: 1.1em;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -620,7 +688,7 @@ h4 {
   }
 
   .login_background {
-    width: 600px;
+    width: 500px;
   }
 
   .Login__main {
@@ -628,12 +696,24 @@ h4 {
     width: 600px;
   }
 
-  .login_input {
-    width: 550px;
+  .LoginForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 100px;
   }
 
-  .btn_container {
-    width: 550px;
+  .login_input {
+    width: 300px;
+  }
+
+  .login_btn_container {
+    width: 300px;
+  }
+
+  .Register__link {
+    width: 300px;
+    margin-left: 175px;
   }
 
   .registration_background {
@@ -646,15 +726,27 @@ h4 {
 
   .Registration__main h2 {
     width: 600px;
+    text-align: center;
   }
 
-  .addbackpack_input {
+  .RegistrationForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 125px;
+  }
+
+  .register_btn_container {
     width: 300px;
   }
 
   .backpack-container {
     margin-left: -275px;
     width: 500px;
+  }
+
+  .cards {
+    max-height: 550px;
   }
 
   .card {
@@ -665,6 +757,11 @@ h4 {
     color: white;
   }
 
+  .card_button:hover {
+    color: #657497;
+    transition: 0.3s ease-in;
+  }
+
   .card p {
     margin-bottom: 0;
     margin-top: 0;
@@ -672,11 +769,12 @@ h4 {
   }
 
   .card_options {
+    align-items: center;
     padding-right: 10px;
   }
 
   .Title {
-    width: 300px;
+    width: 400px;
   }
 
   .AddBackpack__main,
@@ -694,7 +792,7 @@ h4 {
   .editbackpack_title {
     width: 525px;
     margin-left: 20px;
-    padding: 20px;
+    padding-left: 50px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #021031;
@@ -710,6 +808,22 @@ h4 {
     background-color: #021031;
     opacity: 0.2;
     z-index: -1;
+  }
+
+  .pack.inputs {
+    padding-left: 75px;
+  }
+
+  .addbackpack_input {
+    width: 375px;
+  }
+
+  .editbackpack_input {
+    width: 375px;
+  }
+
+  .Save {
+    width: 375px;
   }
 
   .bp_form {
@@ -733,36 +847,3 @@ h4 {
     margin: 0;
   }
 }
-
-/* @media screen and (min-width: 1024px) {
-  .section-one-box h3 {
-    font-size: 2.75em;
-  }
-
-  .AddBackpack__main {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 100%;
-    margin-left: -325px;
-    margin-top: -175px;
-    padding: 10px;
-    border-radius: 10px;
-  }
-
-  .addbackpack_title {
-    width: 450px;
-  }
-
-  .addbackpack_background {
-    width: 450px;
-  }
-  .Input {
-    width: 450px;
-  }
-
-  .addbackpack_input,
-  .Title {
-    width: 400px;
-  }
-} */

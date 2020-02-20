@@ -49,21 +49,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    // const user_name = TokenService.getUser();
     this.setState({ loggedIn: TokenService.hasAuthToken() });
-    // if (!TokenService.hasAuthToken()) {
-    //   BackpackApiService.getBackpacks().then(backpacks =>
-    //     Object.values(backpacks).forEach(backpack => {
-    //       this.setState({ backpacks: [...this.state.backpacks, backpack] });
-    //     })
-    //   );
-    // } else {
-    //   BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
-    //     Object.values(backpacks).forEach(backpack => {
-    //       this.setState({ backpacks: [...this.state.backpacks, backpack] });
-    //     })
-    //   );
-    // }
   }
 
   render() {
@@ -75,7 +61,7 @@ export default class App extends React.Component {
         <main className="App__main">
           <Switch>
             <PublicOnlyRoute exact path={"/"} component={LandingPage} />
-            <PrivateRoute
+            <PublicOnlyRoute
               exact
               path={"/backpacks"}
               component={BackpackCollection}
@@ -104,7 +90,6 @@ export default class App extends React.Component {
             <Route component={NotFoundPage} />
           </Switch>
         </main>
-        {/* <footer className="App__footer"></footer> */}
       </ItemContext.Provider>
     );
   }

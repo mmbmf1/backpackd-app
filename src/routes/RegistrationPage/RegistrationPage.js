@@ -18,8 +18,7 @@ export default class RegistrationPage extends React.Component {
     return (
       <div className="Registration__main">
         <div className="registration_background"></div>
-
-        <h2>Create a New Account</h2>
+        <h2>Create Your Account</h2>
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />

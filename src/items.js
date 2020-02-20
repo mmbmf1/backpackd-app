@@ -2,7 +2,7 @@ const items = {
   "Backpack Gear": ["Backpack", "Backpack Cover", "Trekking Poles"],
 
   Shelter: [
-    "Tent/Tarp/Bivy/Hammock",
+    "Tent/Hammock",
     "Tent Footprint",
     "Tent Stakes",
     "Guylines",
@@ -21,19 +21,12 @@ const items = {
   "Food & Water": [
     "Water Reservoir",
     "Water Filter",
-    'Food Bag',
+    "Food Bag",
     "Meals",
-    "Energy Food & Drinks",
-    
+    "Energy Food & Drinks"
   ],
 
-  'Cook System': [
-      'Stove',
-      'Fuel',
-      'Lighter/Matches',
-      'Mug/pot',
-      'Spork',
-  ],
+  "Cook System": ["Stove", "Fuel", "Lighter/Matches", "Mug/pot", "Spork"],
 
   "Clothing & Footware": [
     "Moisture-wicking underwear",
@@ -47,9 +40,9 @@ const items = {
     "Extra Clothes 2"
   ],
 
-  Emergency: ["First Aid Kit", 'Accessory 1'],
+  Emergency: ["First Aid Kit", "Accessory 1"],
 
-  "Health/Hygiene": [
+  "Health/ Hygiene": [
     "Hand Sanitizer",
     "Toothbrush",
     "Sanitation Trowel",

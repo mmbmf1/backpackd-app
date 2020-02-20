@@ -4,12 +4,18 @@ import ItemContext from "../../contexts/ItemContext";
 import ValidationError from "../../ValidationError";
 import { findBackpackName } from "../../backpack-helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faDumbbell } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faDumbbell,
+  faChevronDown
+} from "@fortawesome/free-solid-svg-icons";
+import TokenService from "../../services/token-service";
 
 export default class AddBackpack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      rotate: "",
       name: "",
       useritems: {},
       total: 0,
@@ -49,6 +55,9 @@ export default class AddBackpack extends React.Component {
     this.setState({
       isToggleOn: this.state.isToggleOn === category ? "" : category
     });
+    this.setState({
+      rotate: this.state.rotate === category ? "" : category
+    });
   };
 
   handleItem = (e, item, category) => {
@@ -72,9 +81,10 @@ export default class AddBackpack extends React.Component {
 
   handleCreateBackpack = e => {
     e.preventDefault();
+    const user_id = TokenService.getUser();
     BackpackApiService.postBackpack(this.state)
       .then(backpack => this.context.addBackpack(backpack))
-      .then(this.props.history.push(`/`));
+      .then(this.props.history.push(`/backpacks/${user_id}`));
   };
 
   render() {
@@ -106,6 +116,9 @@ export default class AddBackpack extends React.Component {
                     <h4>
                       <FontAwesomeIcon
                         icon={faPlus}
+                        // transform={{ rotate: this.state.rotate ? 45 : 0 }}
+                        className={`category-rotate-${this.state.rotate ===
+                          category}`}
                         onClick={e => this.handleClick(e, category)}
                       />
                       {`${category}`}

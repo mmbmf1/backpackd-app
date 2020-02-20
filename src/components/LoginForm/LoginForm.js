@@ -29,6 +29,7 @@ export default class LoginForm extends React.Component {
         this.props.onLoginSuccess();
       })
       .catch(res => {
+        console.log(res);
         this.setState({ error: res.error });
       });
   };
@@ -57,7 +58,7 @@ export default class LoginForm extends React.Component {
             id="LoginFrom__password"
           ></input>
         </div>
-        <div className="btn_container">
+        <div className="login_btn_container">
           <button className="Button" type="submit">
             <span>Login</span>
           </button>

@@ -109,9 +109,9 @@ export default class RegistrationForm extends React.Component {
             autoComplete="new-password"
           />
         </div>
-        <div className="btn_container">
+        <div className="register_btn_container">
           <button className="Button" type="submit">
-            <span>Register</span>
+            <span>Get Started!</span>
           </button>
         </div>
       </form>

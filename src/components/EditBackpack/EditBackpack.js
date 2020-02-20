@@ -141,9 +141,10 @@ export default class EditBackpack extends React.Component {
 
   handleEditBackpack = e => {
     e.preventDefault();
+    const user_id = TokenService.getUser();
     BackpackApiService.patchBackpack(this.state)
       .then(backpack => this.context.updateBackpack(backpack))
-      .then(this.props.history.push("/backpacks"));
+      .then(this.props.history.push(`/backpacks/${user_id}`));
   };
 
   content() {

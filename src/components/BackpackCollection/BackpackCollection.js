@@ -7,7 +7,8 @@ import {
   faChevronDown,
   faDumbbell,
   faTrash,
-  faEdit
+  faEdit,
+  faPlus
 } from "@fortawesome/free-solid-svg-icons";
 import BackpackApiService from "../../services/backpacks-api-service";
 import TokenService from "../../services/token-service";
@@ -18,6 +19,7 @@ export default class BackpackCollection extends React.Component {
     this.state = {
       backpacks: [],
       isToggleOn: "",
+      rotate: false,
       deleteBackpack: backpackId => {
         this.setState({
           backpacks: this.state.backpacks.filter(
@@ -37,25 +39,15 @@ export default class BackpackCollection extends React.Component {
   };
 
   componentDidMount() {
-    console.log("mounted");
     const user_name = TokenService.getUser();
     if (!TokenService.hasAuthToken()) {
       BackpackApiService.getBackpacks().then(backpacks =>
-        Object.values(backpacks).forEach(backpack => {
-          this.setState({ backpacks: [...this.state.backpacks, backpack] });
-        })
+        this.context.setBackpacks(backpacks)
       );
     } else {
-      BackpackApiService.getUserBackpacks(user_name)
-        // .then(backpacks =>
-        //   console.log(backpacks)
-        // )
-        .then(backpacks => this.context.setBackpacks(backpacks));
-      // .then(backpacks =>
-      //   Object.values(backpacks).forEach(backpack => {
-      //     this.setState({ backpacks: [...this.state.backpacks, backpack] });
-      //   })
-      // );
+      BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
+        this.context.setBackpacks(backpacks)
+      );
     }
   }
 
@@ -69,6 +61,9 @@ export default class BackpackCollection extends React.Component {
   handleClick = (e, name) => {
     this.setState({
       isToggleOn: this.state.isToggleOn === name ? "" : name
+    });
+    this.setState({
+      rotate: this.state.rotate === name ? "" : name
     });
   };
 
@@ -84,6 +79,9 @@ export default class BackpackCollection extends React.Component {
               <h2>
                 <FontAwesomeIcon
                   icon={faChevronDown}
+                  // transform={{ rotate: this.state.rotate ? 180 : 0 }}
+                  className={`chev-rotate-${this.state.rotate ===
+                    backpack.name}`}
                   onClick={e => this.handleClick(e, backpack.name)}
                 />
                 {backpack.name}
@@ -113,8 +111,11 @@ export default class BackpackCollection extends React.Component {
           ))}
         </section>
         <div className="add_button">
-          <Link className="Button" to={"/add_backpack"}>
-            <span>Add Backpack</span>
+          <Link className="Button Add" to={"/add_backpack"}>
+            <span>
+              <FontAwesomeIcon icon={faPlus} />
+              Backpack
+            </span>
           </Link>
         </div>
       </div>
