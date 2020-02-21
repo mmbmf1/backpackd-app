@@ -8,7 +8,6 @@ export default class LoginForm extends React.Component {
     super(props);
     this.state = {
       hidden: true
-      // password: ""
     };
   }
   static contextType = ItemContext;
@@ -18,21 +17,11 @@ export default class LoginForm extends React.Component {
 
   state = { error: null };
 
-  // handlePasswordChange(e) {
-  //   this.setState({ password: e.target.value || "" });
-  // }
-
   toggleShow = () => {
     this.setState(prevState => ({
       hidden: !prevState.hidden
     }));
   };
-
-  // componentDidMount() {
-  //   if (this.props.password) {
-  //     this.setState({ password: this.props.password });
-  //   }
-  // }
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault();
