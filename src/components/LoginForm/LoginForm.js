@@ -4,12 +4,35 @@ import AuthApiService from "../../services/auth-api-service";
 import ItemContext from "../../contexts/ItemContext";
 
 export default class LoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hidden: true
+      // password: ""
+    };
+  }
   static contextType = ItemContext;
   static defafultProps = {
     onLoginSuccess: () => {}
   };
 
   state = { error: null };
+
+  // handlePasswordChange(e) {
+  //   this.setState({ password: e.target.value || "" });
+  // }
+
+  toggleShow = () => {
+    this.setState(prevState => ({
+      hidden: !prevState.hidden
+    }));
+  };
+
+  // componentDidMount() {
+  //   if (this.props.password) {
+  //     this.setState({ password: this.props.password });
+  //   }
+  // }
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault();
@@ -53,9 +76,18 @@ export default class LoginForm extends React.Component {
             className="login_input"
             required
             name="password"
-            type="password"
+            type={this.state.hidden ? "password" : "text"}
             id="LoginFrom__password"
           ></input>
+
+          <div className="show_password">
+            <input
+              type="checkbox"
+              onChange={this.toggleShow}
+              value="Show Password"
+            />
+            <label>Show Password</label>
+          </div>
         </div>
         <div className="login_btn_container">
           <button className="Button" type="submit">

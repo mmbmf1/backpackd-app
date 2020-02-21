@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:900|Raleway:900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Raleway&display=swap");
 @media screen and (min-width: 300px) {
   * {
     box-sizing: border-box;
@@ -263,6 +263,20 @@
     /* color: #021031; */
   }
 
+  .show_password {
+    display: flex;
+    align-items: center;
+  }
+
+  .show_password label {
+    font-size: 0.6em;
+    color: #021031;
+    top: 4px;
+  }
+  .show_password {
+    margin-bottom: 0;
+  }
+
   .login_input {
     display: block;
     width: 260px;
@@ -312,8 +326,9 @@
 
   a.r_link {
     font-size: 0.9em;
-    color: red;
-    font-weight: normal;
+    color: #021031;
+    font-weight: 900;
+    font-family: "Montserrat";
   }
 
   a.Button {
