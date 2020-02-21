@@ -259,8 +259,8 @@
 
   label {
     font-size: 1.3em;
-    /* color: white; */
-    color: #021031;
+    color: white;
+    /* color: #021031; */
   }
 
   .login_input {
@@ -622,7 +622,6 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #021031;
-    opacity: 0.8;
   }
 
   .addbackpack_background,
