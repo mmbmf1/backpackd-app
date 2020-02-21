@@ -48,8 +48,6 @@ const items = {
     "Sanitation Trowel",
     "Toilet paper/wipes"
   ]
-
-  // More categories to come!
 };
 
 export default items;

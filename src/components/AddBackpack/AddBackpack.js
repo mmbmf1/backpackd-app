@@ -4,11 +4,7 @@ import ItemContext from "../../contexts/ItemContext";
 import ValidationError from "../../ValidationError";
 import { findBackpackName } from "../../backpack-helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlus,
-  faDumbbell,
-  faChevronDown
-} from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faDumbbell } from "@fortawesome/free-solid-svg-icons";
 import TokenService from "../../services/token-service";
 
 export default class AddBackpack extends React.Component {
@@ -116,7 +112,6 @@ export default class AddBackpack extends React.Component {
                     <h4>
                       <FontAwesomeIcon
                         icon={faPlus}
-                        // transform={{ rotate: this.state.rotate ? 45 : 0 }}
                         className={`category-rotate-${this.state.rotate ===
                           category}`}
                         onClick={e => this.handleClick(e, category)}

@@ -19,6 +19,10 @@
     background-size: cover;
   }
 
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
   .red {
     padding-bottom: 10px;
     width: 275px;
@@ -50,6 +54,20 @@
     font-size: 1.1em;
   }
 
+  .Header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .Header h1 {
+    margin: 0;
+  }
+
+  h1 a {
+    text-decoration: none;
+  }
+
   .App__main {
     margin-top: 25px;
     margin-right: auto;
@@ -65,6 +83,11 @@
     margin-top: -115px;
   }
 
+  .section-one,
+  .section-two {
+    height: calc(100vh - 135px);
+  }
+
   .section-one-box h3 {
     text-transform: capitalize;
     text-align: center;
@@ -74,18 +97,50 @@
     color: #0e2353;
   }
 
-  .Header {
+  .info_cards_container {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .section-two-box {
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .Header h1 {
-    margin: 0;
+  .info_card {
+    position: relative;
+    width: 300px;
+    height: 250px;
+    margin-bottom: 30px;
+    padding: 80px 30px 30px 30px;
+    text-align: center;
+    transition: all 0.5s;
+    background-color: rgba(238, 238, 238);
+    border-radius: 10px;
   }
 
-  h1 a {
-    text-decoration: none;
+  .fa-weight,
+  .fa-question,
+  .fa-map-signs {
+    position: absolute;
+    left: 50%;
+    top: -0.5em;
+    transform: translateX(-50%);
+    font-size: 8em;
+    color: rgba(101, 116, 151);
+    stroke: #021031;
+    stroke-width: 10px;
+  }
+
+  .info_card_text h3 {
+    font-family: "Raleway", sans-serif;
+    color: #021031;
+  }
+
+  .info_card_text p {
+    color: #7c7c7c;
+    font-family: "Open Sans", sans-serif;
   }
 
   button {
@@ -183,7 +238,7 @@
     height: 425px;
     border-radius: 10px;
     background: linear-gradient(#021031, #657497);
-    opacity: 0.7;
+    opacity: 0.2;
     z-index: -1;
   }
 
@@ -197,16 +252,6 @@
     font-size: 1.2em;
   }
 
-  /* .Login__main h2 {
-    background-color: #021031;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 60px;
-    padding-left: 20px;
-    padding-top: 10px;
-    color: white;
-  } */
-
   .LoginForm {
     margin-left: 20px;
     padding-top: 100px;
@@ -214,7 +259,8 @@
 
   label {
     font-size: 1.3em;
-    color: white;
+    /* color: white; */
+    color: #021031;
   }
 
   .login_input {
@@ -345,7 +391,7 @@
     height: 500px;
     border-radius: 10px;
     background: linear-gradient(#021031, #657497);
-    opacity: 0.7;
+    opacity: 0.2;
     z-index: -1;
   }
 
@@ -362,8 +408,6 @@
   .RegistrationForm {
     width: 275px;
     padding-left: 20px;
-    /* margin: 15px 15px 0 20px; */
-    /* padding-top: 50px; */
   }
 
   .Registration__main h2 {
@@ -453,18 +497,13 @@
     margin-top: 0;
   }
 
-  /* .card:hover {
-    background-color: #657497;
-    transition: 0.5s ease-in;
-  } */
-
   .add_button {
     margin-top: 30px;
   }
 
   .Button.Add {
     line-height: 2;
-    width: 150px;
+    width: 160px;
   }
 
   h4 {
@@ -545,7 +584,6 @@
     margin-top: 5.5px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    /* background-color: #021031; */
   }
 
   .category-display-false {
@@ -673,18 +711,76 @@
     transition: all 0.5s;
     cursor: pointer;
   }
+
+  .footer_text {
+    padding-top: 375px;
+    text-align: center;
+    font-weight: 200;
+  }
+
+  .footer_brands {
+    display: flex;
+    justify-content: center;
+    font-size: 48px;
+  }
+
+  .footer_brands a {
+    padding: 0 10px;
+  }
+
+  .fa-github:hover,
+  .fa-linkedin:hover {
+    color: #657497;
+    transition: 0.3s ease-in;
+  }
+
+  .fa-github,
+  .fa-linkedin {
+    color: white;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .LandingPage_wrapper {
-    margin-left: -250px;
+    width: 600px;
+    height: 100vh;
+    margin-left: -350px;
   }
 
   .nav__link a {
     font-size: 1.4em;
   }
+
+  .section-one {
+    width: 600px;
+    margin-left: 130px;
+  }
+
+  .section-one-box {
+    width: 400px;
+  }
   .section-one-box h3 {
-    font-size: 2.25em;
+    font-size: 2.75em;
+  }
+
+  .section-one,
+  .section-two {
+    height: calc(75vh - 10px);
+  }
+
+  .section-two {
+    width: 700px;
+  }
+
+  .section-two-box {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .info_card {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .login_background {
@@ -845,5 +941,43 @@
 
   .Done {
     margin: 0;
+  }
+
+  .footer_text {
+    width: 700px;
+    padding-top: 0px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .LandingPage_wrapper {
+    width: 800px;
+    margin-left: -350px;
+  }
+
+  .section-two-box {
+    width: 100%;
+    flex-direction: row;
+    /* align-items: stretch; */
+    justify-content: space-between;
+    /* margin-left: -60px; */
+  }
+
+  .info_card:hover {
+    bottom: 100px;
+  }
+}
+
+@media screen and (min-height: 750px) {
+  .section-one,
+  .section-two {
+    height: calc(100vh - 250px);
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  .section-one,
+  .section-two {
+    height: calc(75vh - 10px);
   }
 }

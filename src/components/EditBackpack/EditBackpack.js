@@ -17,7 +17,8 @@ export default class EditBackpack extends React.Component {
   static contextType = ItemContext;
 
   state = {
-    isReady: false
+    isReady: false,
+    rotate: ""
   };
 
   componentDidMount() {
@@ -67,7 +68,8 @@ export default class EditBackpack extends React.Component {
 
   handleClick = (e, category) => {
     this.setState({
-      isToggleOn: this.state.isToggleOn === category ? "" : category
+      isToggleOn: this.state.isToggleOn === category ? "" : category,
+      rotate: this.state.rotate === category ? "" : category
     });
   };
 
@@ -178,6 +180,8 @@ export default class EditBackpack extends React.Component {
                     <h4>
                       <FontAwesomeIcon
                         icon={faPlus}
+                        className={`category-rotate-${this.state.rotate ===
+                          category}`}
                         onClick={e => this.handleClick(e, category)}
                       />
                       {`${category}`}

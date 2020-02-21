@@ -72,14 +72,12 @@ export default class BackpackCollection extends React.Component {
     return (
       <div className="backpack-container">
         <section className="cards">
-          {/* <div className="backpack_background"></div> */}
           {backpacks.map((backpack, key) => (
             <div className="card" key={key}>
               <div className="backpack_background"></div>
               <h2>
                 <FontAwesomeIcon
                   icon={faChevronDown}
-                  // transform={{ rotate: this.state.rotate ? 180 : 0 }}
                   className={`chev-rotate-${this.state.rotate ===
                     backpack.name}`}
                   onClick={e => this.handleClick(e, backpack.name)}
