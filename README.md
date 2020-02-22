@@ -13,7 +13,6 @@ https://backpackd-app.now.sh/
 
 ## Backpacks Page: ##
 
-![](images/results_page.jpg)
 
 ## Add Backpacks Page: ##
 
