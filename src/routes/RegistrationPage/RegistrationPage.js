@@ -9,9 +9,7 @@ export default class RegistrationPage extends React.Component {
   };
 
   handleRegistrationSuccess = () => {
-    const { location, history } = this.props;
-    const destination = (location.state || {}).from || "/login";
-    history.push(destination);
+    this.props.history.push("/login");
   };
 
   render() {
