@@ -47,61 +47,63 @@ export default class RegistrationForm extends React.Component {
     const error = this.state.error;
     return (
       <form className="RegistrationForm" onSubmit={ev => this.handleSubmit(ev)}>
+        <h2>Create Your Account</h2>
+        <div className="registration_background"></div>
         <ValidationError message={error} />
-        <div className="first_name">
+        <div className="form_input">
           <label htmlFor="Registration__first_name">
             First Name<span className="Required">*</span>
           </label>
           <input
-            className="login_input"
+            className="reg_input"
             name="first_name"
             type="text"
             required
             id="RegistrationForm__first_name"
           ></input>
         </div>
-        <div className="last_name">
+        <div className="form_input">
           <label htmlFor="RegistrationForm__last_name">
             Last Name<span className="Required">*</span>
           </label>
           <input
-            className="login_input"
+            className="reg_input"
             name="last_name"
             type="text"
             required
             id="RegistrationForm__last_name"
           ></input>
         </div>
-        <div className="user_email">
+        <div className="form_input">
           <label htmlFor="RegistrationForm__user_email">
             Email<span className="Required">*</span>
           </label>
           <input
-            className="login_input"
+            className="reg_input"
             name="user_email"
             type="email"
             required
             id="RegistrationForm__user_email"
           ></input>
         </div>
-        <div className="user_name">
+        <div className="form_input">
           <label htmlFor="Registration__user_name">
             User Name<span className="Required">*</span>
           </label>
           <input
-            className="login_input"
+            className="reg_input"
             name="user_name"
             type="text"
             required
             id="RegistrationForm__user_name"
           />
         </div>
-        <div className="password">
+        <div className="form_input">
           <label htmlFor="Registration__password">
             Password<span className="Required">*</span>
           </label>
           <input
-            className="login_input"
+            className="reg_input"
             name="password"
             type="password"
             required

@@ -75,17 +75,16 @@
   }
 
   .LandingPage_wrapper {
-    width: 300px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -115px;
+    width: 75%;
+    margin: 35vh auto;
+  }
+
+  .section-one {
+    margin-bottom: 38vh;
   }
 
   .section-one,
   .section-two {
-    height: calc(100vh - 135px);
   }
 
   .section-one-box h3 {
@@ -109,13 +108,10 @@
   }
 
   .info_card {
+    display: flex;
     position: relative;
-    width: 300px;
-    height: 250px;
     margin-bottom: 30px;
-    padding: 80px 30px 30px 30px;
-    text-align: center;
-    transition: all 0.5s;
+    padding: 15px;
     background-color: rgba(238, 238, 238);
     border-radius: 10px;
   }
@@ -123,22 +119,25 @@
   .fa-weight,
   .fa-question,
   .fa-map-signs {
-    position: absolute;
-    left: 50%;
-    top: -0.5em;
-    transform: translateX(-50%);
-    font-size: 8em;
+    font-size: 5em;
     color: rgba(101, 116, 151);
     stroke: #021031;
     stroke-width: 10px;
+    flex: 1;
+  }
+  .info_card_text {
+    flex: 2;
+    margin-left: 20px;
   }
 
   .info_card_text h3 {
+    font-size: 0.6em;
     font-family: "Raleway", sans-serif;
     color: #021031;
   }
 
   .info_card_text p {
+    font-size: 0.8em;
     color: #7c7c7c;
     font-family: "Open Sans", sans-serif;
   }
@@ -233,8 +232,8 @@
 
   .login_background {
     position: absolute;
-    top: 32px;
-    width: 300px;
+    /* top: 32px; */
+    width: 225px;
     height: 425px;
     border-radius: 10px;
     background: linear-gradient(#021031, #657497);
@@ -242,25 +241,24 @@
     z-index: -1;
   }
 
+  .user_name,
+  .password {
+    padding: 20px 20px;
+  }
+
   .Login__main {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -240px;
-    width: 300px;
+    display: flex;
+    flex-direction: column;
     font-size: 1.2em;
   }
 
   .LoginForm {
-    margin-left: 20px;
-    padding-top: 100px;
+    margin: 1vh auto;
   }
 
   label {
     font-size: 1.3em;
     color: white;
-    /* color: #021031; */
   }
 
   .show_password {
@@ -279,7 +277,6 @@
 
   .login_input {
     display: block;
-    width: 260px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 10px;
@@ -291,7 +288,6 @@
   .login_btn_container {
     display: flex;
     justify-content: center;
-    width: 260px;
     margin-top: 50px;
   }
 
@@ -311,7 +307,6 @@
   }
 
   .Register__link {
-    width: 175px;
     margin-left: auto;
     margin-right: auto;
     font-size: medium;
@@ -401,7 +396,7 @@
 
   .registration_background {
     position: absolute;
-    top: 17px;
+    margin-top: -5vh;
     width: 300px;
     height: 500px;
     border-radius: 10px;
@@ -410,19 +405,29 @@
     z-index: -1;
   }
 
+  .form_input {
+    padding-left: 30px;
+  }
+
+  .reg_input {
+    display: block;
+    width: 240px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
   .Registration__main {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -240px;
-    width: 300px;
-    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
   }
 
   .RegistrationForm {
-    width: 275px;
-    padding-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .Registration__main h2 {
@@ -449,12 +454,10 @@
   }
 
   .backpack-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -250px;
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .backpack-container a.Button {
@@ -464,8 +467,8 @@
   }
 
   .cards {
+    margin: 5% 5%;
     max-height: 450px;
-    margin-top: 20px;
     overflow-y: scroll;
   }
 
@@ -474,7 +477,6 @@
   }
 
   .card {
-    width: 300px;
     margin-top: 10px;
     font-size: 0.8em;
     border-radius: 10px;
@@ -498,6 +500,7 @@
     padding-left: 20px;
     padding-right: 45px;
     padding-bottom: 10px;
+    align-items: baseline;
     font-size: 1.4em;
     color: white;
   }
@@ -556,7 +559,7 @@
     padding-left: 45px;
   }
   .pack_items {
-    padding-left: 10px;
+    padding-left: 25px;
     background-color: #021031;
     font-size: 1.3em;
   }
@@ -575,15 +578,15 @@
   }
 
   .items p.weight {
-    width: 1px;
     display: table-cell;
-    padding-right: 10px;
+    padding-right: 15px;
   }
 
   .items p.category {
     width: 135px;
     display: table-cell;
-    padding-right: 10px;
+    text-align: left;
+    padding-left: 10px;
   }
 
   .items p.brand {
@@ -619,19 +622,15 @@
 
   .AddBackpack__main,
   .EditBackpack__main {
-    position: absolute;
-    left: 50%;
-    top: 50%;
+    display: flex;
+    flex-direction: column;
     width: 325px;
-    margin-left: -170px;
-    margin-top: -230px;
+    margin: 2vh auto;
     border-radius: 10px;
   }
 
   .addbackpack_title,
   .editbackpack_title {
-    width: 300px;
-    margin-left: 20px;
     padding: 20px 20px 20px 40px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -641,10 +640,8 @@
   .addbackpack_background,
   .editbackpack_background {
     position: absolute;
-    top: 17px;
-    width: 300px;
-    height: 375px;
-    border-radius: 10px;
+    width: 325px;
+    height: 325px;
     background-color: #021031;
     opacity: 0.2;
     z-index: -1;
@@ -654,7 +651,6 @@
   .editbackpack_items {
     max-height: 275px;
     overflow-y: scroll;
-    padding: 0 20px;
   }
 
   .addbackpack_items::-webkit-scrollbar,
@@ -706,7 +702,6 @@
   .done_btn_container {
     display: flex;
     justify-content: center;
-    width: 260px;
   }
 
   .bp_form {
@@ -715,7 +710,6 @@
 
   .Done {
     width: 175px;
-    margin-left: 70px;
     padding: 8px 12px;
     border-radius: 4px;
     background-color: #021031;
@@ -726,7 +720,6 @@
   }
 
   .footer_text {
-    padding-top: 375px;
     text-align: center;
     font-weight: 200;
   }
@@ -755,40 +748,19 @@
 
 @media screen and (min-width: 768px) {
   .LandingPage_wrapper {
-    width: 600px;
     height: 100vh;
-    margin-left: -350px;
   }
 
   .nav__link a {
     font-size: 1.4em;
   }
 
-  .section-one {
-    width: 600px;
-    margin-left: 130px;
-  }
-
-  .section-one-box {
-    width: 400px;
-  }
   .section-one-box h3 {
     font-size: 2.75em;
   }
 
-  .section-one,
   .section-two {
-    height: calc(75vh - 10px);
-  }
-
-  .section-two {
-    width: 700px;
-  }
-
-  .section-two-box {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
+    margin-top: 35vh;
   }
 
   .info_card {
@@ -796,41 +768,29 @@
     margin-right: 10px;
   }
 
-  .login_background {
-    width: 500px;
+  .info_card_text {
+    font-size: 2em;
   }
 
-  .Login__main {
-    margin-left: -325px;
-    width: 600px;
+  .login_background {
+    width: 300px;
   }
 
   .LoginForm {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: 100px;
+    margin-top: 20vh;
   }
 
   .login_input {
-    width: 300px;
-  }
-
-  .login_btn_container {
-    width: 300px;
-  }
-
-  .Register__link {
-    width: 300px;
-    margin-left: 175px;
+    width: 250px;
   }
 
   .registration_background {
     width: 600px;
+    margin-top: 2.5vh;
   }
 
   .Registration__main {
-    margin-left: -325px;
+    margin-top: 20vh;
   }
 
   .Registration__main h2 {
@@ -842,16 +802,19 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-left: 125px;
   }
 
-  .register_btn_container {
-    width: 300px;
+  .form_input {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reg_input {
+    width: 400px;
   }
 
   .backpack-container {
-    margin-left: -275px;
-    width: 500px;
+    margin-top: 15vh;
   }
 
   .cards {
@@ -859,7 +822,9 @@
   }
 
   .card {
-    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
   }
 
   .card_button {
@@ -878,8 +843,12 @@
   }
 
   .card_options {
-    align-items: center;
+    align-items: baseline;
     padding-right: 10px;
+  }
+
+  .svg-inline--fa.fa-dumbbell.fa-w-20 {
+    font-size: 0.8em;
   }
 
   .Title {
@@ -888,19 +857,14 @@
 
   .AddBackpack__main,
   .EditBackpack__main {
-    position: absolute;
-    left: 50%;
-    top: 50%;
     width: 500px;
-    margin-left: -350px;
-    margin-top: -250px;
+    margin: 15vh auto;
     border-radius: 10px;
   }
 
   .addbackpack_title,
   .editbackpack_title {
     width: 525px;
-    margin-left: 20px;
     padding-left: 50px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -909,11 +873,8 @@
 
   .addbackpack_background,
   .editbackpack_background {
-    position: absolute;
-    top: 17px;
     width: 525px;
-    height: 375px;
-    border-radius: 10px;
+    height: 325px;
     background-color: #021031;
     opacity: 0.2;
     z-index: -1;
@@ -939,17 +900,8 @@
     margin-left: 30px;
   }
 
-  .total_row {
-    width: 500px;
-  }
-
   .total_row h2 {
     margin-right: 10px;
-  }
-
-  .done_btn_container {
-    width: 500px;
-    margin: unset;
   }
 
   .Done {
@@ -957,7 +909,6 @@
   }
 
   .footer_text {
-    width: 700px;
     padding-top: 0px;
   }
 }
@@ -965,32 +916,20 @@
 @media screen and (min-width: 1024px) {
   .LandingPage_wrapper {
     width: 800px;
-    margin-left: -350px;
   }
 
   .section-two-box {
     width: 100%;
-    flex-direction: row;
-    /* align-items: stretch; */
+    flex-direction: column;
     justify-content: space-between;
-    /* margin-left: -60px; */
-  }
-
-  .info_card:hover {
-    bottom: 100px;
   }
 }
 
-@media screen and (min-height: 750px) {
-  .section-one,
-  .section-two {
-    height: calc(100vh - 250px);
+@media screen and (min-height: 800px) {
+  .section-one {
+    margin-bottom: 51vh;
   }
 }
 
 @media screen and (min-height: 1000px) {
-  .section-one,
-  .section-two {
-    height: calc(75vh - 10px);
-  }
 }
