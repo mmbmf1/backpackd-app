@@ -9,7 +9,7 @@ https://backpackd-app.now.sh/
 
 ## Landing Page: ##
 
-![](images/Landing_Page_1.jpg)
+![](images/Landing_page_1.jpg)
 
 ## Backpacks Page: ##
 
