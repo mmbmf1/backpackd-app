@@ -468,7 +468,7 @@
 
   .cards {
     margin: 5% 5%;
-    max-height: 450px;
+    max-height: 350px;
     overflow-y: scroll;
   }
 
@@ -814,11 +814,11 @@
   }
 
   .backpack-container {
-    margin-top: 15vh;
+    margin-top: 10vh;
   }
 
   .cards {
-    max-height: 550px;
+    max-height: 400px;
   }
 
   .card {
