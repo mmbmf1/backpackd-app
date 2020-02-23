@@ -577,6 +577,7 @@
   .items p.weight {
     display: table-cell;
     padding-right: 15px;
+    white-space: nowrap;
   }
 
   .items p.category {
