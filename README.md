@@ -16,7 +16,7 @@ https://github.com/mmbmf1/backpackd-server/
 
 ## Summary:
 
-backpackd allows a user to create and edit lits of backpacks. Items and their weight can be added to a backpack to calculate the total weight. Backpacks can also be deleted.
+backpackd allows a user to create and edit lists of backpacks. Items and their weight can be added to a backpack to calculate the total weight. Backpacks can also be deleted.
 
 <!-- A section on the technology used. For your capstone, this is fairly simple (HTML/CSS/JavaScript/jQuery) but it's still good to list out the key technologies -->
 
