@@ -59,27 +59,15 @@ export default class App extends React.Component {
         </header>
         <main className="App__main">
           <Switch>
-            <PublicOnlyRoute exact path={"/"} component={LandingPage} />
-            <PublicOnlyRoute
-              exact
-              path={"/backpacks"}
-              component={BackpackCollection}
-            />
+            <Route exact path={"/"} component={LandingPage} />
+            <Route exact path={"/backpacks"} component={BackpackCollection} />
             <PrivateRoute
               exact
               path={"/backpacks/:user_id"}
               component={BackpackCollection}
             />
-            <PrivateRoute
-              exact
-              path={"/add_backpack"}
-              component={AddBackpack}
-            />
-            <PrivateRoute
-              exact
-              path={"/edit/:backpack_id"}
-              component={EditBackpack}
-            />
+            <Route exact path={"/add_backpack"} component={AddBackpack} />
+            <Route exact path={"/edit/:backpack_id"} component={EditBackpack} />
             <PublicOnlyRoute exact path={"/login"} component={LoginPage} />
             <PublicOnlyRoute
               exact

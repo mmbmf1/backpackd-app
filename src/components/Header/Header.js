@@ -27,7 +27,6 @@ export default class Header extends React.Component {
     return (
       <div className="Header__not-logged-in">
         <Link to="/login">Login</Link>
-        {/* <Link to="/register">Register</Link> */}
       </div>
     );
   }

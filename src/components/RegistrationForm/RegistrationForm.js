@@ -51,7 +51,7 @@ export default class RegistrationForm extends React.Component {
         <div className="registration_background"></div>
         <ValidationError message={error} />
         <div className="form_input">
-          <label htmlFor="Registration__first_name">
+          <label htmlFor="first_name">
             First Name<span className="Required">*</span>
           </label>
           <input
@@ -59,11 +59,11 @@ export default class RegistrationForm extends React.Component {
             name="first_name"
             type="text"
             required
-            id="RegistrationForm__first_name"
+            id="first_name"
           ></input>
         </div>
         <div className="form_input">
-          <label htmlFor="RegistrationForm__last_name">
+          <label htmlFor="last_name">
             Last Name<span className="Required">*</span>
           </label>
           <input
@@ -71,11 +71,11 @@ export default class RegistrationForm extends React.Component {
             name="last_name"
             type="text"
             required
-            id="RegistrationForm__last_name"
+            id="last_name"
           ></input>
         </div>
         <div className="form_input">
-          <label htmlFor="RegistrationForm__user_email">
+          <label htmlFor="user_email">
             Email<span className="Required">*</span>
           </label>
           <input
@@ -83,11 +83,11 @@ export default class RegistrationForm extends React.Component {
             name="user_email"
             type="email"
             required
-            id="RegistrationForm__user_email"
+            id="user_email"
           ></input>
         </div>
         <div className="form_input">
-          <label htmlFor="Registration__user_name">
+          <label htmlFor="user_name">
             User Name<span className="Required">*</span>
           </label>
           <input
@@ -95,11 +95,11 @@ export default class RegistrationForm extends React.Component {
             name="user_name"
             type="text"
             required
-            id="RegistrationForm__user_name"
+            id="user_name"
           />
         </div>
         <div className="form_input">
-          <label htmlFor="Registration__password">
+          <label htmlFor="password">
             Password<span className="Required">*</span>
           </label>
           <input
@@ -107,7 +107,7 @@ export default class RegistrationForm extends React.Component {
             name="password"
             type="password"
             required
-            id="RegistrationFrom__password"
+            id="password"
             autoComplete="new-password"
           />
         </div>

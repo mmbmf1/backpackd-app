@@ -22,7 +22,6 @@ export default class LoginPage extends React.Component {
   render() {
     return (
       <div className="Login__main">
-        {/* <h2>Login</h2> */}
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
         <div className="Register__link">
           <p>Not Registered?</p>

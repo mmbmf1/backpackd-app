@@ -24,9 +24,15 @@ export default class EditBackpack extends React.Component {
   componentDidMount() {
     const backpackId = this.props.match.params.backpack_id;
     const user_name = TokenService.getUser();
-    BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
-      this.context.setBackpacks(backpacks)
-    );
+    if (!TokenService.hasAuthToken()) {
+      BackpackApiService.getBackpacks().then(backpacks =>
+        this.context.setBackpacks(backpacks)
+      );
+    } else {
+      BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
+        this.context.setBackpacks(backpacks)
+      );
+    }
     BackpackApiService.getBackpackById(backpackId)
       .then(responseData => {
         this.setState({
@@ -66,6 +72,10 @@ export default class EditBackpack extends React.Component {
     }
   }
 
+  validateLoggedIn() {
+    if (!TokenService.getUser())
+      return "You must be logged in to save a backpack";
+  }
   handleClick = (e, category) => {
     this.setState({
       isToggleOn: this.state.isToggleOn === category ? "" : category,
@@ -152,6 +162,7 @@ export default class EditBackpack extends React.Component {
   content() {
     const items = this.context.items;
     const BackpackNameError = this.validateBackpackName();
+    const LoggedInError = this.validateLoggedIn();
     return (
       <>
         <section className="EditBackpack__main">
@@ -168,6 +179,7 @@ export default class EditBackpack extends React.Component {
                 value={this.state.name}
                 onChange={e => this.updateBackpackName(e.target.value)}
               />
+              <ValidationError message={LoggedInError} />
               <ValidationError message={BackpackNameError} />
             </div>
           </form>

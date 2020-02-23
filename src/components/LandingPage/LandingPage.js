@@ -14,10 +14,6 @@ function LandingPage() {
       <section className="section-one">
         <div className="section-one-box">
           <h3>a better way to backpack</h3>
-          {/* <p>
-            backpackd helps you optimize your backpack by tracking the weight of
-            all your items
-          </p> */}
           <div id="container">
             <button className="btn">
               <span className="circle">

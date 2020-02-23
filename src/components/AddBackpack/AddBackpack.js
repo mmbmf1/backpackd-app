@@ -47,6 +47,11 @@ export default class AddBackpack extends React.Component {
     }
   }
 
+  validateLoggedIn() {
+    if (!TokenService.getUser())
+      return "You must be logged in to save a backpack";
+  }
+
   handleClick = (e, category) => {
     this.setState({
       isToggleOn: this.state.isToggleOn === category ? "" : category
@@ -86,6 +91,7 @@ export default class AddBackpack extends React.Component {
   render() {
     const items = this.context.items;
     const BackpackNameError = this.validateBackpackName();
+    const LoggedInError = this.validateLoggedIn();
     return (
       <>
         <section className="AddBackpack__main">
@@ -101,6 +107,7 @@ export default class AddBackpack extends React.Component {
               placeholder="e.g. Backpack One"
               onChange={e => this.updateBackpackName(e.target.value)}
             />
+            <ValidationError message={LoggedInError} />
             <ValidationError message={BackpackNameError} />
           </form>
           <div className="addbackpack_items">

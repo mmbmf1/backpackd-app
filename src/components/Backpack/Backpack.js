@@ -18,7 +18,6 @@ export default class Backpack extends React.Component {
     return (
       <div>
         <div className="backpack_item_list">
-          {/* <div className="pack_items_background"></div> */}
           {Object.values(items).map((item, index) => {
             return (
               <div className="pack_items" key={index}>
@@ -27,11 +26,8 @@ export default class Backpack extends React.Component {
                     <p className="weight">
                       {parseFloat(item[cat].weight).toFixed(2)} lbs
                     </p>
-                    {/* <div className="pack items"> */}
                     <p className="category">{cat}</p>
                     <p className="brand">{item[cat].brand}</p>
-                    {/* <p className="size">{item[cat].size}</p> */}
-                    {/* </div> */}
                   </div>
                 ))}
               </div>

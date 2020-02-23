@@ -83,10 +83,6 @@
     margin-bottom: 38vh;
   }
 
-  .section-one,
-  .section-two {
-  }
-
   .section-one-box h3 {
     text-transform: capitalize;
     text-align: center;
@@ -232,7 +228,6 @@
 
   .login_background {
     position: absolute;
-    /* top: 32px; */
     width: 250px;
     height: 425px;
     border-radius: 10px;
@@ -258,7 +253,7 @@
 
   label {
     font-size: 1.3em;
-    color: white;
+    color: #021031;
   }
 
   .show_password {
@@ -533,6 +528,7 @@
 
   ._title {
     margin-left: 5px;
+    color: white;
   }
 
   .Title {
@@ -566,6 +562,7 @@
 
   .pack_items:nth-child(odd) {
     background-color: #ae893e;
+    color: #021031;
   }
 
   .items {
@@ -580,6 +577,7 @@
   .items p.weight {
     display: table-cell;
     padding-right: 15px;
+    white-space: nowrap;
   }
 
   .items p.category {
