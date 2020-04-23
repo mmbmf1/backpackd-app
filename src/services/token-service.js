@@ -1,37 +1,37 @@
-import config from '../config'
+import config from "../config";
 
 const TokenService = {
-    saveAuthToken(token) {
-        window.localStorage.setItem(config.TOKEN_KEY, token)
-    },
+  saveAuthToken(token) {
+    window.sessionStorage.setItem(config.TOKEN_KEY, token);
+  },
 
-    saveUser(user_name) {
-        window.localStorage.setItem(config.USER, user_name)
-    },
+  saveUser(user_name) {
+    window.sessionStorage.setItem(config.USER, user_name);
+  },
 
-    getUser() {
-        return window.localStorage.getItem(config.USER)
-    },
+  getUser() {
+    return window.sessionStorage.getItem(config.USER);
+  },
 
-    getAuthToken() {
-        return window.localStorage.getItem(config.TOKEN_KEY)
-    },
+  getAuthToken() {
+    return window.sessionStorage.getItem(config.TOKEN_KEY);
+  },
 
-    makeBasicAuthToken(userName, password) {
-        return window.btoa(`${userName}:${password}`)
-    },
+  makeBasicAuthToken(userName, password) {
+    return window.btoa(`${userName}:${password}`);
+  },
 
-    clearAuthToken() {
-        window.localStorage.removeItem(config.TOKEN_KEY)
-    },
+  clearAuthToken() {
+    window.sessionStorage.removeItem(config.TOKEN_KEY);
+  },
 
-    clearUser() {
-        window.localStorage.removeItem(config.USER)
-    },
+  clearUser() {
+    window.sessionStorage.removeItem(config.USER);
+  },
 
-    hasAuthToken() {
-        return !!TokenService.getAuthToken()
-    },
-}
+  hasAuthToken() {
+    return !!TokenService.getAuthToken();
+  },
+};
 
-export default TokenService
+export default TokenService;

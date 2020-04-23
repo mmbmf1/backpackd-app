@@ -11,6 +11,7 @@ export default class LoginForm extends React.Component {
     };
   }
   static contextType = ItemContext;
+
   static defafultProps = {
     onLoginSuccess: () => {}
   };
