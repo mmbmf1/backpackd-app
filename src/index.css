@@ -127,12 +127,14 @@
   }
 
   .info_card_text h3 {
+    margin-bottom: 0;
     font-size: 0.6em;
     font-family: "Raleway", sans-serif;
     color: #021031;
   }
 
   .info_card_text p {
+    margin-top: 2px;
     font-size: 0.8em;
     color: #7c7c7c;
     font-family: "Open Sans", sans-serif;
@@ -746,6 +748,7 @@
 
 @media screen and (min-width: 768px) {
   .LandingPage_wrapper {
+    margin-left: 5vh;
     height: 100vh;
   }
 
@@ -766,7 +769,14 @@
     margin-right: 10px;
   }
 
+  .fa-weight,
+  .fa-question,
+  .fa-map-signs {
+    margin: 30px;
+  }
+
   .info_card_text {
+    padding: 15px;
     font-size: 2em;
   }
 
@@ -914,6 +924,7 @@
 @media screen and (min-width: 1024px) {
   .LandingPage_wrapper {
     width: 800px;
+    margin-left: 15vh;
   }
 
   .section-two-box {

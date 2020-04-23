@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapSigns,
   faWeight,
-  faQuestion
+  faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
@@ -54,16 +54,16 @@ function LandingPage() {
           </div>
         </div>
       </section>
-      <div className="footer_text">
-        <p>Created by Michael Mace</p>
-        <div className="footer_brands">
-          <a href="https://github.com/mmbmf1">
+      {/* <div className="footer_text"> */}
+      {/* <p>Created by Michael Mace</p> */}
+      <div className="footer_brands">
+        {/* <a href="https://github.com/mmbmf1">
             <FontAwesomeIcon icon={faGithub} />
           </a>
           <a href="https://www.linkedin.com/in/michael-mace-kc/">
             <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-        </div>
+          </a> */}
+        {/* </div> */}
       </div>
     </div>
   );
