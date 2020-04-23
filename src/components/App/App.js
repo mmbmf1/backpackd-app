@@ -24,26 +24,28 @@ export default class App extends React.Component {
       items,
       backpacks: [],
       loggedIn: false,
-      setLoggedIn: loggedIn => this.setState({ loggedIn }),
-      setBackpacks: backpacks => this.setState({ backpacks }),
-      addBackpack: backpack => {
+      loading: false,
+      setLoading: (loading) => this.setState({ loading }),
+      setLoggedIn: (loggedIn) => this.setState({ loggedIn }),
+      setBackpacks: (backpacks) => this.setState({ backpacks }),
+      addBackpack: (backpack) => {
         this.setState({ backpacks: [...this.state.backpacks, backpack] });
       },
-      deleteBackpack: backpackId => {
+      deleteBackpack: (backpackId) => {
         this.setState({
           backpacks: this.state.backpacks.filter(
-            backpack => backpack.id !== backpackId
-          )
+            (backpack) => backpack.id !== backpackId
+          ),
         });
       },
-      updateBackpack: updatedBackpack => {
-        const newBackpacks = this.state.backpacks.map(backpack =>
+      updateBackpack: (updatedBackpack) => {
+        const newBackpacks = this.state.backpacks.map((backpack) =>
           backpack.id === updatedBackpack.id ? updatedBackpack : backpack
         );
         this.setState({
-          backpacks: newBackpacks
+          backpacks: newBackpacks,
         });
-      }
+      },
     };
   }
 

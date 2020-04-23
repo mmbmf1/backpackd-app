@@ -8,7 +8,7 @@ import {
   faDumbbell,
   faTrash,
   faEdit,
-  faPlus
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import BackpackApiService from "../../services/backpacks-api-service";
 import TokenService from "../../services/token-service";
@@ -20,34 +20,37 @@ export default class BackpackCollection extends React.Component {
       backpacks: [],
       isToggleOn: "",
       rotate: false,
-      deleteBackpack: backpackId => {
+      loading: true,
+      deleteBackpack: (backpackId) => {
         this.setState({
           backpacks: this.state.backpacks.filter(
-            backpack => backpack.id !== backpackId
-          )
+            (backpack) => backpack.id !== backpackId
+          ),
         });
-      }
+      },
     };
+    console.log(this.state.loading);
   }
   static contextType = ItemContext;
 
   static defaultProps = {
     location: {},
     history: {
-      push: () => {}
-    }
+      push: () => {},
+    },
   };
 
   componentDidMount() {
+    console.log(this.context.loading);
     const user_name = TokenService.getUser();
     if (!TokenService.hasAuthToken()) {
-      BackpackApiService.getBackpacks().then(backpacks =>
-        this.context.setBackpacks(backpacks)
-      );
+      BackpackApiService.getBackpacks()
+        .then((backpacks) => this.context.setBackpacks(backpacks))
+        .then(() => this.setState({ loading: false }));
     } else {
-      BackpackApiService.getUserBackpacks(user_name).then(backpacks =>
-        this.context.setBackpacks(backpacks)
-      );
+      BackpackApiService.getUserBackpacks(user_name)
+        .then((backpacks) => this.context.setBackpacks(backpacks))
+        .then(() => this.setState({ loading: false }));
     }
   }
 
@@ -59,16 +62,21 @@ export default class BackpackCollection extends React.Component {
 
   handleClick = (e, name) => {
     this.setState({
-      isToggleOn: this.state.isToggleOn === name ? "" : name
+      isToggleOn: this.state.isToggleOn === name ? "" : name,
     });
     this.setState({
-      rotate: this.state.rotate === name ? "" : name
+      rotate: this.state.rotate === name ? "" : name,
     });
   };
 
   render() {
     const backpacks = this.context.backpacks;
-    return (
+    return this.state.loading ? (
+      <div className="load-container">
+        <div className="loader"></div>
+        <p>Loading...</p>
+      </div>
+    ) : (
       <div className="backpack-container">
         <section className="cards">
           {backpacks.map((backpack, key) => (
@@ -77,9 +85,10 @@ export default class BackpackCollection extends React.Component {
               <h2>
                 <FontAwesomeIcon
                   icon={faChevronDown}
-                  className={`chev-rotate-${this.state.rotate ===
-                    backpack.name}`}
-                  onClick={e => this.handleClick(e, backpack.name)}
+                  className={`chev-rotate-${
+                    this.state.rotate === backpack.name
+                  }`}
+                  onClick={(e) => this.handleClick(e, backpack.name)}
                 />
                 {backpack.name}
               </h2>
@@ -93,14 +102,15 @@ export default class BackpackCollection extends React.Component {
                   className="card_button"
                   type="submit"
                   disabled={!TokenService.hasAuthToken()}
-                  onClick={ev => this.handleDelete(ev, backpack.id)}
+                  onClick={(ev) => this.handleDelete(ev, backpack.id)}
                 >
                   <FontAwesomeIcon icon={faTrash} />
                 </button>
               </div>
               <div
-                className={`category-display-${this.state.isToggleOn ===
-                  backpack.name}`}
+                className={`category-display-${
+                  this.state.isToggleOn === backpack.name
+                }`}
               >
                 <Backpack backpacks={backpacks} id={backpack.id} />
               </div>
